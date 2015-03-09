@@ -1,1 +1,12 @@
-../.git/annex/objects/WX/Zg/SHA256E-s491--d729f8d25d6b7231e82f9ace8b907fe1898089ed05fae82916a93593d22c7d6a/SHA256E-s491--d729f8d25d6b7231e82f9ace8b907fe1898089ed05fae82916a93593d22c7d6a
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="WebContent"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.WebProject">
+		<attributes>
+			<attribute name="hide" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.baseBrowserLibrary"/>
+	<classpathentry kind="output" path=""/>
+</classpath>

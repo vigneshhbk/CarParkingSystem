@@ -1,1 +1,3 @@
-../../.git/annex/objects/32/KP/SHA256E-s36--4e1cfddbc5dd375b247af82e2a4c5f374b9064c640879e869f3acb0b1cc0ca24.MF/SHA256E-s36--4e1cfddbc5dd375b247af82e2a4c5f374b9064c640879e869f3acb0b1cc0ca24.MF
+Manifest-Version: 1.0
+Class-Path: 
+

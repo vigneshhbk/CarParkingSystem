@@ -1,1 +1,14 @@
-../.git/annex/objects/zW/vX/SHA256E-s449--d145daa8a060a0d2e31464d57967e8db612348f18c76bb0a8db7ce08b7f74b87.jsp/SHA256E-s449--d145daa8a060a0d2e31464d57967e8db612348f18c76bb0a8db7ce08b7f74b87.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<p>test</p>
+Enter Name: <input type="text" id="Name">
+Enter Name: <input type="text" id="id">
+</body>
+</html>

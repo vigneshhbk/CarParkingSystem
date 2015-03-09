@@ -1,1 +1,10 @@
-../.git/annex/objects/Mq/Mp/SHA256E-s335--7aac35d2a0e786036ba15c4d673b6bd5d07456d6e516aa7b1fcc9614cff71fa3.core.xml/SHA256E-s335--7aac35d2a0e786036ba15c4d673b6bd5d07456d6e516aa7b1fcc9614cff71fa3.core.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<faceted-project>
+  <runtime name="Apache Tomcat v6.0"/>
+  <fixed facet="java"/>
+  <fixed facet="jst.web"/>
+  <fixed facet="wst.jsdt.web"/>
+  <installed facet="java" version="1.7"/>
+  <installed facet="jst.web" version="2.5"/>
+  <installed facet="wst.jsdt.web" version="1.0"/>
+</faceted-project>

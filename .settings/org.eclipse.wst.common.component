@@ -1,1 +1,8 @@
-../.git/annex/objects/fG/53/SHA256E-s492--388049ea9f9670bb7e17c4e3e1ba4a026600c7e83b01067460cf3e0ae5b1f519/SHA256E-s492--388049ea9f9670bb7e17c4e3e1ba4a026600c7e83b01067460cf3e0ae5b1f519
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="CarParkingSystem">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <property name="context-root" value="CarParkingSystem"/>
+        <property name="java-output-path" value="/CarParkingSystem/build/classes"/>
+    </wb-module>
+</project-modules>
