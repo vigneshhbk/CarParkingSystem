@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<p>test</p>
 Enter Name: <input type="text" id="txtName">
 </body>
 </html>
