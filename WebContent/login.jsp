@@ -65,7 +65,6 @@
         <div class="clearfix"> </div>
     </div>
     <!--//banner-->
-    
     <!--footer-->
     <div class="footer">
         <div class="container">
