@@ -12,7 +12,6 @@
     <!--//web-font-->    
 </head>
 <body>
-<<<<<<< HEAD
     <!--header-->
     <div class="header" id="home">
         <div class="container">
@@ -74,13 +73,12 @@
                 <a href="Home.html"><img src="images/footer-logo.png" alt="logo" /></a>
             </div>-->
             <div class="footer-right">
-                <p>© 2015 All rights reserved </p>
+                <p>Â© 2015 All rights reserved </p>
             </div>
             <div class="clearfix"> </div>
         </div>
     </div>
     <!--//footer-->    
-=======
 <h1>TEST GIT</h1>
 <p>test</p>
 Enter Name: <input type="text" id="Name">
