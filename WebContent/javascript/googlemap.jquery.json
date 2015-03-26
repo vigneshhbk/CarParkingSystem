@@ -1,0 +1,35 @@
+{
+	"name": "googlemap",
+	"title": "Google Map",
+	"version": "1.4.2",
+	"author": {
+    	"name": "Thibault HENRY",
+		"email": "thibaulthenry@tilotiti.com",
+		"url": "http://www.tiloblog.com/"
+	},
+	"licenses": [
+    	{
+			"type": "MIT",
+			"url": "https://raw.github.com/Tilotiti/jQuery-Google-Map/master/LICENSE.md"
+		}
+	],
+	"description": "A jQuery Plugin allows you to easely manipulate the Google Map API. You are now able to create maps, add some markers and create routes.",
+	"homepage": "http://tilotiti.github.com/jQuery-Google-Map/",
+	"docs": "http://tilotiti.github.com/jQuery-Google-Map/",
+	"demo": "http://tilotiti.github.com/jQuery-Google-Map/",
+	"download": "https://github.com/tilotiti/jQuery-Google-Map/archive/master.zip",
+	"keywords": [
+    	"grid",
+		"datagrid",
+		"table",
+		"ui",
+		"input",
+		"ajax",
+		"handsontable",
+		"spreadsheet"
+	],
+	"bugs": "http://tilotiti.github.com/jQuery-Google-Map/",
+	"dependencies": {
+		"jquery": ">=1.7"
+	}
+}
