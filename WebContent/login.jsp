@@ -12,6 +12,7 @@
     <!--//web-font-->    
 </head>
 <body>
+<<<<<<< HEAD
     <!--header-->
     <div class="header" id="home">
         <div class="container">
@@ -79,5 +80,12 @@
         </div>
     </div>
     <!--//footer-->    
+=======
+<h1>TEST GIT</h1>
+<p>test</p>
+Enter Name: <input type="text" id="Name">
+Enter Name: <input type="text" id="id">
+Enter Name: <input type="text" id="Name2">
+>>>>>>> origin/master
 </body>
 </html>	
