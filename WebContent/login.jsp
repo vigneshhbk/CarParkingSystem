@@ -24,7 +24,7 @@
                     <li><a href="Home.jsp" class="active">HOME</a></li>
                     <li><a href="#about" class="scroll">ABOUT</a></li>
                     <li><a href="#" class="scroll">CONTACT US</a></li>
-                    <li><a href="Login.jsp" class="scroll">LOGIN</a></li>
+                    <li><a href="login.jsp" class="scroll">LOGIN</a></li>
                     <li><a href="Register.jsp" class="scroll">REGISTER</a></li>
                     
                 </ul>
