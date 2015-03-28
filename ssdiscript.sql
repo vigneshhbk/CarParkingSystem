@@ -6,7 +6,6 @@ CREATE TABLE `ssdi`.`users` (
   `email` VARCHAR(100) NOT NULL,
   `dob` DATE NOT NULL,
   `phone` VARCHAR(15) NOT NULL,
-  `username` VARCHAR(50) NOT NULL,
   `password` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`userid`))
 ENGINE = InnoDB
