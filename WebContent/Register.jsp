@@ -37,52 +37,65 @@
 
     <div class="form">
         <form id="contactform">
-            <p class="contact"><label for="name">Name</label></p>
-            <input id="name" name="name" placeholder="First and last name" required="" tabindex="1" type="text">
+            <p class="contact"><label for="fName">First Name</label></p>
+            <input id="fName" name="fName" placeholder="First name" required="true" tabindex="1" type="text">
+            
+            <p class="contact"><label for="lName">Last Name</label></p>
+            <input id="lName" name="lName" placeholder="Last name" required="true" tabindex="2" type="text">
+            
+            <p class="contact"><label for="ssn">SSN</label></p>
+            <input id="ssn" name="ssn" placeholder="SSN" required="true" tabindex="3" type="text">
 
             <p class="contact"><label for="email">Email</label></p>
-            <input id="email" name="email" placeholder="example@domain.com" required="" type="email">
-
-            <!--<p class="contact"><label for="username">Create a username</label></p>
-            <input id="username" name="username" placeholder="username" required="" tabindex="2" type="text">-->
-
-            <p class="contact"><label for="password">Create a password</label></p>
+            <input id="email" name="email" placeholder="example@domain.com" required="true" tabIndex="4" type="email">
+			
+			<p class="contact"><label for="password">Create a password</label></p>
             <input type="password" id="password" name="password" required="">
             <p class="contact"><label for="repassword">Confirm your password</label></p>
             <input type="password" id="repassword" name="repassword" required="">
+			
+			<p class="contact"><label for="dob">DOB</label></p>
+            <input id="dob" name="dob" placeholder="dd/mm/yyyy" required="true" tabindex="5" type="text">
+            
+            <p class="contact"><label for="phone">Phone</label></p>
+            <input id="phone" name="phone" placeholder="Country Code - Number" required="true" tabindex="6" type="text">
 
-            <!--<fieldset>
-                <label>Birthday</label>
-                <label class="month">
-                    <select class="select-style" name="BirthMonth">
-                        <option value="">Month</option>
-                        <option value="01">January</option>
-                        <option value="02">February</option>
-                        <option value="03">March</option>
-                        <option value="04">April</option>
-                        <option value="05">May</option>
-                        <option value="06">June</option>
-                        <option value="07">July</option>
-                        <option value="08">August</option>
-                        <option value="09">September</option>
-                        <option value="10">October</option>
-                        <option value="11">November</option>
-                        <option value="12">December</option>
-                </label>
-                </select>
-                <label>Day<input class="birthday" maxlength="2" name="BirthDay" placeholder="Day" required=""></label>
-                <label>Year <input class="birthyear" maxlength="4" name="BirthYear" placeholder="Year" required=""></label>
-            </fieldset>-->
-            <p class="contact"><label for="gender">Gender</label></p>
-            <select class="select-style gender" name="gender">
-                <option value="select">i am..</option>
-                <option value="m">Male</option>
-                <option value="f">Female</option>
-                <option value="others">Other</option>
-            </select><br><br>
-
-            <p class="contact"><label for="phone">Mobile phone</label></p>
-            <input id="phone" name="phone" placeholder="phone number" required="" type="text"> <br>
+            <p class="contact"><label for="addLine1">Address Line 1</label></p>
+            <input id="addLine1" name="addLine1" placeholder="Address Line 1" required="true" tabindex="7" type="text">
+            
+            <p class="contact"><label for="addLine2">Address Line 2</label></p>
+            <input id="addLine2" name="addLine2" placeholder="Address Line 2" required="true" tabindex="8" type="text">
+            
+            <p class="contact"><label for="city">City</label></p>
+            <input id="city" name="city" placeholder="City" required="true" tabindex="9" type="text">
+            
+            <p class="contact"><label for="state">State</label></p>
+            <input id="state" name="state" placeholder="State" required="true" tabindex="10" type="text">
+            
+            <p class="contact"><label for="phone">Zip</label></p>
+            <input id="zip" name="zip" placeholder="Zip Code" required="true" tabindex="11" type="text">
+            
+            <p class="contact"><label for="country">Country</label></p>
+            <input id="country" name="country" placeholder="Country" required="true" tabindex="12" type="text">
+            
+            <fieldset style="width: 500px; border: 5px; border-top-color: Red!important;">
+            	<legend>Credit Card Details</legend>
+            		<p class="contact"><label for="cvv">CVV</label></p>
+		            <input id="cvv" name="cvv" placeholder="XXX" required="true" tabindex="14" type="password">
+		            
+		            <p class="contact"><label for="creditCardNumber">Credit Card Number</label></p>
+		            <input id="creditCardNumber" name="creditCardNumber" placeholder="16 digit credit card number" required="true" tabindex="13" type="text">
+		            
+		            <p class="contact"><label for="cvv">CVV</label></p>
+		            <input id="cvv" name="cvv" placeholder="XXX" required="true" tabindex="14" type="password">
+		            
+		            <p class="contact"><label for="cardName">Name on card</label></p>
+		            <input id="cardName" name="cardName" placeholder="Name on card" required="true" tabindex="15" type="text">
+		            
+		            <p class="contact"><label for="validUpto">Valid Upto</label></p>
+		            <input id="validUpto" name="validUpto" placeholder="MM/YY" required="true" tabindex="16" type="text">   
+            </fieldset>
+            
             <input class="buttom" name="submit" id="submit" tabindex="5" value="Sign me up!" type="submit">
         </form>
     </div>  
