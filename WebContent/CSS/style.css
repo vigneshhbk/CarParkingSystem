@@ -84,7 +84,8 @@ span.menu {
 .banner1{
 	background: url("../images/banner.jpg") no-repeat 0px 0px;
 	background-size: cover;
-	min-height: 550px;
+	min-height: 790px;
+	height: 100%!important;
 }
 
 .banner-title {
@@ -135,6 +136,51 @@ span.menu {
 	height: 33px;
 	cursor: pointer;
 }
+
+.blueButton{
+	width: 6%;
+	position: absolute;
+	top: 71.5%;
+	left: 42%;
+}
+
+.blueButton input.buttom{ 
+	background: #3A1C1C; 
+	display: inline-block; 
+	padding: 5px 10px 6px; 
+	color: #fbf7f7; 
+	text-decoration: none; 
+	font-weight: bold; 
+	line-height: 1; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border-radius: 5px; 
+	-moz-box-shadow: 0 1px 3px #999; 
+	-webkit-box-shadow: 0 1px 3px #999; 
+	box-shadow: 0 1px 3px #999; 
+	text-shadow: 0 -1px 1px #222; 
+	border: none; 
+	position: relative; 
+	cursor: pointer; 
+	font-size: 20px; 
+	font-family:Verdana, Geneva, sans-serif;
+	}
+	
+.blueButton input.buttom:hover	{ 
+	background-color: #7E3939; 
+}
+
+.mapView {
+	left: 20%;
+	display: none;
+	width: 1000px; 
+	height: 600px; 
+}
+
+.mapView h1 {
+	font-size: 17px;
+}
+
 #slider3,#slider4 {
   box-shadow: none;
   -moz-box-shadow: none;
@@ -209,9 +255,14 @@ span.menu {
 /*Registration Page Start*/
 
 .form{
-	background:#f1f1f1; width:470px; margin:0 auto; padding-left:50px; padding-top:20px;
+	background:#f1f1f1; 
+	width:600px;
+	margin-left: 450px; 
+	margin:0 auto; 
+	padding-left:50px; 
+	padding-top:20px;
 }
-.form fieldset{border:0px; padding:0px; margin:0px;}
+
 .form p.contact { font-size: 12px; margin:0px 0px 10px 0;line-height: 14px; font-family:Arial, Helvetica;}
 
 .form input[type="text"] { width: 400px; }
