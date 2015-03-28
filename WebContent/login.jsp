@@ -16,15 +16,15 @@
     <div class="header" id="home">
         <div class="container">
             <div class="header-logo">
-                <a href="Home.html"><img src="images/logo.png" alt="logo" /></a>
+                <a href="Home.jsp"><img src="images/logo.png" alt="logo" /></a>
             </div>
             <div class="top-nav">
                 <span class="menu"><img src="images/menu-icon.png" alt="" /></span>
                 <ul class="nav1">
-                    <li><a href="Home.jsp" class="active">HOME</a></li>
+                    <li><a href="Home.jsp" class="scroll">HOME</a></li>
                     <li><a href="#about" class="scroll">ABOUT</a></li>
                     <li><a href="#" class="scroll">CONTACT US</a></li>
-                    <li><a href="Login.jsp" class="scroll">LOGIN</a></li>
+                    <li><a href="Login.jsp" class="active">LOGIN</a></li>
                     <li><a href="Register.jsp" class="scroll">REGISTER</a></li>
                     
                 </ul>
@@ -72,7 +72,7 @@
                 <a href="Home.html"><img src="images/footer-logo.png" alt="logo" /></a>
             </div>-->
             <div class="footer-right">
-                <p>Â© 2015 All rights reserved </p>
+                <p>© 2015 All rights reserved </p>
             </div>
             <div class="clearfix"> </div>
         </div>

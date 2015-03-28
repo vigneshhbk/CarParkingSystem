@@ -21,7 +21,7 @@
             <div class="top-nav">
                 <span class="menu"><img src="images/menu-icon.png" alt="" /></span>
                 <ul class="nav1">
-                    <li><a href="index.html" class="scroll">HOME</a></li>
+                    <li><a href="Home.jsp" class="scroll">HOME</a></li>
                     <li><a href="#about" class="scroll">ABOUT</a></li>
                     <li><a href="#" class="scroll">CONTACT US</a></li>
                     <li><a href="#" class="scroll">LOGIN</a></li>
