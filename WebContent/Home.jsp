@@ -9,12 +9,25 @@
     <link href="CSS/swipebox.css" rel="stylesheet" />
     <!--web-font-->
     <link href='http://fonts.googleapis.com/css?family=Pathway+Gothic+One' rel='stylesheet' type='text/css'>    
-    <!--//web-font-->    
+    <!--//web-font-->
+    <script src="javascript/jquery-1.11.2.js"></script>
+	<script type="text/javascript" src="//www.google.fr/jsapi"></script>
+	<script type="text/javascript">
+    	google.load("maps", "3.4", {
+    		other_params: "sensor=false&language=fr"
+    	});
+	</script>
+	<script src="javascript/script.js"></script>
+	<script type="text/javascript" src="javascript/jquery.googlemap.js"></script>
 </head>
+<<<<<<< HEAD
 <body>
 
+=======
+<body style="height: 942px;">
+>>>>>>> origin/master
     <!--header-->
-    <div class="header" id="home">
+    <div class="header" id="home" style="height: 8%!important">
         <div class="container">
             <div class="header-logo">
                 <a href="Home.jsp"><img src="images/logo.png" alt="logo" /></a>
@@ -26,8 +39,7 @@
                     <li><a href="#about" class="scroll">ABOUT</a></li>
                     <li><a href="#" class="scroll">CONTACT US</a></li>
                     <li><a href="Login.jsp" class="scroll">LOGIN</a></li>
-                    <li><a href="Register.jsp" class="scroll">REGISTER</a></li>
-                    
+                    <li><a href="Register.jsp" class="scroll">REGISTER</a></li>                
                 </ul>
                 <!-- script-for-menu -->
                 
@@ -37,38 +49,39 @@
     </div>
     <!--//header-->
     <!--banner-->
-    <div class="banner">        
+    <div class="banner" style="height: 84%!important">        
         <div id="top" class="callbacks_container">
             <ul class="rslides" id="slider3">
                 <li>
-                    <div class="banner1">
+                    <div class="banner1" style="z-index: 100;">
                         <div class="container">
                             <div class="banner-title">
                                 <div class="bnr-top-text">
-                                    <h1>We Are Smart, creative...</h1>
+                                    <h1>Easy parking...</h1>
                                 </div>
                                 <div class="bnr-bottom-text">
                                     <p>
-                                        "Lorem Ipsum"<br> is the common name for dummy
-                                        text often used in the design, printing, and typesetting industries.
+                                        Getting frustrated, searching for a parking space nearby the building you want to visit? 
+                                        Book your convenient parking space at a click! Start by clicking here
                                     </p>
-                                    <div class="arrow">
-                                        <span class="arrw"> </span>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </li>
-               
+                    <div class="blueButton">
+                    <a href="#map">
+                    	<input class="buttom" type="submit" value="View Parkings" onclick="displayBuildings();">
+                    </a>
+                    </div>                   
+                </li>           
             </ul>
         </div>
         <div class="clearfix"> </div>
     </div>
     <!--//banner-->
-    
+    <div class="mapView" id="map"></div>
     <!--footer-->
-    <div class="footer">
+    <div class="footer" style="height: 8%!important">
         <div class="container">
             <!--<div class="footer-left">
                 <a href="Home.html"><img src="images/footer-logo.png" alt="logo" /></a>
