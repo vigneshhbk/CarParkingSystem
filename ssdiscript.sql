@@ -18,6 +18,7 @@ CREATE TABLE `ssdi`.`address` (
   `line2` VARCHAR(45) NOT NULL,
   `city` VARCHAR(45) NOT NULL,
   `zip` INT NOT NULL,
+  `state` VARCHAR(10) NOT NULL,
   `country` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`addrid`),
   INDEX `addr_userid_idx` (`userid` ASC),
