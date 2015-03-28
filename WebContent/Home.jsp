@@ -20,12 +20,7 @@
 	<script src="javascript/script.js"></script>
 	<script type="text/javascript" src="javascript/jquery.googlemap.js"></script>
 </head>
-<<<<<<< HEAD
-<body>
-
-=======
 <body style="height: 942px;">
->>>>>>> origin/master
     <!--header-->
     <div class="header" id="home" style="height: 8%!important">
         <div class="container">
