@@ -255,9 +255,14 @@ span.menu {
 /*Registration Page Start*/
 
 .form{
-	background:#f1f1f1; width:470px; margin:0 auto; padding-left:50px; padding-top:20px;
+	background:#f1f1f1; 
+	width:600px;
+	margin-left: 450px; 
+	margin:0 auto; 
+	padding-left:50px; 
+	padding-top:20px;
 }
-.form fieldset{border:0px; padding:0px; margin:0px;}
+
 .form p.contact { font-size: 12px; margin:0px 0px 10px 0;line-height: 14px; font-family:Arial, Helvetica;}
 
 .form input[type="text"] { width: 400px; }
