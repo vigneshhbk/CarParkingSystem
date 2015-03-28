@@ -24,7 +24,11 @@
                     <li><a href="Home.jsp" class="scroll">HOME</a></li>
                     <li><a href="#about" class="scroll">ABOUT</a></li>
                     <li><a href="#" class="scroll">CONTACT US</a></li>
+<<<<<<< HEAD
                     <li><a href="Login.jsp" class="active">LOGIN</a></li>
+=======
+                    <li><a href="login.jsp" class="scroll">LOGIN</a></li>
+>>>>>>> origin/master
                     <li><a href="Register.jsp" class="scroll">REGISTER</a></li>
                     
                 </ul>
