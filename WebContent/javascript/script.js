@@ -168,3 +168,27 @@ function displayBuildings(){
 	    	text: 'High School'
 	    });	    
 }
+
+function disableCreditCardFields(checkBox){
+	if(jQuery(checkBox).is(':checked') == true){
+		jQuery('#creditCardNumber').attr("disabled", "disabled");
+		jQuery('#cvv').attr("disabled", "disabled");
+		jQuery('#cardName').attr("disabled", "disabled");
+		jQuery('#validUpto').attr("disabled", "disabled");		
+	}
+	else{
+		jQuery('#creditCardNumber').removeAttr("disabled");
+		jQuery('#cvv').removeAttr("disabled");
+		jQuery('#cardName').removeAttr("disabled");
+		jQuery('#validUpto').removeAttr("disabled");	
+	}
+}
+
+function confirmPassword(textBox){
+	if(textBox.value != jQuery('#password').val()){
+		textBox.setCustomValidity('Passwords must match!');
+	}
+	else{
+		textBox.setCustomValidity('');
+	}
+}
