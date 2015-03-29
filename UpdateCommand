@@ -1,0 +1,4 @@
+git fetch --all
+git reset --hard origin/master
+
+//These two commands overrides you local changes. So, make sure to backup any local changes that you have made, if any.
