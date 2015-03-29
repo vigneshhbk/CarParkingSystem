@@ -36,15 +36,12 @@ public class Controller extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		PrintWriter out = response.getWriter();
-		out.print(request.getParameter("user"));
+	//	PrintWriter out = response.getWriter();
+	//	out.print(request.getParameter("user"));
 		
 		String operation=request.getParameter("UserOperation");
-		out.print(operation);
+	//	out.print(operation);
 		System.out.println("operation"+operation);
-		
-		
-	   
 		
 		response.addHeader("Cache-Control","no-cache");
 		HttpSession session=request.getSession(false);

@@ -91,55 +91,6 @@ public class UserDAO {
 			}
 		return false;
 		
-		
-		/*String sql = "insert into users values(?,?,?,?,?,?,?,?,?,?,?)";
-		String sql1 = "select 'u'||bseq.nextval from dual";
-		String sql2 = "insert into adress values(?,?,'user','active')";
-		try {
-			con = DataBaseUtil.getConnectionDAO();
-			PreparedStatement pstmt = con.prepareStatement(sql1);
-			ResultSet rs = pstmt.executeQuery();
-			if(rs.next()){
-				userId=rs.getString(1);	
-			}
-			if(con!=null)
-				System.out.println("connection established");
-				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1,userId);
-				pstmt.setString(2,ub.getGender());
-				pstmt.setDate(3,java.sql.Date.valueOf(ub.getDob()));
-				pstmt.setString(4,ub.getAddress());
-				pstmt.setInt(5,ub.getAge());
-				pstmt.setString(6,ub.getLicenseStatus());
-				pstmt.setString(7,ub.getSsn());
-				
-				pstmt.setString(8,ub.getOccupation());
-				pstmt.setInt(9,ub.getAnnualIncome());
-				pstmt.setString(10,ub.getEducation());
-				pstmt.setString(11,ub.getName());
-				int i =pstmt.executeUpdate();
-				if(i==1){
-					password=passwordGenerator(ub.getName());
-					pstmt = con.prepareStatement(sql2);
-					pstmt.setString(1,userId);
-					pstmt.setString(2,password);
-					pstmt.executeUpdate();			 
-					return userId+"@"+password;
-			}
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		finally {
-			try {
-				con.close();
-			}
-			catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
-		return null;*/
 	}
 	
 	

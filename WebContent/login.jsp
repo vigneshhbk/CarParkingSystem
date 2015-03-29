@@ -48,6 +48,8 @@
 				<label for="password">Password</label>
 			</p>
 			<input type="password" id="password" name="password" required="">
+			
+			<input type="hidden" name="useroperation" value="login">
 
 			<input class="buttom" name="submit" id="submit" tabindex="5"
 				onclick="ValidateLogin()" value="Sign In" type="submit">

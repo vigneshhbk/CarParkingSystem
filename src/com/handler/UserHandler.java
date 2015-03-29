@@ -87,6 +87,32 @@ public class UserHandler extends HttpServlet {
     			 e.printStackTrace();
     		 }
     	  }
+    	  else if(request.getParameter("UserOperation").equalsIgnoreCase("login")){
+    		  PrintWriter out=response.getWriter();
+    		  try{
+    			   String email = request.getParameter("email");
+    			   String pwd   = request.getParameter("password");
+    			  UserDAO ud=new UserDAO();
+    			  if(ud.validateUser(email, pwd)){
+    				  System.out.println("login validated");
+    				  
+    				  RequestDispatcher rd=request.getRequestDispatcher("/Home.jsp");
+    				  rd.forward(request,response);
+    				  
+    			  }
+    			  else{
+    				  RequestDispatcher rd=request.getRequestDispatcher("/login.jsp");
+    				  rd.include(request, response);
+    				  out.println("<script> alert('Enter Valid Credentials') </script>");
+    				  
+    				  
+    			  }
+    		  }
+    		  catch(Exception e){
+    			  
+    			  e.printStackTrace();
+    		  }
+    	  }
       }
 			
 		}
