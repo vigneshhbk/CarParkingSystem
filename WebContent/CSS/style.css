@@ -157,14 +157,14 @@ span.menu {
 .blueButton {
 	width: 6%;
 	position: absolute;
-	top: 71.5%;
+	top: 25.5%;
 	left: 42%;
 }
 
 .blueButton input.buttom {
 	background: #3A1C1C;
 	display: inline-block;
-	padding: 5px 10px 6px;
+	padding: 15px 15px 16px;
 	color: #fbf7f7;
 	text-decoration: none;
 	font-weight: bold;
@@ -192,6 +192,7 @@ span.menu {
 	display: none;
 	width: 1000px;
 	height: 600px;
+	top:-650px;
 }
 
 .mapView h1 {

@@ -49,41 +49,31 @@
 		<div id="top" class="callbacks_container">
 			<ul class="rslides" id="slider3">
 				<li>
-					<div class="banner1" style="z-index: 100;">
+				  <div class="banner1" style="z-index: 100;">
 						<div class="container">
-							<div class="banner-title">
-								<div class="bnr-top-text">
-									<h1>Easy parking...</h1>
-								</div>
-								<div class="bnr-bottom-text">
-									<p>Getting frustrated, searching for a parking space nearby
-										the building you want to visit? Book your convenient parking
-										space at a click! Start by clicking here</p>
-								</div>
-							</div>
+							
 						</div>
-					</div>
-					<div class="blueButton">
-						<a href="#map"> <input class="buttom" type="submit"
+					</div> 
+					<div class="blueButton" style="display:block" id="btnViewBuildings">
+						 <input class="buttom" type="submit"
 							value="View Parkings" onclick="displayBuildings();">
-						</a>
+						
 					</div>
+					<div class="mapView" style="display:none" id="map"></div>
 				</li>
 			</ul>
 		</div>
 		<div class="clearfix"></div>
+		
 	</div>
 	<!--//banner-->
-	<div class="mapView" id="map"></div>
+	
 	<!--footer-->
 	<div class="footer" style="height: 8% !important">
-		<div class="container">
-			<!--<div class="footer-left">
-                <a href="Home.html"><img src="images/footer-logo.png" alt="logo" /></a>
-            </div>-->
+	<!-- 	<div class="container">		 -->	
 			<div class="footer-right">
 				<p>© 2015 All rights reserved</p>
-			</div>
+	<!-- 		</div>   -->
 			<div class="clearfix"></div>
 		</div>
 	</div>

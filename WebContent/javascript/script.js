@@ -167,6 +167,8 @@ function displayBuildings(){
 	    	title: 'High School',
 	    	text: 'High School'
 	    });	    
+	    document.getElementById("map").style.display = "block";
+	    document.getElementById("btnViewBuildings").style.display="none";
 }
 
 function disableCreditCardFields(checkBox){
