@@ -36,7 +36,7 @@
 
 	<div class="form" style="height: 76%">
 		<label id="lblErrorMessage" style="display: none; color: red"></label>
-		<form id="contactform" class="login" style="margin-top: 100px action="LoginController">
+		<form id="contactform" class="login" style="margin-top: 100px" method="post" action="Controller">
 
 			<p class="contact">
 				<label for="email">Email</label>
@@ -49,7 +49,7 @@
 			</p>
 			<input type="password" id="password" name="password" required="">
 			
-			<input type="hidden" name="useroperation" value="login">
+			<input type="hidden" name="UserOperation" value="login">
 
 			<input class="buttom" name="submit" id="submit" tabindex="5"
 				onclick="ValidateLogin()" value="Sign In" type="submit">
