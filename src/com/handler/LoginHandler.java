@@ -1,4 +1,4 @@
-package src.com.handler;
+package com.handler;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
