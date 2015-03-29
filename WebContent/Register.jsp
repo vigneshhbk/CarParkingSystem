@@ -82,8 +82,8 @@
 			<p class="contact">
 				<label for="dob">DOB</label>
 			</p>
-			<input id="dob" name="dob" placeholder="DD/MM/YYYY" required
-				tabindex="7" type="text" pattern="^\d{1,2}/\d{1,2}/\d{4}$"
+			<input id="dob" name="dob" placeholder="YYYY-MM-DD" required
+				tabindex="7" type="text" pattern="^\d{4}-\d{1,2}-\d{1,2}$"
 				oninvalid="setCustomValidity('Invalid format! Required format is DD/MM/YYYY')"
 				onchange="try{setCustomValidity('')}catch(e){}">
 

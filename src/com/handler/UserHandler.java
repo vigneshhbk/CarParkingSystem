@@ -52,12 +52,12 @@ public class UserHandler extends HttpServlet {
     		  //setting userbean object to pass it.
     		   
     		   ub.setEmail(request.getParameter("email"));
-    		   ub.setFname(request.getParameter("fname"));
-    		   ub.setLname(request.getParameter("lname"));
+    		   ub.setFname(request.getParameter("fName"));
+    		   ub.setLname(request.getParameter("lName"));
     		   ub.setPassword(request.getParameter("password"));
     		   ub.setPhone(request.getParameter("phone"));
     		   ub.setSsn(request.getParameter("ssn"));
-    		   ub.setDob(request.getParameter("dob"));
+    		   ub.setDob(java.sql.Date.valueOf(request.getParameter("dob")));
     		  // ub.setUserid(Integer.ParseInt(request.getParameter(""));
     		  
     		  //setting adress bean
@@ -71,8 +71,13 @@ public class UserHandler extends HttpServlet {
     		 try{
     			 
     			 UserDAO ud= new UserDAO();
-    			 if(ud.addUserDetails(ub, ab))
+    			 if(!ud.addUserDetails(ub, ab)){
     				 System.out.println("Users sucessfully added");
+    			     out.println(" <script type=\"text/javascript\">");
+    			     out.println("alert('Registered Successfully');");
+    			     out.println("location='Home.jsp';");
+    			     out.println("</script>");		 
+    			 }
     			 else
     				 System.out.println("problem with dao");
     			 

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import src.com.bean.AdressBean;
 import src.com.bean.UserBean;
@@ -46,27 +47,36 @@ public class UserDAO {
 			  con= DataBaseUtil.getConnectionDAO();
 			  
 			 System.out.println("CONNECTION ESTABLISHED ");
-			 String sql1="insert into users values(?,?,?,?,?,?,?)";
-			 String sql2="insert into address values(LAST_INSERT_ID(),?,?,?,?,?,?,?)";
+			 String sql1="insert into users(fname, lname, ssn, email, dob, phone, password)"
+			 		+ " values(?,?,?,?,?,?,?)";
+			 String sql2="insert into address(userid, line1, line2, city, zip, state, country) "
+			 		+ "values(?,?,?,?,?,?,?)";
 			 if(con!=null){
 				 System.out.println("connection established");	 
-				 PreparedStatement ps=con.prepareStatement(sql1);
+				 PreparedStatement ps=con.prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
 				 ps.setString(1,ub.getFname());
 				 ps.setString(2,ub.getLname());
 				 ps.setString(3,ub.getSsn());
 				 ps.setString(4, ub.getEmail());
-				 ps.setString(5,ub.getDob());
+				 ps.setDate(5,ub.getDob());
 				 ps.setString(6,ub.getPhone());
 				 ps.setString(7,ub.getPassword());
 				 boolean flag=ps.execute();
-				 if(flag){
+				 if(!flag){
+					 ResultSet rs = ps.getGeneratedKeys();
+					 int userId = 0;
+					 if(rs.next()) {
+						userId = rs.getInt(1);
+					 }
+
 					 ps=con.prepareStatement(sql2);
-					 ps.setString(3,ab.getLine1() );
-					 ps.setString(4,ab.getLine2());
-					 ps.setString(5,ab.getcity());
-					 ps.setLong(6,ab.getZip());
-					 ps.setString(7, ab.getState());
-					 ps.setString(8,ab.getCountry());
+					 ps.setInt(1,userId);
+					 ps.setString(2,ab.getLine1() );
+					 ps.setString(3,ab.getLine2());
+					 ps.setString(4,ab.getcity());
+					 ps.setLong(5,ab.getZip());
+					 ps.setString(6,ab.getState());
+					 ps.setString(7,ab.getCountry());
 					
 					 flag =ps.execute();
 					 return flag;
