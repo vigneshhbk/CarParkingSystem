@@ -1,32 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html >
 <head>
-<title>Login</title>
-<link href="../CSS/style.css" rel="stylesheet" />
-<link href="../CSS/bootstrap.css" rel="stylesheet" />
-<link href="../CSS/demo.css" rel="stylesheet" />
+<title>Parking Reservation System</title>
+<link href="CSS/style.css" rel="stylesheet" />
+<link href="CSS/bootstrap.css" rel="stylesheet" />
+<link href="CSS/swipebox.css" rel="stylesheet" />
 <!--web-font-->
 <link href='http://fonts.googleapis.com/css?family=Pathway+Gothic+One'
 	rel='stylesheet' type='text/css'>
 <!--//web-font-->
+<script src="javascript/jquery-1.11.2.js"></script>
+<script type="text/javascript" src="//www.google.fr/jsapi"></script>
+<script type="text/javascript">
+    	google.load("maps", "3.4", {
+    		other_params: "sensor=false&language=fr"
+    	});
+	</script>
+<script src="javascript/script.js"></script>
+<script type="text/javascript" src="javascript/jquery.googlemap.js"></script>
 </head>
-<body>
-	<div class="header" id="home">
+<body style="height:650px;"">
+	<div class="header" id="home" style="height: 12% !important">
 		<div class="container">
 			<div class="header-logo">
-				<a href="index.html"><img src="../images/logo.png" alt="logo" /></a>
+				<a href="Home.jsp"><img src="images/logo.png" alt="logo" /></a>
 			</div>
 			<div class="top-nav">
 				<span class="menu"><img src="images/menu-icon.png" alt="" /></span>
 				<ul class="nav1">
-					<li><a href="index.html" class="active">HOME</a></li>
+					<li><a href="Home.jsp" class="active">HOME</a></li>
 					<li><a href="#about" class="scroll">ABOUT</a></li>
 					<li><a href="#" class="scroll">CONTACT US</a></li>
-					<li><a href="#" class="scroll">LOGIN</a></li>
-					<li><a href="#" class="scroll">REGISTER</a></li>
+					<li><a href="login.jsp" class="scroll">LOGIN</a></li>
+					<li><a href="Register.jsp" class="scroll">REGISTER</a></li>
 				</ul>
+				
 				<!-- script-for-menu -->
 
 			</div>
@@ -34,7 +44,7 @@
 		</div>
 	</div>
 
-	<div class="form" style="height: 76%">
+	<div class="form" style="height: 80%;padding-top:100px;">
 		<label id="lblErrorMessage" style="display: none; color: red"></label>
 		<form id="contactform" class="login" style="margin-top: 100px" method="post" action="Controller">
 
@@ -48,11 +58,12 @@
 				<label for="password">Password</label>
 			</p>
 			<input type="password" id="password" name="password" required="">
+            <br/> <br/><br/> <br/>
 			
-			<input type="hidden" name="UserOperation" value="login">
+			<input class="buttom" name="submit" id="submit" tabindex="5" onclick="ValidateLogin()" value="Sign In" type="submit">
 
-			<input class="buttom" name="submit" id="submit" tabindex="5"
-				onclick="ValidateLogin()" value="Sign In" type="submit">
+                        <input type="hidden" name="UserOperation" value="login">
+
 		</form>
 	</div>
 	<!--footer-->
