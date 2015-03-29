@@ -1,4 +1,4 @@
-package com.controller;
+package src.com.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -36,18 +36,23 @@ public class Controller extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		PrintWriter out=response.getWriter();
-		out.println(request.getParameter("user"));
-		response.addHeader("Cache-Control","no-cache");
+		PrintWriter out = response.getWriter();
+		out.print(request.getParameter("user"));
 		
+		String operation=request.getParameter("UserOperation");
+		out.print(operation);
+		System.out.println("operation"+operation);
+		
+		
+	   
+		
+		response.addHeader("Cache-Control","no-cache");
 		HttpSession session=request.getSession(false);
 		
-		if(request.getParameter("user")!=null){
-			
-			System.out.println("Delegating request for Login handler");
-			RequestDispatcher rd = request.getRequestDispatcher("/LoginHandler");
+		if(request.getParameter("UserOperation")!=null) {
+			System.out.print("Deligating request to UserHandler ");
+			RequestDispatcher rd = request.getRequestDispatcher("/UserHandler");
 			rd.forward(request,response);
-			
 		}
 	}
 

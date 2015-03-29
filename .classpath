@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path=""/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/lokesh/Desktop/RmgAllocation/WebContent/WEB-INF/lib/mysql-connector-java-3.1.12.jar"/>
-	<classpathentry kind="lib" path="C:/Users/lokesh/Desktop/RmgAllocation/WebContent/WEB-INF/lib/servlet-api.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="src" path="" />
+	<classpathentry kind="con"
+		path="org.eclipse.jdt.launching.JRE_CONTAINER" />
+	<classpathentry kind="lib"
+		path="C:/Users/lokesh/Desktop/RmgAllocation/WebContent/WEB-INF/lib/servlet-api.jar" />
+	<classpathentry kind="lib"
+		path="C:/Users/lokesh/Desktop/mysql-connector-java-5.1.0/mysql-connector-java-5.1.0-bin.jar" />
+	<classpathentry kind="output" path="bin" />
 </classpath>
