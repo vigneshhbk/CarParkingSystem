@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import src.com.bean.AdressBean;
 import src.com.bean.UserBean;
 import src.com.util.DataBaseUtil;
 
@@ -38,12 +39,51 @@ public class UserDAO {
 		
 	}
 	
-	public  String addUserDetails(UserBean ub){
-		String userId=null;
-		String password=null;
-		String sql = "insert into FQ_User values(?,?,?,?,?,?,?,?,?,?,?)";
+	public  boolean addUserDetails(UserBean ub,AdressBean ab){
+		Connection con=null;
+		try{
+			
+			  con= DataBaseUtil.getConnectionDAO();
+			  
+			 System.out.println("CONNECTION ESTABLISHED ");
+			 String sql1="insert into users values(?,?,?,?,?,?,?)";
+			 String sql2="insert into address values(LAST_INSERT_ID(),?,?,?,?,?,?,?)";
+			 if(con!=null){
+				 System.out.println("connection established");	 
+				 PreparedStatement ps=con.prepareStatement(sql1);
+				 ps.setString(1,ub.getFname());
+				 ps.setString(2,ub.getLname());
+				 ps.setString(3,ub.getSsn());
+				 ps.setString(4, ub.getEmail());
+				 ps.setString(6,ub.getPhone());
+				 ps.setString(7,ub.getPassword());
+				 boolean flag=ps.execute();
+				 if(flag){
+					 ps=con.prepareStatement(sql2);
+					 ps.setString(3,ab.getLine1() );
+					 ps.setString(4,ab.getLine2());
+					 ps.setString(5,ab.getcity());
+					 ps.setLong(6,ab.getZip());
+					 ps.setString(7, ab.getState());
+					 ps.setString(8,ab.getCountry());
+					
+					 flag =ps.execute();
+					 return flag;
+					 
+				 }
+			 }
+			 
+			 
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			}
+		return false;
+		
+		
+		/*String sql = "insert into users values(?,?,?,?,?,?,?,?,?,?,?)";
 		String sql1 = "select 'u'||bseq.nextval from dual";
-		String sql2 = "insert into FQ_Login values(?,?,'user','active')";
+		String sql2 = "insert into adress values(?,?,'user','active')";
 		try {
 			con = DataBaseUtil.getConnectionDAO();
 			PreparedStatement pstmt = con.prepareStatement(sql1);
@@ -88,7 +128,7 @@ public class UserDAO {
 				e.printStackTrace();
 			}
 		}
-		return null;
+		return null;*/
 	}
 	
 	
