@@ -55,6 +55,7 @@ public class UserDAO {
 				 ps.setString(2,ub.getLname());
 				 ps.setString(3,ub.getSsn());
 				 ps.setString(4, ub.getEmail());
+				 ps.setString(5,ub.getDob());
 				 ps.setString(6,ub.getPhone());
 				 ps.setString(7,ub.getPassword());
 				 boolean flag=ps.execute();
