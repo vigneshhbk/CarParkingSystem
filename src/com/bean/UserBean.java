@@ -3,7 +3,13 @@ package src.com.bean;
 import java.sql.Date;
 
 public class UserBean {
-
+private int userid;
+public int getUserid() {
+	return userid;
+}
+public void setUserid(int userid) {
+	this.userid = userid;
+}
 public String getFname() {
 	return fname;
 }
@@ -28,10 +34,10 @@ public String getEmail() {
 public void setEmail(String email) {
 	this.email = email;
 }
-public String getDob() {
+public Date getDob() {
 	return dob;
 }
-public void setDob(String dob) {
+public void setDob(Date dob) {
 	this.dob = dob;
 }
 public String getPhone() {
@@ -50,7 +56,7 @@ private String fname;
 private String lname;
 private String ssn;
 private String email;
-private String dob;
+private Date dob;
 private String phone;
 private String password;
 
