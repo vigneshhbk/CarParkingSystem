@@ -35,7 +35,7 @@
 
     <div class="form" style="height:76%">
         <label id="lblErrorMessage" style="display:none;color:red"></label>
-        <form id="contactform" class="login" style="margin-top:100px">
+        <form id="contactform" class="login" style="margin-top:100px action="LoginController">
 
             <p class="contact"><label for="email">Email</label></p>
             <input id="email" name="email" placeholder="example@domain.com" required="" type="email">

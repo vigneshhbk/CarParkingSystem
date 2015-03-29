@@ -1,4 +1,4 @@
-package com.controller;
+package src.com.controller;
 
 import java.io.IOException;
 
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.dao.UserDAO;
+import src.com.dao.UserDAO;
 
 /**
  * Servlet implementation class LoginController
@@ -42,7 +42,7 @@ public class LoginController extends HttpServlet {
 		String uname = request.getParameter("");
 		String password = request.getParameter(" ");
 		UserDAO ud=new UserDAO();
-		boolean status = ud.validate(uname,password);
+		boolean status = ud.validateUser(uname,password);
 		
 		if(status){
 			//creating session object and placing it in session. 

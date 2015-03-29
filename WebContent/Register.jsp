@@ -38,7 +38,7 @@
     </div>
 
     <div class="form">
-        <form id="contactform">
+        <form id="contactform" method="post" action="parkingcontroller">
             <p class="contact"><label for="fName">First Name</label></p>
             <input id="fName" name="fName" placeholder="First name" required tabindex="1" type="text">
             
