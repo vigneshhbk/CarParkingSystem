@@ -3,7 +3,7 @@
 	<classpathentry excluding="WebContent/" kind="src" path=""/>
 	<classpathentry kind="src" path="WebContent"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/tomcat/lib/mysql-connector-java-5.1.23-bin.jar"/>
-	<classpathentry kind="lib" path="C:/tomcat/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/BhargavRamReddy/workspace/LIb/mysql-connector.jar"/>
+	<classpathentry kind="lib" path="C:/Users/BhargavRamReddy/workspace/LIb/servlet-api.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

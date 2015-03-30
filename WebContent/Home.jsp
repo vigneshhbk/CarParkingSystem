@@ -26,7 +26,7 @@
 	<div class="header" id="home" style="height: 8% !important">
 		<div class="container">
 			<div class="header-logo">
-				<a href="Home.jsp"><img src="images/logo.png" alt="logo" /></a>
+				<a href="Home.jsp"><img src="images/uncclogofina.jpg" alt="logo" /></a>
 			</div>
 			<div class="top-nav">
 				<span class="menu"><img src="images/menu-icon.png" alt="" /></span>

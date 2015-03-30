@@ -9,7 +9,7 @@ body {
 }
 
 .header {
-	background: #350f0f;
+	background: #004826;
 	padding: 1em 0;
 	padding-top: 0px;
 }
@@ -93,7 +93,7 @@ span.menu {
 }
 
 .banner1 {
-	background: url("../images/banner.jpg") no-repeat 0px 0px;
+	background: url("../images/UNCC_Parking.jpg") no-repeat 0px 0px;
 	background-size: cover;
 	min-height: 790px;
 	height: 100% !important;
@@ -162,7 +162,7 @@ span.menu {
 }
 
 .blueButton input.buttom {
-	background: #3A1C1C;
+	background: #004826;
 	display: inline-block;
 	padding: 15px 15px 16px;
 	color: #fbf7f7;
@@ -247,7 +247,7 @@ span.menu {
 }
 
 .footer {
-	background: #260C0C;
+	background: #004826;
 	padding: 1em 0;
 }
 
