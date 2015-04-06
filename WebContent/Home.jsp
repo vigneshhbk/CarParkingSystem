@@ -56,8 +56,7 @@
 					</div> 
 					<div class="blueButton" style="display:block" id="btnViewBuildings">
 						 <input class="buttom" type="submit"
-							value="View Parkings" onclick="displayBuildings();">
-						
+							value="View Parkings" onclick="displayBuildings();">						
 					</div>
 					<div class="mapView" style="display:none" id="map"></div>
 				</li>
