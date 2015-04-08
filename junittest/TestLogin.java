@@ -1,4 +1,4 @@
-package src.junittest;
+package junittest;
 
 import static org.junit.Assert.*;
 

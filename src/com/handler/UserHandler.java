@@ -3,6 +3,11 @@ package src.com.handler;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.activation.DataHandler;
+import javax.mail.BodyPart;
+import javax.mail.Multipart;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMultipart;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,6 +18,7 @@ import javax.servlet.http.HttpSession;
 import src.com.bean.AdressBean;
 import src.com.bean.UserBean;
 import src.com.dao.UserDAO;
+import src.com.util.*;
 
 /**
  * Servlet implementation class Controller
@@ -88,11 +94,25 @@ public class UserHandler extends HttpServlet {
     		 }
     	  }
     	  else if(request.getParameter("UserOperation").equalsIgnoreCase("login")){
+    		  System.out.print("login entered ");
     		  PrintWriter out=response.getWriter();
     		  try{
     			   String email = request.getParameter("email");
     			   String pwd   = request.getParameter("password");
     			  UserDAO ud=new UserDAO();
+    			  
+    			  //mail start 
+    			 
+    			  MainClass sendMail = new MainClass();
+    			  String sub = "Test mail";
+    			  String body = "Test mail";
+    			  String from = "asplearning17@gmail.com";
+    			  String to = "sujeethkumar17@gmail.com";
+    			  sendMail.SendMail(sub, body, from, to);
+    			  
+    			 // mail end
+    			  
+                 
     			  if(ud.validateUser(email, pwd)){
     				  System.out.println("login validated");
     				  

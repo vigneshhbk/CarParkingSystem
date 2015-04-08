@@ -1,4 +1,4 @@
-CREATE TABLE `ssdi`.`users` (
+CREATE TABLE IF NOT EXISTS `ssdi`.`users` (
   `userid` INT NOT NULL AUTO_INCREMENT,
   `fname` VARCHAR(50) NOT NULL,
   `lname` VARCHAR(50) NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE `ssdi`.`users` (
 ENGINE = InnoDB
 AUTO_INCREMENT = 1;
 
-CREATE TABLE `ssdi`.`address` (
+CREATE TABLE IF NOT EXISTS `ssdi`.`address` (
   `userid` INT NOT NULL,
   `addrid` INT NOT NULL AUTO_INCREMENT,
   `line1` VARCHAR(45) NOT NULL,
@@ -30,7 +30,7 @@ ENGINE = InnoDB
 AUTO_INCREMENT = 100;
 
 
-CREATE TABLE `ssdi`.`creditcard` (
+CREATE TABLE IF NOT EXISTS `ssdi`.`creditcard` (
   `userid` INT NOT NULL,
   `creditcard` BIGINT(16) NOT NULL,
   `cvv` INT NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE `ssdi`.`creditcard` (
     ON DELETE CASCADE
     ON UPDATE CASCADE);
 	
-	CREATE TABLE `ssdi`.`buildings` (
+	CREATE TABLE IF NOT EXISTS `ssdi`.`buildings` (
   `buildingid` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `desc` VARCHAR(100) NULL,
