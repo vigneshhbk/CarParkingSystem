@@ -1,3 +1,8 @@
+$(document).ready(function(){
+	$('.clockpicker').clockpicker();
+	$('#datePicker').datepicker();
+});
+
 function displayBuildings(){
 	jQuery('#map').show();
 	$("#map").googleMap({
