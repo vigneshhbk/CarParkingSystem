@@ -7,7 +7,6 @@
 <link href="CSS/style.css" rel="stylesheet" />
 <link href="CSS/bootstrap.css" rel="stylesheet" />
 <link href="CSS/swipebox.css" rel="stylesheet" />
-
 <link href="CSS/jquery-clockpicker.css" rel="stylesheet" />
 <link href="CSS/bootstrap-clockpicker.min.css" rel="stylesheet" />
 <link href="CSS/bootstrap.min.css" rel="stylesheet" />
@@ -63,15 +62,39 @@
 							
 						</div>
 					</div>
-					<div class="blueButton" style="display:block" id="btnViewBuildings">
-						<div class="datepickerPointer input-group input-append date" id="datePicker" data-date-format="yyyy-mm-dd">
-	               			 <input type="text" class="form-control" name="date" onkeydown="return false;" />
+					<div class="homeForm blueButton" style="display:block" id="btnViewBuildings">
+						<p class="contact">
+							<label for="fromDate">From Date: </label>
+						</p>
+						<div class="datepickerPointer input-group input-append date" id="fromDatePicker" data-date-format="yyyy-mm-dd">
+	               			 <input type="text" class="form-control" id="fromDate" name="fromDate" required="true" onkeydown="return false;" />
 	               			 <span class="input-group-addon add-on">
 	               			 <span class="glyphicon glyphicon-calendar"></span>
 	               			 </span>
 	            		</div>
+	            		<p class="contact">
+							<label for="fromTime">From Time: </label>
+						</p>
 						<div class="input-group clockpicker" data-autoclose="true">
-							<input type="text" class="form-control" value="23:30">
+							<input type="text" name="fromTime" id="fromTime" required="true" class="form-control">
+							<span class="input-group-addon">
+							<span class="glyphicon glyphicon-time"></span>
+							</span>
+						</div>
+						<p class="contact">
+							<label for="toDate">To Date: </label>
+						</p>
+						<div class="datepickerPointer input-group input-append date" id="toDatePicker" data-date-format="yyyy-mm-dd">
+	               			 <input type="text" class="form-control" id="toDate" name="toDate" required="true"  onkeydown="return false;" />
+	               			 <span class="input-group-addon add-on">
+	               			 <span class="glyphicon glyphicon-calendar"></span>
+	               			 </span>
+	            		</div>
+	            		<p class="contact">
+							<label for="toTime">To Time: </label>
+						</p>
+						<div class="input-group clockpicker" data-autoclose="true">
+							<input type="text" id="toTime" required="true" name="toTime" class="form-control">
 							<span class="input-group-addon">
 							<span class="glyphicon glyphicon-time"></span>
 							</span>
@@ -82,8 +105,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class="clearfix"></div>
-		
+		<div class="clearfix"></div>	
 	</div>
 	<!--//banner-->
 	

@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	$('.clockpicker').clockpicker();
-	$('#datePicker').datepicker();
+	$('#fromDatePicker').datepicker();
+	$('#toDatePicker').datepicker();
 });
 
 function displayBuildings(){
