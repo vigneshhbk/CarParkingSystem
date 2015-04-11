@@ -19,34 +19,16 @@
 	</servlet-mapping>
 	<servlet>
 		<description></description>
-		<display-name>Controller</display-name>
-		<servlet-name>Controller</servlet-name>
-		<servlet-class>src.com.controller.Controller</servlet-class>
+		<display-name>SignUpController</display-name>
+		<servlet-name>SignUpController</servlet-name>
+		<servlet-class>src.com.controller.SignUpController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>Controller</servlet-name>
-		<url-pattern>/Controller</url-pattern>
+		<servlet-name>SignUpController</servlet-name>
+		<url-pattern>/SignUpController</url-pattern>
 	</servlet-mapping>
-	<servlet>
-		<description></description>
-		<display-name>LoginHandler</display-name>
-		<servlet-name>LoginHandler</servlet-name>
-		<servlet-class>src.com.handler.LoginHandler</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>LoginHandler</servlet-name>
-		<url-pattern>/LoginHandler</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<description></description>
-		<display-name>UserHandler</display-name>
-		<servlet-name>UserHandler</servlet-name>
-		<servlet-class>src.com.handler.UserHandler</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>UserHandler</servlet-name>
-		<url-pattern>/UserHandler</url-pattern>
-	</servlet-mapping>
+
+
 	<servlet>
 		<description></description>
 		<display-name>LoginController</display-name>

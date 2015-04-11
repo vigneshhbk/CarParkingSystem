@@ -9,6 +9,7 @@ import java.sql.Statement;
 import com.mysql.jdbc.CallableStatement;
 
 import src.com.bean.AdressBean;
+import src.com.bean.LoginBean;
 import src.com.bean.UserBean;
 import src.com.util.DataBaseUtil;
 
@@ -16,15 +17,15 @@ import src.com.util.DataBaseUtil;
 public class UserDAO {
 	Connection con=null;
 
-	public boolean validateUser(String email,String pwd){
+	public boolean validateUser(LoginBean lb){
 		try{
 			con=DataBaseUtil.getConnectionDAO();
 	  System.out.println("CONNECTION ESTABLISHED ");
-	  System.out.println(email);
-	  System.out.println(pwd);
+	  System.out.println(lb.getEmail());
+	  System.out.println(lb.getPassword());
 	  PreparedStatement ps=con.prepareStatement("select * from users where  email=? and password=?");
-	  ps.setString(1, email);
-	  ps.setString(2, pwd);
+	  ps.setString(1, lb.getEmail());
+	  ps.setString(2, lb.getPassword());
 	  ResultSet rs=ps.executeQuery();
 	  if(rs.next()){
 		 // System.out.println(rs.getString(1));
@@ -109,9 +110,12 @@ public class UserDAO {
 			 
 		}
 		catch(Exception e){
+
 			e.printStackTrace();
+			return false;
 			}
 		return false;
+
 		
 	}
 	

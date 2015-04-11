@@ -13,13 +13,7 @@
 <!--//web-font-->
 <script src="javascript/jquery-1.11.2.js"></script>
 <script type="text/javascript" src="//www.google.fr/jsapi"></script>
-<script type="text/javascript">
-    	google.load("maps", "3.4", {
-    		other_params: "sensor=false&language=fr"
-    	});
-	</script>
 <script src="javascript/script.js"></script>
-<script type="text/javascript" src="javascript/jquery.googlemap.js"></script>
 </head>
 <body style="height:650px;"">
 	<div class="header" id="home" style="height: 12% !important">
@@ -46,7 +40,7 @@
 
 	<div class="form" style="height: 80%;padding-top:100px;">
 		<label id="lblErrorMessage" style="display: none; color: red"></label>
-		<form id="contactform" class="login" style="margin-top: 100px" method="post" action="Controller">
+		<form id="contactform" class="login" style="margin-top: 100px" method="post" action="LoginController">
 
 			<p class="contact">
 				<label for="email">Email</label>

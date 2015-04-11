@@ -39,7 +39,7 @@
 	</div>
 
 	<div class="form">
-		<form id="contactform" method="post" action="Controller">
+		<form id="contactform" method="post" action="SignUpController">
 			<p class="contact">
 				<label for="fName">First Name</label>
 			</p>
@@ -172,7 +172,8 @@
 					onchange="try{setCustomValidity('')}catch(e){}">
 			</fieldset>
 
-			<input type="hidden" name="UserOperation" value="signup"> <input
+<!-- 			<input type="hidden" name="UserOperation" value="signup"/> -->
+			 <input
 				class="buttom" name="submit" id="submit" tabindex="20"
 				value="Sign me up!" type="submit">
 		</form>
