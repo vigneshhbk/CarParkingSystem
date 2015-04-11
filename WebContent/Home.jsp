@@ -7,11 +7,19 @@
 <link href="CSS/style.css" rel="stylesheet" />
 <link href="CSS/bootstrap.css" rel="stylesheet" />
 <link href="CSS/swipebox.css" rel="stylesheet" />
+<link href="CSS/jquery-clockpicker.css" rel="stylesheet" />
+<link href="CSS/bootstrap-clockpicker.min.css" rel="stylesheet" />
+<link href="CSS/bootstrap.min.css" rel="stylesheet" />
+<link href="CSS/github.min.css" rel="stylesheet" />
+<link href="CSS/datepicker.css" rel="stylesheet" />
 <!--web-font-->
 <link href='http://fonts.googleapis.com/css?family=Pathway+Gothic+One'
 	rel='stylesheet' type='text/css'>
 <!--//web-font-->
 <script src="javascript/jquery-1.11.2.js"></script>
+
+<script src="javascript/jquery-clockpicker.min.js"></script>
+<script src="javascript/bootstrap-datepicker.js"></script>
 <script type="text/javascript" src="//www.google.fr/jsapi"></script>
 <script type="text/javascript">
     	google.load("maps", "3.4", {
@@ -53,17 +61,51 @@
 						<div class="container">
 							
 						</div>
-					</div> 
-					<div class="blueButton" style="display:block" id="btnViewBuildings">
-						 <input class="buttom" type="submit"
-							value="View Parkings" onclick="displayBuildings();">						
+					</div>
+					<div class="homeForm blueButton" style="display:block" id="btnViewBuildings">
+						<p class="contact">
+							<label for="fromDate">From Date: </label>
+						</p>
+						<div class="datepickerPointer input-group input-append date" id="fromDatePicker" data-date-format="yyyy-mm-dd">
+	               			 <input type="text" class="form-control" id="fromDate" name="fromDate" required="true" onkeydown="return false;" />
+	               			 <span class="input-group-addon add-on">
+	               			 <span class="glyphicon glyphicon-calendar"></span>
+	               			 </span>
+	            		</div>
+	            		<p class="contact">
+							<label for="fromTime">From Time: </label>
+						</p>
+						<div class="input-group clockpicker" data-autoclose="true">
+							<input type="text" name="fromTime" id="fromTime" required="true" class="form-control">
+							<span class="input-group-addon">
+							<span class="glyphicon glyphicon-time"></span>
+							</span>
+						</div>
+						<p class="contact">
+							<label for="toDate">To Date: </label>
+						</p>
+						<div class="datepickerPointer input-group input-append date" id="toDatePicker" data-date-format="yyyy-mm-dd">
+	               			 <input type="text" class="form-control" id="toDate" name="toDate" required="true"  onkeydown="return false;" />
+	               			 <span class="input-group-addon add-on">
+	               			 <span class="glyphicon glyphicon-calendar"></span>
+	               			 </span>
+	            		</div>
+	            		<p class="contact">
+							<label for="toTime">To Time: </label>
+						</p>
+						<div class="input-group clockpicker" data-autoclose="true">
+							<input type="text" id="toTime" required="true" name="toTime" class="form-control">
+							<span class="input-group-addon">
+							<span class="glyphicon glyphicon-time"></span>
+							</span>
+						</div>
+						<input class="buttom" type="submit" value="View Parkings" onclick="displayBuildings();">						
 					</div>
 					<div class="mapView" style="display:none" id="map"></div>
 				</li>
 			</ul>
 		</div>
-		<div class="clearfix"></div>
-		
+		<div class="clearfix"></div>	
 	</div>
 	<!--//banner-->
 	

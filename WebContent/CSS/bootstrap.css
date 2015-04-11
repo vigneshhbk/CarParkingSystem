@@ -3708,6 +3708,7 @@ px
 	position: relative;
 	display: table;
 	border-collapse: separate;
+	width: 150px!important;
 }
 
 .input-group[class*="col-"] {

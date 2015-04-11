@@ -184,7 +184,7 @@ span.menu {
 }
 
 .blueButton input.buttom:hover {
-	background-color: #7E3939;
+	background-color: #0bbd0f;
 }
 
 .mapView {
@@ -291,6 +291,22 @@ span.menu {
 }
 
 .form p.contact {
+	font-size: 12px;
+	margin: 0px 0px 10px 0;
+	line-height: 14px;
+	font-family: Arial, Helvetica;
+}
+
+.homeForm {
+	background: #f1f1f1;
+	width: 600px;
+	margin-left: 450px;
+	margin: 0 auto;
+	padding-left: 50px;
+	padding-top: 20px;
+}
+
+.homeForm p.contact {
 	font-size: 12px;
 	margin: 0px 0px 10px 0;
 	line-height: 14px;
