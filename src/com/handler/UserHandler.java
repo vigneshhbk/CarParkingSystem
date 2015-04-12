@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import src.com.bean.AdressBean;
+import src.com.bean.LoginBean;
 import src.com.bean.UserBean;
 import src.com.dao.UserDAO;
 import src.com.util.*;
@@ -97,7 +98,8 @@ public class UserHandler extends HttpServlet {
     		  System.out.print("login entered ");
     		  PrintWriter out=response.getWriter();
     		  try{
-    			   String email = request.getParameter("email");
+    			  LoginBean ub=new LoginBean(); 
+    			  String email = request.getParameter("email");
     			   String pwd   = request.getParameter("password");
     			  UserDAO ud=new UserDAO();
     			  
@@ -113,7 +115,7 @@ public class UserHandler extends HttpServlet {
     			 // mail end
     			  
                  
-    			  if(ud.validateUser(email, pwd)){
+    			  if(ud.validateUser(ub)){
     				  System.out.println("login validated");
     				  
     				  RequestDispatcher rd=request.getRequestDispatcher("/Home.jsp");
