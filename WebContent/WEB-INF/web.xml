@@ -57,4 +57,12 @@
 		<servlet-name>LoginController</servlet-name>
 		<url-pattern>/LoginController</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>AjaxHandler</servlet-name>
+		<servlet-class>src.com.handler.AjaxHandler</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AjaxHandler</servlet-name>
+		<url-pattern>/AjaxHandler</url-pattern>
+	</servlet-mapping>
 </web-app>

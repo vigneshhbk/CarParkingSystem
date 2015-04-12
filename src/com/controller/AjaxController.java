@@ -1,7 +1,6 @@
 package src.com.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,16 +9,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class Controller
- */
-public class Controller extends HttpServlet {
+public class AjaxController extends HttpServlet {
+	
+    /**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 
-    /**
+	/**
      * Default constructor. 
      */
-    public Controller() {
+    public AjaxController() {
         // TODO Auto-generated constructor stub
     }
 
@@ -34,20 +34,13 @@ public class Controller extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-		
-		String operation=request.getParameter("UserOperation");
-		System.out.println("operation"+operation);
-		
+		// TODO Auto-generated method stub	
 		response.addHeader("Cache-Control","no-cache");
-		HttpSession session=request.getSession(false);
-		
-		if(request.getParameter("UserOperation")!=null) {
-			System.out.print("Deligating request to UserHandler ");
-			RequestDispatcher rd = request.getRequestDispatcher("/UserHandler");
+		HttpSession session=request.getSession(false);	
+		if(request.getParameter("FieldId")!=null) {
+			System.out.print("Deligating request to AjaxHandler ");
+			RequestDispatcher rd = request.getRequestDispatcher("/AjaxHandler");
 			rd.forward(request,response);
 		}
 	}
-
 }

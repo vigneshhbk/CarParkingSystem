@@ -123,9 +123,7 @@ public class UserHandler extends HttpServlet {
     			  else{
     				  RequestDispatcher rd=request.getRequestDispatcher("/login.jsp");
     				  rd.include(request, response);
-    				  out.println("<script> alert('Enter Valid Credentials') </script>");
-    				  
-    				  
+    				  out.println("<script> alert('Enter Valid Credentials') </script>");	  
     			  }
     		  }
     		  catch(Exception e){

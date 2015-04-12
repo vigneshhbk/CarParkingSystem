@@ -7,5 +7,6 @@
 	<classpathentry kind="lib" path="C:/libraries/javax.mail-1.4.5.jar"/>
 	<classpathentry kind="lib" path="C:/libraries/mysql-connector-java-5.0.8-bin.jar"/>
 	<classpathentry kind="lib" path="C:/libraries/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/libraries/gson-2.3.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
