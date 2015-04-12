@@ -44,11 +44,11 @@
 			<div class="top-nav">
 				<span class="menu"><img src="images/menu-icon.png" alt="" /></span>
 				<ul class="nav1">
-					<li><a href="index.html" class="scroll">HOME</a></li>
+					<li><a href="Home.jsp" class="scroll">HOME</a></li>
 					<li><a href="#about" class="scroll">ABOUT</a></li>
 					<li><a href="#" class="scroll">CONTACT US</a></li>
-					<li><a href="#" class="scroll">LOGIN</a></li>
-					<li><a href="#" class="scroll">REGISTER</a></li>
+					<li><a href="login.jsp" class="scroll">LOGIN</a></li>
+					<li><a href="Register.jsp" class="scroll">REGISTER</a></li>
 
 				</ul>
 				<!-- script-for-menu -->
@@ -57,7 +57,7 @@
 			<div class="clearfix"></div>
 		</div>
 	</div>
-	<form method="post" action="Controller">
+	<form>
 		<table style="width:100%;">
 			<tr>
 				<td style="width:30%;">
@@ -103,8 +103,7 @@
 				</td>
 				<td style="width:70%;">
 					<div id="map" style="width: 800px; height: 800px;"></div>
-					<input type="hidden" name="UserOperation" value="bookParkings">
-				</td>
+					</td>
 			</tr>
 		</table>
 	</form> 	

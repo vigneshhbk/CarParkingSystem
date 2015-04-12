@@ -76,7 +76,7 @@ function displayNearbyLots(buildingId){
 	    	      type: "ROADMAP" // Map type (optional)
 	    	});
 	    	jQuery.each(data, function(index){
-	    		var dataString = "Name: "+data[index].name+"\nSlotID: "+data[index].slotID;
+	    		var dataString = "Name: "+data[index].name;
 	    	    $("#map").addMarker({
 	    	    	coords: [data[index].latitude, data[index].longitude],
 	    	    	title: data[index].name,

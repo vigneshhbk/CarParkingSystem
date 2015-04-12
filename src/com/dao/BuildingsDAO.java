@@ -25,7 +25,7 @@ public class BuildingsDAO {
 			 while(rs.next()){
 				 BuildingBean building = new BuildingBean();
 				 building.setBuildingId(rs.getInt("buildingid"));
-				 building.setDescription(rs.getString("desc"));
+				 building.setDescription(rs.getString("description"));
 				 building.setName(rs.getString("name"));
 				 building.setLatitude(rs.getDouble("latitude"));
 				 building.setLongitude(rs.getDouble("longitude"));
