@@ -1,7 +1,9 @@
 use ssdi;
 
 
--- CALL USP_SubmitUserRegistration('SUJ','M','111-11-1111','SM2@UNCC.EDU', '1990-12-12','+17042324472','SUJ','D','D','DD',33,'NC','CC');
+-- CALL USP_SubmitUserRegistration('SUJ','M','111-11-1111','SM2@UNCC.EDU', 
+-- '1990-12-12','+17042324472','SUJ','question','answer','a1','a2','city',33,'NC','CC'
+-- ,333333333, 09,09,00, 'card name','card type' );
 DROP PROCEDURE IF EXISTS USP_SubmitUserRegistration;
 DELIMITER //
 CREATE PROCEDURE USP_SubmitUserRegistration(
@@ -12,8 +14,8 @@ IN FirstName VARCHAR(50)
 ,IN DOB DATE
 ,IN Phone VARCHAR(15)
 ,IN UserPassword VARCHAR(20)
-,IN Security VARCHAR(150)
-,IN ANSWER VARCHAR(50)
+,IN SecurityQuestion VARCHAR(150)
+,IN Answer VARCHAR(50)
 -- ,IN UserId int
 ,IN AddressLine1 VARCHAR(45)
 ,IN AddressLine2 VARCHAR(45)
@@ -21,13 +23,25 @@ IN FirstName VARCHAR(50)
 ,IN Zip INT 
 ,IN State VARCHAR(50)
 ,IN Country VARCHAR(45)
+,IN Creditcard  BIGINT(16)
+,IN Cvv INT
+,IN Expmonth INT
+,IN Expyear INT
+,IN CardName VARCHAR(45)
+,IN CardType VARCHAR(45)
+,OUT IsUserExists INT
 )
 BEGIN
 
 DECLARE TempUserId INT;
 
-	INSERT INTO `ssdi`.`users`(fname, lname, ssn, email, dob, phone, `password`, SecurityQ, answer)  
-	VALUES(FirstName, LastName, SSN, Email, DOB, Phone, UserPassword, Security, ANSWER);
+IF NOT  EXISTS(SELECT  1  FROM `ssdi`.`users` WHERE email = Email ) 
+THEN
+
+	SET IsUserExists = 0;
+
+	INSERT INTO `ssdi`.`users`(fname, lname, ssn, email, dob, phone, `password`, `security`, answer)  
+	VALUES(FirstName, LastName, SSN, Email, DOB, Phone, UserPassword, SecurityQuestion, Answer);
 
 
 	SET TempUserId = (SELECT  userid  FROM `ssdi`.`users` WHERE email = Email AND userid IS NOT NULL LIMIT 1);
@@ -35,6 +49,14 @@ DECLARE TempUserId INT;
 
 	INSERT INTO `ssdi`.`address` (userid, line1, line2, city, zip, country)
 	VALUES (TempUserId, AddressLine1, AddressLine2, City, Zip, Country);
+	
+	INSERT INTO `ssdi`.`creditcard` (userid,creditcard,cvv,expmonth,expyear,name,`type`)
+	VALUES (TempUserId,Creditcard,Cvv,Expmonth,Expyear,CardName,CardType);
+    
+ELSE
+
+SET IsUserExists =1;
+END IF;
 
 END//
 DELIMITER ;
@@ -62,3 +84,37 @@ SET hours = (select TIMESTAMPDIFF(HOUR, TIMESTAMP(FDate, FTime),TIMESTAMP(TDate,
 
 END//
 DELIMITER ;
+
+
+DELIMITER //
+DROP PROCEDURE IF EXISTS GetLots; //
+CREATE PROCEDURE GetLots(
+	IN FromDate DATE,
+	IN ToDate DATE,
+	IN FromTime TIME,
+    IN ToTime TIME,
+    IN Building_Id INT)
+BEGIN
+    CREATE TEMPORARY TABLE IF NOT EXISTS BookedLots AS (
+    SELECT LotID, SlotID FROM Booking WHERE From_Date = FromDate AND To_Date = ToDate 
+	AND LotID IN (SELECT LotID FROM Lot WHERE BuildingID = Building_Id) AND (FromTime BETWEEN From_Time AND To_Time OR ToTime BETWEEN From_Time AND To_Time 
+    OR From_Time BETWEEN FromTime AND ToTime OR To_Time BETWEEN FromTIme AND ToTime));
+    
+	CREATE TEMPORARY TABLE IF NOT EXISTS AvailableLots AS (
+    SELECT l.BuildingID AS BuildingID, s.LotID AS LotID, MIN(s.SlotID) AS SlotID FROM Lot l INNER JOIN Buildings b ON l.BuildingID = b.BuildingID
+    INNER JOIN Slot s ON l.LotID = s.LotID AND b.BuildingID = Building_Id AND s.SlotID NOT IN (SELECT SlotID FROM BookedLots WHERE LotID = s.LotID) GROUP BY l.BuildingID, s.LotID);
+    
+    SELECT l.BuildingID AS BuildingID
+    , l.LotID AS LotID
+    , l.Name AS Name
+    , l.Latitude AS Latitude
+    , l.Longitude AS Longitude
+    , CASE al.SlotID WHEN NULL THEN -1
+    ELSE al.SlotID END AS SlotID 
+    FROM Lot l LEFT JOIN AvailableLots al ON l.LotID = al.LotID WHERE l.BuildingID = Building_Id;
+    
+    DROP TABLE AvailableLots;
+    DROP TABLE BookedLots;
+END //
+DELIMITER ;
+

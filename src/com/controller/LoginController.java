@@ -55,17 +55,6 @@ public class LoginController extends HttpServlet {
 	   		   
 			  UserDAO ud=new UserDAO();
    		   
-   		   
-//			  //mail start 
-//			 
-//			  MainClass sendMail = new MainClass();
-//			  String sub = "Test mail";
-//			  String body = "Test mail";
-//			  String from = "asplearning17@gmail.com";
-//			  String to = "sujeethkumar17@gmail.com";
-//			  sendMail.SendMail(sub, body, from, to);
-//			  
-//			 // mail end
 			  
            
 			  if(ud.validateUser(ub)){

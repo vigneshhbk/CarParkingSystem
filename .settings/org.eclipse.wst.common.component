@@ -3,6 +3,8 @@
 		<wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="/WebContent/images"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/WebContent"/>
 		<property name="java-output-path" value="/CarParkingSystem/build/classes"/>
 		<property name="context-root" value="CarParkingSystem"/>
 	</wb-module>
