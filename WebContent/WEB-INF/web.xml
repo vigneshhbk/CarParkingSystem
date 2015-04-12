@@ -28,6 +28,16 @@
 		<url-pattern>/SignUpController</url-pattern>
 	</servlet-mapping>
 
+<servlet>
+		<description></description>
+		<display-name>BookingController</display-name>
+		<servlet-name>BookingController</servlet-name>
+		<servlet-class>src.com.controller.BookingController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BookingController</servlet-name>
+		<url-pattern>/BookingController</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<description></description>

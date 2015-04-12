@@ -38,5 +38,22 @@ END//
 DELIMITER ;
 
 
-
+DROP PROCEDURE IF EXISTS USP_BookingRegistration;
+DELIMITER //
+CREATE PROCEDURE USP_BookingRegistration(
+IN BID INT(11),
+IN LID INT(11),
+IN SID INT(11),
+IN FDate DATE,
+IN FTime TIME,
+IN TDate DATE,
+IN TTime TIME,
+IN UsrID INT(11)
+)
+BEGIN
+DECLARE TempUserId INT;
+	INSERT INTO `ssdi`.`booking`(BookingID, LotID, SlotID, From_Date, From_Time, To_Date, To_Time, UserID)  
+	VALUES(BID, LID, SID, FDate, FTime, TDate, TTime, UsrID);
+END//
+DELIMITER ;
 
