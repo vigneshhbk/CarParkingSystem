@@ -1,60 +1,95 @@
-CREATE TABLE IF NOT EXISTS `ssdi`.`users` (
-  `userid` INT NOT NULL AUTO_INCREMENT,
-  `fname` VARCHAR(50) NOT NULL,
-  `lname` VARCHAR(50) NOT NULL,
-  `ssn` VARCHAR(45) NULL,
-  `email` VARCHAR(100) NOT NULL,
-  `dob` DATE NOT NULL,
-  `phone` VARCHAR(15) NOT NULL,
-  `password` VARCHAR(20) NOT NULL,
-  PRIMARY KEY (`userid`))
+drop database ssdi;
+create database ssdi;
+use ssdi;
+
+CREATE TABLE IF NOT EXISTS users (
+  userid INT NOT NULL AUTO_INCREMENT,
+  fname VARCHAR(50) NOT NULL,
+  lname VARCHAR(50) NOT NULL,
+  ssn VARCHAR(45) NULL,
+  email VARCHAR(100) NOT NULL,
+  dob DATE NOT NULL,
+  phone VARCHAR(15) NOT NULL,
+  password VARCHAR(20) NOT NULL,
+  PRIMARY KEY (userid))
 ENGINE = InnoDB
 AUTO_INCREMENT = 1;
 
-CREATE TABLE IF NOT EXISTS `ssdi`.`address` (
-  `userid` INT NOT NULL,
-  `addrid` INT NOT NULL AUTO_INCREMENT,
-  `line1` VARCHAR(45) NOT NULL,
-  `line2` VARCHAR(45) NOT NULL,
-  `city` VARCHAR(45) NOT NULL,
-  `zip` INT NOT NULL,
-  `country` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`addrid`),
-  INDEX `addr_userid_idx` (`userid` ASC),
-  CONSTRAINT `addr_userid`
-    FOREIGN KEY (`userid`)
-    REFERENCES `ssdi`.`users` (`userid`)
+CREATE TABLE IF NOT EXISTS address (
+  userid INT NOT NULL,
+  addrid INT NOT NULL AUTO_INCREMENT,
+  line1 VARCHAR(45) NOT NULL,
+  line2 VARCHAR(45) NOT NULL,
+  city VARCHAR(45) NOT NULL,
+  zip INT NOT NULL,
+  country VARCHAR(45) NOT NULL,
+  PRIMARY KEY (addrid),
+  INDEX addr_userid_idx (userid ASC),
+  CONSTRAINT addr_userid
+    FOREIGN KEY (userid)
+    REFERENCES ssdi.users (userid)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
 AUTO_INCREMENT = 100;
 
 
-CREATE TABLE IF NOT EXISTS `ssdi`.`creditcard` (
-  `userid` INT NOT NULL,
-  `creditcard` BIGINT(16) NOT NULL,
-  `cvv` INT NOT NULL,
-  `expmonth` INT NOT NULL,
-  `expyear` INT NOT NULL,
-  `name` VARCHAR(45) NOT NULL,
-  `type` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`creditcard`),
-  INDEX `credit_userid_idx` (`userid` ASC),
-  CONSTRAINT `credit_userid`
-    FOREIGN KEY (`userid`)
-    REFERENCES `ssdi`.`users` (`userid`)
+CREATE TABLE IF NOT EXISTS creditcard (
+  userid INT NOT NULL,
+  creditcard BIGINT(16) NOT NULL,
+  cvv INT NOT NULL,
+  expmonth INT NOT NULL,
+  expyear INT NOT NULL,
+  name VARCHAR(45) NOT NULL,
+  type VARCHAR(45) NOT NULL,
+  PRIMARY KEY (creditcard),
+  INDEX credit_userid_idx (userid ASC),
+  CONSTRAINT credit_userid
+    FOREIGN KEY (userid)
+    REFERENCES users (userid)
     ON DELETE CASCADE
     ON UPDATE CASCADE);
 	
-	CREATE TABLE IF NOT EXISTS `ssdi`.`buildings` (
-  `buildingid` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NOT NULL,
-  `desc` VARCHAR(100) NULL,
-  `latitude` FLOAT(13,9) NOT NULL,
-  `longitude` FLOAT(13,9) NOT NULL,
-  PRIMARY KEY (`buildingid`));
-  
+	CREATE TABLE IF NOT EXISTS buildings (
+  buildingid INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(45) NOT NULL,
+  DESCRIPTION VARCHAR(100) NULL,
+  latitude FLOAT(13,9) NOT NULL,
+  longitude FLOAT(13,9) NOT NULL,
+  PRIMARY KEY (buildingid));
 
+CREATE TABLE Lot(
+	LotID INT NOT NULL AUTO_INCREMENT,
+    BuildingID INT NOT NULL,
+    Name VARCHAR(20) NOT NULL,
+	Latitude FLOAT(13,9) NOT NULL,
+    Longitude FLOAT(13,9) NOT NULL,
+    CONSTRAINT pk_LotID PRIMARY KEY(LotID),
+    CONSTRAINT fk_Buildings_BuildingID_Lot_BuildingID FOREIGN KEY (BuildingID) REFERENCES Buildings(BuildingID));
+    
+CREATE TABLE Slot(
+	SlotID INT,
+    LotID INT,
+    CONSTRAINT pk_SlotID_LotID PRIMARY KEY(SlotID, LotID),
+    CONSTRAINT fk_Lot_LotID_Slot_LotID FOREIGN KEY (LotID) REFERENCES Lot(LotID));
+    
+CREATE TABLE Booking(
+	BookingID INT NOT NULL AUTO_INCREMENT,
+    LotID INT NOT NULL,
+    SlotID INT NOT NULL,
+    From_Date DATE NOT NULL,
+    From_Time TIME NOT NULL,
+	To_Date DATE NOT NULL,
+    To_Time TIME NOT NULL,
+    UserID INT NOT NULL,
+    CONSTRAINT pk_BookingID PRIMARY KEY(BookingID),
+    CONSTRAINT fk_Slot_SlotID_LotID_Booking_SlotID_LotID FOREIGN KEY(SlotID, LotID) REFERENCES Slot(SlotID, LotID),
+    CONSTRAINT fk_Users_UserID_Booking_UserID FOREIGN KEY(UserID) REFERENCES Users(UserID));
+
+
+ALTER TABLE `ssdi`.`users` 
+ADD UNIQUE INDEX `email_UNIQUE` (`email` ASC),
+ADD UNIQUE INDEX `ssn_UNIQUE` (`ssn` ASC);
 
 INSERT INTO `ssdi`.`users` (`fname`, `lname`, `ssn`, `email`, `dob`, `phone`, `password`) VALUES ('sampath', 'kolluru', '542-23-1234', 'skolluru@uncc.edu', '1991-08-23', '3244211123', 'password');
 
@@ -98,31 +133,32 @@ INSERT INTO `ssdi`.`buildings` (`buildingid`, `name`, `latitude`, `longitude`) V
 INSERT INTO `ssdi`.`buildings` (`buildingid`, `name`, `latitude`, `longitude`) VALUES ('27', 'High School', '35.30885668', '-80.74379861');
 
 
-UPDATE `ssdi`.`buildings` SET `desc`='East Entrance' WHERE `buildingid`='1';
-UPDATE `ssdi`.`buildings` SET `desc`='North Entrance' WHERE `buildingid`='2';
-UPDATE `ssdi`.`buildings` SET `desc`='West Entrance' WHERE `buildingid`='3';
-UPDATE `ssdi`.`buildings` SET `desc`='Foundation' WHERE `buildingid`='4';
-UPDATE `ssdi`.`buildings` SET `desc`='South Entrance' WHERE `buildingid`='5';
-UPDATE `ssdi`.`buildings` SET `desc`='Student Health Centre' WHERE `buildingid`='6';
-UPDATE `ssdi`.`buildings` SET `desc`='Burson' WHERE `buildingid`='7';
-UPDATE `ssdi`.`buildings` SET `desc`='Rose Football Centre' WHERE `buildingid`='8';
-UPDATE `ssdi`.`buildings` SET `desc`='Motorsports Research' WHERE `buildingid`='9';
-UPDATE `ssdi`.`buildings` SET `desc`='Cone University Centre' WHERE `buildingid`='10';
-UPDATE `ssdi`.`buildings` SET `desc`='Niner House' WHERE `buildingid`='11';
-UPDATE `ssdi`.`buildings` SET `desc`='Student Union' WHERE `buildingid`='12';
-UPDATE `ssdi`.`buildings` SET `desc`='Residence Dining Hall' WHERE `buildingid`='13';
-UPDATE `ssdi`.`buildings` SET `desc`='Scott Hall' WHERE `buildingid`='14';
-UPDATE `ssdi`.`buildings` SET `desc`='Hawthorn Hall' WHERE `buildingid`='15';
-UPDATE `ssdi`.`buildings` SET `desc`='Facilities Operations Parking Services' WHERE `buildingid`='16';
-UPDATE `ssdi`.`buildings` SET `desc`='Witherspoon Hall' WHERE `buildingid`='17';
-UPDATE `ssdi`.`buildings` SET `desc`='Sanford Hall' WHERE `buildingid`='18';
-UPDATE `ssdi`.`buildings` SET `desc`='Belk Gym' WHERE `buildingid`='19';
-UPDATE `ssdi`.`buildings` SET `desc`='Memorial Hall' WHERE `buildingid`='20';
-UPDATE `ssdi`.`buildings` SET `desc`='Halton Wagner Complex' WHERE `buildingid`='21';
-UPDATE `ssdi`.`buildings` SET `desc`='Woodward Hall' WHERE `buildingid`='22';
-UPDATE `ssdi`.`buildings` SET `desc`='EPIC' WHERE `buildingid`='23';
-UPDATE `ssdi`.`buildings` SET `desc`='Facilities Management' WHERE `buildingid`='24';
-UPDATE `ssdi`.`buildings` SET `desc`='Grigg Hall' WHERE `buildingid`='25';
-UPDATE `ssdi`.`buildings` SET `desc`='Irwin Belk Track & Field' WHERE `buildingid`='26';
-UPDATE `ssdi`.`buildings` SET `desc`='High School' WHERE `buildingid`='27';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='East Entrance' WHERE `buildingid`='1';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='North Entrance' WHERE `buildingid`='2';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='West Entrance' WHERE `buildingid`='3';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='Foundation' WHERE `buildingid`='4';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='South Entrance' WHERE `buildingid`='5';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='Student Health Centre' WHERE `buildingid`='6';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='Burson' WHERE `buildingid`='7';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='Rose Football Centre' WHERE `buildingid`='8';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='Motorsports Research' WHERE `buildingid`='9';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='Cone University Centre' WHERE `buildingid`='10';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='Niner House' WHERE `buildingid`='11';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='Student Union' WHERE `buildingid`='12';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='Residence Dining Hall' WHERE `buildingid`='13';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='Scott Hall' WHERE `buildingid`='14';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='Hawthorn Hall' WHERE `buildingid`='15';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='Facilities Operations Parking Services' WHERE `buildingid`='16';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='Witherspoon Hall' WHERE `buildingid`='17';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='Sanford Hall' WHERE `buildingid`='18';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='Belk Gym' WHERE `buildingid`='19';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='Memorial Hall' WHERE `buildingid`='20';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='Halton Wagner Complex' WHERE `buildingid`='21';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='Woodward Hall' WHERE `buildingid`='22';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='EPIC' WHERE `buildingid`='23';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='Facilities Management' WHERE `buildingid`='24';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='Grigg Hall' WHERE `buildingid`='25';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='Irwin Belk Track & Field' WHERE `buildingid`='26';
+UPDATE `ssdi`.`buildings` SET `DESCRIPTION`='High School' WHERE `buildingid`='27';
 		
+commit;
