@@ -47,7 +47,7 @@ public class UserDAO {
 		Connection con=null;
 		CallableStatement callableStatement = null;
 		try{
-			String insertStoreProc = "{call USP_SubmitUserRegistration(?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+			String insertStoreProc = "{call USP_SubmitUserRegistration(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
 			  con= DataBaseUtil.getConnectionDAO();
 			  callableStatement = (CallableStatement) con.prepareCall(insertStoreProc);
 			 System.out.println("CONNECTION ESTABLISHED ");
@@ -65,14 +65,16 @@ public class UserDAO {
 				 callableStatement.setDate(5,ub.getDob());
 				 callableStatement.setString(6,ub.getPhone());
 				 callableStatement.setString(7,ub.getPassword());
-				 callableStatement.setString(8,ab.getLine1() );
-				 callableStatement.setString(9,ab.getLine2());
-				 callableStatement.setString(10,ab.getcity());
+				 callableStatement.setString(8, ub.getSecurity());
+				 callableStatement.setString(9, ub.getAnswer());
+				 callableStatement.setString(10,ab.getLine1() );
+				 callableStatement.setString(11,ab.getLine2());
+				 callableStatement.setString(12,ab.getcity());
 				 //callableStatement.setString(6,ab.getState());
-				 callableStatement.setLong(11,ab.getZip());
-				 callableStatement.setString(12,ab.getState());
-				 callableStatement.setString(13,ab.getCountry());
-
+				 callableStatement.setLong(13,ab.getZip());
+				 callableStatement.setString(14,ab.getState());
+				 callableStatement.setString(15,ab.getCountry());
+System.out.println(ub.getAnswer());
 				 callableStatement.executeUpdate();
 				 return true;
 				 

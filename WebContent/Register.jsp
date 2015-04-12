@@ -78,12 +78,30 @@
 			</p>
 			<input type="password" id="repassword" name="repassword" tabIndex="6"
 				required oninput="confirmPassword(this);">
+				
+		<p class="contact">
+			     <label for="security">Security Question</label>
+			</p>
+			     <p>  <select name="security" tabIndex="7">
+	                     <option value="What was the name of your elementary / primary school?">What was the name of your elementary / primary school?</option>
+                         <option value="In what year was your father born?">In what year was your father born?</option>
+                         <option value="What is your favorite food?">What is your favorite food?</option>
+          
+	                 </select>
+                </p><br>
+            <p class="contact">
+                <label for ="securityanswer">Answer</label>
+            </p>
+            <input type="text" id="answer" name="answer" tabIndex="8" required>
+                   
+                <br>
+                
 
 			<p class="contact">
 				<label for="dob">DOB</label>
 			</p>
 			<input id="dob" name="dob" placeholder="YYYY-MM-DD" required
-				tabindex="7" type="text" pattern="^\d{4}-\d{1,2}-\d{1,2}$"
+				tabindex="9" type="text" pattern="^\d{4}-\d{1,2}-\d{1,2}$"
 				oninvalid="setCustomValidity('Invalid format! Required format is DD/MM/YYYY')"
 				onchange="try{setCustomValidity('')}catch(e){}">
 
@@ -91,7 +109,7 @@
 				<label for="phone">Phone</label>
 			</p>
 			<input id="phone" name="phone" placeholder="+Country Code - Number"
-				required tabindex="8" type="text" pattern="^\+?\d+-\d{10}$"
+				required tabindex="10" type="text" pattern="^\+?\d+-\d{10}$"
 				oninvalid="setCustomValidity('Invalid Phone Number! Required format is +Country Code - Number')"
 				onchange="try{setCustomValidity('')}catch(e){}">
 
@@ -99,44 +117,44 @@
 				<label for="addLine1">Address Line 1</label>
 			</p>
 			<input id="addLine1" name="addLine1" placeholder="Address Line 1"
-				required tabindex="9" type="text">
+				required tabindex="11" type="text">
 
 			<p class="contact">
 				<label for="addLine2">Address Line 2</label>
 			</p>
 			<input id="addLine2" name="addLine2" placeholder="Address Line 2"
-				required tabindex="10" type="text">
+				required tabindex="12" type="text">
 
 			<p class="contact">
 				<label for="city">City</label>
 			</p>
 			<input id="city" name="city" placeholder="City" required
-				tabindex="11" type="text">
+				tabindex="13" type="text">
 
 			<p class="contact">
 				<label for="state">State</label>
 			</p>
 			<input id="state" name="state" placeholder="State" required
-				tabindex="12" type="text">
+				tabindex="14" type="text">
 
 			<p class="contact">
 				<label for="phone">Zip</label>
 			</p>
 			<input id="zip" name="zip" placeholder="Zip Code" required
-				tabindex="13" type="text">
+				tabindex="15" type="text">
 
 			<p class="contact">
 				<label for="country">Country</label>
 			</p>
 			<input id="country" name="country" placeholder="Country" required
-				tabindex="14" type="text">
+				tabindex="16" type="text">
 
 			<fieldset
 				style="width: 500px; border: 5px; border-top-color: Red !important;">
 				<legend>Credit Card Details</legend>
 				<p class="contact">
 					<label for="chkSkip">Skip for now&nbsp;</label> <input id="chkSkip"
-						name="chkSkip" tabindex="15" type="checkbox"
+						name="chkSkip" tabindex="17" type="checkbox"
 						onclick="disableCreditCardFields(this);">
 				</p>
 
@@ -144,7 +162,7 @@
 					<label for="creditCardNumber">Credit Card Number</label>
 				</p>
 				<input id="creditCardNumber" name="creditCardNumber"
-					placeholder="16 digit credit card number" required tabindex="16"
+					placeholder="16 digit credit card number" required tabindex="18"
 					type="text" pattern="^\d{16}$"
 					oninvalid="setCustomValidity('Invalid format! Required format is XXXXXXXXXXXXXXXX')"
 					onchange="try{setCustomValidity('')}catch(e){}">
@@ -152,7 +170,7 @@
 				<p class="contact">
 					<label for="cvv">CVV</label>
 				</p>
-				<input id="cvv" name="cvv" placeholder="XXX" required tabindex="17"
+				<input id="cvv" name="cvv" placeholder="XXX" required tabindex="19"
 					type="password" pattern="^\d{3}$"
 					oninvalid="setCustomValidity('Invalid format! Required format is XXX)"
 					onchange="try{setCustomValidity('')}catch(e){}">
@@ -161,20 +179,20 @@
 					<label for="cardName">Name on card</label>
 				</p>
 				<input id="cardName" name="cardName" placeholder="Name on card"
-					required tabindex="18" type="text">
+					required tabindex="20" type="text">
 
 				<p class="contact">
 					<label for="validUpto">Valid Upto</label>
 				</p>
 				<input id="validUpto" name="validUpto" placeholder="MM/YY" required
-					tabindex="19" type="text" pattern="^\d{1,2}/\d{2}$"
+					tabindex="21" type="text" pattern="^\d{1,2}/\d{2}$"
 					oninvalid="setCustomValidity('Invalid format! Required format is MM/YY')"
 					onchange="try{setCustomValidity('')}catch(e){}">
 			</fieldset>
 
 <!-- 			<input type="hidden" name="UserOperation" value="signup"/> -->
 			 <input
-				class="buttom" name="submit" id="submit" tabindex="20"
+				class="buttom" name="submit" id="submit" tabindex="22"
 				value="Sign me up!" type="submit">
 		</form>
 	</div>

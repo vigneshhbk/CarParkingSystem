@@ -53,5 +53,19 @@ private String email;
 private Date dob;
 private String phone;
 private String password;
+private String security;
+private String answer;
+public String getSecurity() {
+	return security;
+}
+public void setSecurity(String security) {
+	this.security = security;
+}
+public String getAnswer() {
+	return answer;
+}
+public void setAnswer(String answer) {
+	this.answer = answer;
+}
 
 }

@@ -52,12 +52,14 @@
 				<label for="password">Password</label>
 			</p>
 			<input type="password" id="password" name="password" required="">
-            <br/> <br/><br/> <br/>
+            <br/>
+            <a href="ResetPassword.jsp">Forgot Password?</a> 
+            <br/> <br/>
 			
 			<input class="buttom" name="submit" id="submit" tabindex="5" onclick="ValidateLogin()" value="Sign In" type="submit">
 
                         <input type="hidden" name="UserOperation" value="login">
-
+         
 		</form>
 	</div>
 	<!--footer-->

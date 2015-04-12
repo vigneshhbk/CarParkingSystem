@@ -12,6 +12,8 @@ IN FirstName VARCHAR(50)
 ,IN DOB DATE
 ,IN Phone VARCHAR(15)
 ,IN UserPassword VARCHAR(20)
+,IN Security VARCHAR(150)
+,IN ANSWER VARCHAR(50)
 -- ,IN UserId int
 ,IN AddressLine1 VARCHAR(45)
 ,IN AddressLine2 VARCHAR(45)
@@ -24,8 +26,8 @@ BEGIN
 
 DECLARE TempUserId INT;
 
-	INSERT INTO `ssdi`.`users`(fname, lname, ssn, email, dob, phone, `password`)  
-	VALUES(FirstName, LastName, SSN, Email, DOB, Phone, UserPassword);
+	INSERT INTO `ssdi`.`users`(fname, lname, ssn, email, dob, phone, `password`, SecurityQ, answer)  
+	VALUES(FirstName, LastName, SSN, Email, DOB, Phone, UserPassword, Security, ANSWER);
 
 
 	SET TempUserId = (SELECT  userid  FROM `ssdi`.`users` WHERE email = Email AND userid IS NOT NULL LIMIT 1);
@@ -36,7 +38,5 @@ DECLARE TempUserId INT;
 
 END//
 DELIMITER ;
-
-
 
 
