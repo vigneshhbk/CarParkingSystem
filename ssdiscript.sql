@@ -12,13 +12,10 @@ CREATE TABLE IF NOT EXISTS users (
   dob DATE NOT NULL,
   phone VARCHAR(15) NOT NULL,
   password VARCHAR(20) NOT NULL,
-<<<<<<< HEAD
   security VARCHAR(200) NOT NULL,
   answer VARCHAR(200) NOT NULL,
-=======
   SecurityQ VARCHAR(150) NOT NULL,
   answer VARCHAR(50) NOT NULL,
->>>>>>> origin/Sprint-2
   PRIMARY KEY (userid))
 ENGINE = InnoDB
 AUTO_INCREMENT = 1;
