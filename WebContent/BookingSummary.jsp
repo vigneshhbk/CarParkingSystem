@@ -1,4 +1,5 @@
 <%@page import="java.sql.ResultSet"%>
+<%@page import = "src.com.bean.BookingBean;" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -19,7 +20,7 @@
 <script src="javascript/script.js"></script>
 
 </head>
-<body style="height:650px;"">
+<body style="height:650px;">
 	<div class="header" id="home" style="height: 12% !important">
 		<div class="container">
 			<div class="header-logo">
@@ -46,75 +47,60 @@
 		<label id="lblErrorMessage" style="display: none; color: red"></label>
 		
 		<%
-		//ResultSet rs =(ResultSet)session.getAttribute("resultset"); 
-      //out.println("this is getAttribute of resultset"+rs);
-		String fname = "Alexander";
-String lname = "Grahambell";
-String ssn = "123-12-1234";
-String email = "Alex@gmail.com";
-String phone = "+1-1231231234";
-String creditnumber = "1234567891234567";
-String lotid = "11";
-String indate = "2015-03-04";
-String intime = "13:00:00";
-String outdate = "2015-03-04";
-String outtime = "14:00:00";
-String userid = "1";			
+      BookingBean booking = (BookingBean)session.getAttribute("BookingData");
 %>
     <!-- class="login"style="margin-top: 100px" -->
     <h2 style="margin-left: 50px">Booking Information</h2>
-    		<form id="bookingform" class="login" style="margin-top: 2px;margin-left: 50px"method="post" 
+    	<form id="bookingform" class="login" style="margin-top: 2px;margin-left: 50px"method="post" 
     		action="BookingController">
-					
-			
-			<input type="hidden" name="FirstName" value="<%=fname %>"></input>
-			<input type="hidden" name="UserId" value="<%=userid %>"></input>
-			<input type="hidden" name="LastName" value="<%=lname %>"></input>
-			<input type="hidden" name="Email" value="<%=email %>"></input>
-			<input type="hidden" name="Phone" value="<%=phone %>"></input>
-			<input type="hidden" name="CCNum" value="<%=creditnumber %>"></input>
-			<input type="hidden" name="LotId" value="<%=lotid %>"></input>				
-			<input type="hidden" name="InDate" value="<%=indate %>"></input>
-			<input type="hidden" name="InTime" value="<%=intime %>"></input>
-			<input type="hidden" name="OutDate" value="<%=outdate %>"></input>
-			<input type="hidden" name="OutTime" value="<%=outtime %>"></input>
+			<input type="hidden" name="FirstName" value="<%=booking.getFname() %>"></input>
+			<input type="hidden" name="UserId" value="<%=booking.getuserid() %>"></input>
+			<input type="hidden" name="LastName" value="<%=booking.getLname() %>"></input>
+			<input type="hidden" name="Email" value="<%=booking.getEmail() %>"></input>
+			<input type="hidden" name="Phone" value="<%=booking.getPhone() %>"></input>
+			<input type="hidden" name="CCNum" value="<%=booking.getcreditnumber() %>"></input>
+			<input type="hidden" name="LotId" value="<%=booking.getlotid() %>"></input>				
+			<input type="hidden" name="InDate" value="<%=booking.getindate() %>"></input>
+			<input type="hidden" name="InTime" value="<%=booking.getintime() %>"></input>
+			<input type="hidden" name="OutDate" value="<%=booking.getoutdate() %>"></input>
+			<input type="hidden" name="OutTime" value="<%=booking.getouttime() %>"></input>
 			
 			<p class="contact" id="P_FirstName">
-			<label id="L_FirstName">First Name:&nbsp;</label><%=fname %>
+			<label id="L_FirstName">First Name:&nbsp;</label><%=booking.getFname() %>
 			</p>
 		
 			<p class="contact" id="P_LastName">
-				<label id="L_LastName">last Name:&nbsp;</label><%=lname %>
+				<label id="L_LastName">last Name:&nbsp;</label><%=booking.getLname() %>
 			</p>
 		
 			<p class="contact" id="P_Email">
-				<label id="L_Email">Email:&nbsp;</label><%=email %>
+				<label id="L_Email">Email:&nbsp;</label><%=booking.getEmail() %>
 			</p>
 			
 			<p class="contact" id="P_Phone">
-				<label id="L_Phone">Phone Number:&nbsp;</label><%=phone %>
+				<label id="L_Phone">Phone Number:&nbsp;</label><%=booking.getPhone() %>
 			</p>
 			
 			<p class="contact" id="P_CCNum">
 				<label id="L_CCNum">Credit Card Number:&nbsp;****-</label>
-		<c:set var="msg"><%=creditnumber %></c:set>
+		<c:set var="msg"><%=booking.getcreditnumber() %></c:set>
 ${fn:substring(msg, 12, 16)}
 			</p>
 
 			<p class="contact" id="P_Lotid">
-				<label id="L_Lotid">Lot ID:&nbsp;</label><%=lotid %>
+				<label id="L_Lotid">Lot ID:&nbsp;</label><%=booking.getlotid() %>
 			</p>
 			
 			<p class="contact" name="P_InDate">
-				<label id="InDate">Check-In Date:&nbsp;</label><%=indate%>
+				<label id="InDate">Check-In Date:&nbsp;</label><%=booking.getindate()%>
 				&nbsp;&nbsp;&nbsp;	
-				<label id="L_InTime">Check-In Time:&nbsp;</label><%=intime%>
+				<label id="L_InTime">Check-In Time:&nbsp;</label><%=booking.getintime()%>
 			</p>
 			
 			<p class="contact" name="P_OutDate">
-				<label id="OutDate">Check-Out Date:&nbsp;</label><%=outdate%>
+				<label id="OutDate">Check-Out Date:&nbsp;</label><%=booking.getoutdate()%>
 				&nbsp;&nbsp;&nbsp;	
-				<label id="L_OutTime">Check-Out Time:&nbsp;</label><%=outtime%>
+				<label id="L_OutTime">Check-Out Time:&nbsp;</label><%=booking.getouttime()%>
 			</p>
             <br/> <br/>
 			

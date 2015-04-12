@@ -61,6 +61,9 @@ END IF;
 END//
 DELIMITER ;
 
+<<<<<<< HEAD
+
+=======
 DROP PROCEDURE IF EXISTS USP_BookingRegistration;
 DELIMITER //
 CREATE PROCEDURE USP_BookingRegistration(
@@ -76,14 +79,15 @@ BEGIN
 
 DECLARE hours INT;
 
-SET hours = (select TIMESTAMPDIFF(HOUR, TIMESTAMP(FDate, FTime),TIMESTAMP(TDate, TTime)) from dual);
+SET hours = (select TIMESTAMPDIFF(MINUTE, TIMESTAMP(FDate, FTime),TIMESTAMP(TDate, TTime)) from dual);
 
 	INSERT INTO `ssdi`.`booking`(LotID, SlotID, From_Date, From_Time, To_Date, To_Time, UserID, Cost)  
-	VALUES(LID, SID, FDate, FTime, TDate, TTime, UsrID, hours*5 );
+	VALUES(LID, SID, FDate, FTime, TDate, TTime, UsrID, hours*0.5 );
 
 
 END//
 DELIMITER ;
+<<<<<<< HEAD
 
 
 DELIMITER //
@@ -118,3 +122,6 @@ BEGIN
 END //
 DELIMITER ;
 
+=======
+>>>>>>> origin/Sprint-2
+>>>>>>> origin/Sprint-2

@@ -15,7 +15,6 @@ function urlParam(name){
 }
 
 function displayBuildings(){
-	alert('display buildings');
 	jQuery('#fromDate').val(urlParam('fromDate'));
 	jQuery('#toDate').val(urlParam('toDate'));
 	jQuery('#fromTime').val(urlParam('fromTime'));
@@ -56,8 +55,6 @@ function displayNearbyLots(buildingId){
 	var toDate = jQuery('#toDate').val();
 	var fromTime = jQuery('#fromTime').val();
 	var toTime = jQuery('#toTime').val();
-	alert(fromDate);
-	alert(toDate);
 	fromTime = fromTime + ':00';
 	toTime = toTime + ':00';
 	jQuery.ajax({
@@ -76,7 +73,8 @@ function displayNearbyLots(buildingId){
 	    	      type: "ROADMAP" // Map type (optional)
 	    	});
 	    	jQuery.each(data, function(index){
-	    		var dataString = "Name: "+data[index].name;
+	    		var dataString = '<input type=\'button\' value=\'Book Now\' ' +
+	    				'onclick=bookParkingLot('+data[index].lotId+',\''+fromDate+'\',\''+fromTime+'\',\''+toDate+'\',\''+toTime+'\');></input>';
 	    	    $("#map").addMarker({
 	    	    	coords: [data[index].latitude, data[index].longitude],
 	    	    	title: data[index].name,
@@ -84,6 +82,25 @@ function displayNearbyLots(buildingId){
 	    	    	id: data[index].name,
 	    	    });
 	    	});
+	    },
+	    error:function(data, status, er){
+	    	alert("error: "+data+" status: "+status+" er:"+er);
+	    }
+	});
+}
+
+function bookParkingLot(lotId, fromDate, fromTime, toDate, toTime){
+	jQuery.ajax({
+		url: "AjaxHandler",
+		type: 'GET',
+	    dataType: 'json',
+	    data: {FieldId: "bookLot", LotId: lotId, FromDate: fromDate,
+	    	ToDate: toDate, FromTime: fromTime, ToTime: toTime},
+	    contentType: 'application/json',
+	    mimeType: 'application/json',
+	    success: function (data) {
+	    	var url = window.location.origin + "/" + window.location.pathname.split("/")[1];
+	    	window.location = url+"/BookingSummary.jsp";
 	    },
 	    error:function(data, status, er){
 	    	alert("error: "+data+" status: "+status+" er:"+er);
