@@ -54,10 +54,10 @@ String ssn = "123-12-1234";
 String email = "Alex@gmail.com";
 String phone = "+1-1231231234";
 String creditnumber = "1234567891234567";
-String lotid = "10";
-String indate = "2015-03-03";
+String lotid = "11";
+String indate = "2015-03-04";
 String intime = "13:00:00";
-String outdate = "2015-03-03";
+String outdate = "2015-03-04";
 String outtime = "14:00:00";
 String userid = "1";			
 %>
