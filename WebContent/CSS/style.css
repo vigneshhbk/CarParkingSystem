@@ -298,9 +298,14 @@ span.menu {
 }
 
 .homeForm {
+<<<<<<< HEAD
 	background: rgba(76,151,168,0.9);
 	width: 600px;
 	right:2%;
+=======
+	background: #f1f1f1;
+	width: 600px;
+>>>>>>> origin/Sprint-2
 	margin-left: 450px;
 	margin: 0 auto;
 	padding-left: 50px;

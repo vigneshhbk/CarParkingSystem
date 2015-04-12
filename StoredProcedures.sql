@@ -12,8 +12,11 @@ IN FirstName VARCHAR(50)
 ,IN DOB DATE
 ,IN Phone VARCHAR(15)
 ,IN UserPassword VARCHAR(20)
+<<<<<<< HEAD
 ,IN Security VARCHAR(150)
 ,IN ANSWER VARCHAR(50)
+=======
+>>>>>>> origin/Sprint-2
 -- ,IN UserId int
 ,IN AddressLine1 VARCHAR(45)
 ,IN AddressLine2 VARCHAR(45)
@@ -26,8 +29,13 @@ BEGIN
 
 DECLARE TempUserId INT;
 
+<<<<<<< HEAD
 	INSERT INTO `ssdi`.`users`(fname, lname, ssn, email, dob, phone, `password`, SecurityQ, answer)  
 	VALUES(FirstName, LastName, SSN, Email, DOB, Phone, UserPassword, Security, ANSWER);
+=======
+	INSERT INTO `ssdi`.`users`(fname, lname, ssn, email, dob, phone, `password`)  
+	VALUES(FirstName, LastName, SSN, Email, DOB, Phone, UserPassword);
+>>>>>>> origin/Sprint-2
 
 
 	SET TempUserId = (SELECT  userid  FROM `ssdi`.`users` WHERE email = Email AND userid IS NOT NULL LIMIT 1);
@@ -39,9 +47,17 @@ DECLARE TempUserId INT;
 END//
 DELIMITER ;
 
+<<<<<<< HEAD
 DROP PROCEDURE IF EXISTS USP_BookingRegistration;
 DELIMITER //
 CREATE PROCEDURE USP_BookingRegistration(
+=======
+
+DROP PROCEDURE IF EXISTS USP_BookingRegistration;
+DELIMITER //
+CREATE PROCEDURE USP_BookingRegistration(
+IN BID INT(11),
+>>>>>>> origin/Sprint-2
 IN LID INT(11),
 IN SID INT(11),
 IN FDate DATE,
@@ -51,6 +67,7 @@ IN TTime TIME,
 IN UsrID INT(11)
 )
 BEGIN
+<<<<<<< HEAD
 
 DECLARE hours INT;
 
@@ -62,3 +79,11 @@ SET hours = (select TIMESTAMPDIFF(HOUR, TIMESTAMP(FDate, FTime),TIMESTAMP(TDate,
 
 END//
 DELIMITER ;
+=======
+DECLARE TempUserId INT;
+	INSERT INTO `ssdi`.`booking`(BookingID, LotID, SlotID, From_Date, From_Time, To_Date, To_Time, UserID)  
+	VALUES(BID, LID, SID, FDate, FTime, TDate, TTime, UsrID);
+END//
+DELIMITER ;
+
+>>>>>>> origin/Sprint-2

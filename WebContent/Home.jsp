@@ -21,7 +21,13 @@
 <script src="javascript/jquery-clockpicker.min.js"></script>
 <script src="javascript/bootstrap-datepicker.js"></script>
 <script type="text/javascript" src="//www.google.fr/jsapi"></script>
+<script type="text/javascript">
+    	google.load("maps", "3.4", {
+    		other_params: "sensor=false&language=fr"
+    	});
+	</script>
 <script src="javascript/script.js"></script>
+<script type="text/javascript" src="javascript/jquery.googlemap.js"></script>
 </head>
 <body style="height: 942px;">
 	<!--header-->
@@ -93,13 +99,13 @@
 							<span class="glyphicon glyphicon-time"></span>
 							</span>
 						</div>
-						<input class="buttom" type="submit" value="View Parkings" onclick="redirectToViewParkings();">						
+						<input class="buttom" type="submit" value="View Parkings" onclick="displayBuildings();">						
 					</div>
+					<div class="mapView" style="display:none" id="map"></div>
 				</li>
 			</ul>
 		</div>
-		<div class="clearfix"></div>
-		<input type="hidden" name="UserOperation" value="viewParkings"> 	
+		<div class="clearfix"></div>	
 	</div>
 	<!--//banner-->
 	

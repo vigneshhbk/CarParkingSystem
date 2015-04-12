@@ -53,6 +53,7 @@ private String email;
 private Date dob;
 private String phone;
 private String password;
+<<<<<<< HEAD
 private String security;
 private String answer;
 public String getSecurity() {
@@ -69,3 +70,7 @@ public void setAnswer(String answer) {
 }
 
 }
+=======
+
+}
+>>>>>>> origin/Sprint-2

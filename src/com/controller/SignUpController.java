@@ -61,8 +61,11 @@ public class SignUpController extends HttpServlet {
 		   ub.setFname(request.getParameter("fName"));
 		   ub.setLname(request.getParameter("lName"));
 		   ub.setPassword(request.getParameter("password"));
+<<<<<<< HEAD
 		   ub.setSecurity(request.getParameter("security"));
 		   ub.setAnswer(request.getParameter("answer"));
+=======
+>>>>>>> origin/Sprint-2
 		   ub.setPhone(request.getParameter("phone"));
 		   ub.setSsn(request.getParameter("ssn"));
 		   ub.setDob(java.sql.Date.valueOf(request.getParameter("dob")));

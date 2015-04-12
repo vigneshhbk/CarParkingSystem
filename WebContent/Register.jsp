@@ -78,6 +78,7 @@
 			</p>
 			<input type="password" id="repassword" name="repassword" tabIndex="6"
 				required oninput="confirmPassword(this);">
+<<<<<<< HEAD
 				
 		<p class="contact">
 			     <label for="security">Security Question</label>
@@ -96,12 +97,18 @@
                    
                 <br>
                 
+=======
+>>>>>>> origin/Sprint-2
 
 			<p class="contact">
 				<label for="dob">DOB</label>
 			</p>
 			<input id="dob" name="dob" placeholder="YYYY-MM-DD" required
+<<<<<<< HEAD
 				tabindex="9" type="text" pattern="^\d{4}-\d{1,2}-\d{1,2}$"
+=======
+				tabindex="7" type="text" pattern="^\d{4}-\d{1,2}-\d{1,2}$"
+>>>>>>> origin/Sprint-2
 				oninvalid="setCustomValidity('Invalid format! Required format is DD/MM/YYYY')"
 				onchange="try{setCustomValidity('')}catch(e){}">
 
@@ -109,7 +116,11 @@
 				<label for="phone">Phone</label>
 			</p>
 			<input id="phone" name="phone" placeholder="+Country Code - Number"
+<<<<<<< HEAD
 				required tabindex="10" type="text" pattern="^\+?\d+-\d{10}$"
+=======
+				required tabindex="8" type="text" pattern="^\+?\d+-\d{10}$"
+>>>>>>> origin/Sprint-2
 				oninvalid="setCustomValidity('Invalid Phone Number! Required format is +Country Code - Number')"
 				onchange="try{setCustomValidity('')}catch(e){}">
 
@@ -117,44 +128,72 @@
 				<label for="addLine1">Address Line 1</label>
 			</p>
 			<input id="addLine1" name="addLine1" placeholder="Address Line 1"
+<<<<<<< HEAD
 				required tabindex="11" type="text">
+=======
+				required tabindex="9" type="text">
+>>>>>>> origin/Sprint-2
 
 			<p class="contact">
 				<label for="addLine2">Address Line 2</label>
 			</p>
 			<input id="addLine2" name="addLine2" placeholder="Address Line 2"
+<<<<<<< HEAD
 				required tabindex="12" type="text">
+=======
+				required tabindex="10" type="text">
+>>>>>>> origin/Sprint-2
 
 			<p class="contact">
 				<label for="city">City</label>
 			</p>
 			<input id="city" name="city" placeholder="City" required
+<<<<<<< HEAD
 				tabindex="13" type="text">
+=======
+				tabindex="11" type="text">
+>>>>>>> origin/Sprint-2
 
 			<p class="contact">
 				<label for="state">State</label>
 			</p>
 			<input id="state" name="state" placeholder="State" required
+<<<<<<< HEAD
 				tabindex="14" type="text">
+=======
+				tabindex="12" type="text">
+>>>>>>> origin/Sprint-2
 
 			<p class="contact">
 				<label for="phone">Zip</label>
 			</p>
 			<input id="zip" name="zip" placeholder="Zip Code" required
+<<<<<<< HEAD
 				tabindex="15" type="text">
+=======
+				tabindex="13" type="text">
+>>>>>>> origin/Sprint-2
 
 			<p class="contact">
 				<label for="country">Country</label>
 			</p>
 			<input id="country" name="country" placeholder="Country" required
+<<<<<<< HEAD
 				tabindex="16" type="text">
+=======
+				tabindex="14" type="text">
+>>>>>>> origin/Sprint-2
 
 			<fieldset
 				style="width: 500px; border: 5px; border-top-color: Red !important;">
 				<legend>Credit Card Details</legend>
 				<p class="contact">
 					<label for="chkSkip">Skip for now&nbsp;</label> <input id="chkSkip"
+<<<<<<< HEAD
 						name="chkSkip" tabindex="17" type="checkbox"
+=======
+						name="chkSkip" tabindex="15" type="checkbox"
+>>>>>>> origin/Sprint-2
 						onclick="disableCreditCardFields(this);">
 				</p>
 
@@ -162,7 +201,11 @@
 					<label for="creditCardNumber">Credit Card Number</label>
 				</p>
 				<input id="creditCardNumber" name="creditCardNumber"
+<<<<<<< HEAD
 					placeholder="16 digit credit card number" required tabindex="18"
+=======
+					placeholder="16 digit credit card number" required tabindex="16"
+>>>>>>> origin/Sprint-2
 					type="text" pattern="^\d{16}$"
 					oninvalid="setCustomValidity('Invalid format! Required format is XXXXXXXXXXXXXXXX')"
 					onchange="try{setCustomValidity('')}catch(e){}">
@@ -170,7 +213,11 @@
 				<p class="contact">
 					<label for="cvv">CVV</label>
 				</p>
+<<<<<<< HEAD
 				<input id="cvv" name="cvv" placeholder="XXX" required tabindex="19"
+=======
+				<input id="cvv" name="cvv" placeholder="XXX" required tabindex="17"
+>>>>>>> origin/Sprint-2
 					type="password" pattern="^\d{3}$"
 					oninvalid="setCustomValidity('Invalid format! Required format is XXX)"
 					onchange="try{setCustomValidity('')}catch(e){}">
@@ -179,20 +226,32 @@
 					<label for="cardName">Name on card</label>
 				</p>
 				<input id="cardName" name="cardName" placeholder="Name on card"
+<<<<<<< HEAD
 					required tabindex="20" type="text">
+=======
+					required tabindex="18" type="text">
+>>>>>>> origin/Sprint-2
 
 				<p class="contact">
 					<label for="validUpto">Valid Upto</label>
 				</p>
 				<input id="validUpto" name="validUpto" placeholder="MM/YY" required
+<<<<<<< HEAD
 					tabindex="21" type="text" pattern="^\d{1,2}/\d{2}$"
+=======
+					tabindex="19" type="text" pattern="^\d{1,2}/\d{2}$"
+>>>>>>> origin/Sprint-2
 					oninvalid="setCustomValidity('Invalid format! Required format is MM/YY')"
 					onchange="try{setCustomValidity('')}catch(e){}">
 			</fieldset>
 
 <!-- 			<input type="hidden" name="UserOperation" value="signup"/> -->
 			 <input
+<<<<<<< HEAD
 				class="buttom" name="submit" id="submit" tabindex="22"
+=======
+				class="buttom" name="submit" id="submit" tabindex="20"
+>>>>>>> origin/Sprint-2
 				value="Sign me up!" type="submit">
 		</form>
 	</div>
