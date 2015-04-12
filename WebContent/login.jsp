@@ -52,22 +52,14 @@
 				<label for="password">Password</label>
 			</p>
 			<input type="password" id="password" name="password" required="">
-<<<<<<< HEAD
             <br/>
             <a href="ResetPassword.jsp">Forgot Password?</a> 
             <br/> <br/>
-=======
-            <br/> <br/><br/> <br/>
->>>>>>> origin/Sprint-2
 			
 			<input class="buttom" name="submit" id="submit" tabindex="5" onclick="ValidateLogin()" value="Sign In" type="submit">
 
                         <input type="hidden" name="UserOperation" value="login">
-<<<<<<< HEAD
          
-=======
-
->>>>>>> origin/Sprint-2
 		</form>
 	</div>
 	<!--footer-->

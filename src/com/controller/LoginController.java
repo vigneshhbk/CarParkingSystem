@@ -71,6 +71,18 @@ public class LoginController extends HttpServlet {
 			  if(ud.validateUser(ub)){
 				  System.out.println("login validated");
 				  
+				  //creating session object.
+				  
+				     HttpSession session=request.getSession();
+				  
+				  //setting session attributes
+				    session.setAttribute("userId", ub.getEmail());
+				    
+				//String test=(String)session.getAttribute("userId");
+				//System.out.println(test);
+				    
+					session.setAttribute("pwd", ub.getPassword());
+				  
 				  RequestDispatcher rd=request.getRequestDispatcher("/Home.jsp");
 				  rd.forward(request,response);
 				  

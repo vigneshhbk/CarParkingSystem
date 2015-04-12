@@ -6,34 +6,33 @@
 <title>Parking Reservation System</title>
 <link href="CSS/style.css" rel="stylesheet" />
 <link href="CSS/bootstrap.css" rel="stylesheet" />
-<link href="CSS/demo.css" rel="stylesheet" />
+<link href="CSS/swipebox.css" rel="stylesheet" />
+<link href="CSS/jquery-clockpicker.css" rel="stylesheet" />
+<link href="CSS/bootstrap-clockpicker.min.css" rel="stylesheet" />
+<link href="CSS/bootstrap.min.css" rel="stylesheet" />
+<link href="CSS/github.min.css" rel="stylesheet" />
+<link href="CSS/datepicker.css" rel="stylesheet" />
 <!--web-font-->
 <link href='http://fonts.googleapis.com/css?family=Pathway+Gothic+One'
 	rel='stylesheet' type='text/css'>
 <!--//web-font-->
 <script src="javascript/jquery-1.11.2.js"></script>
+
+<script src="javascript/jquery-clockpicker.min.js"></script>
+<script src="javascript/bootstrap-datepicker.js"></script>
 <script type="text/javascript" src="//www.google.fr/jsapi"></script>
 <script type="text/javascript">
     	google.load("maps", "3.4", {
     		other_params: "sensor=false&language=fr"
     	});
 	</script>
+<script src="javascript/script.js"></script>
 <script type="text/javascript" src="javascript/jquery.googlemap.js"></script>
 <script type="text/javascript">
-	  $(function() {
-	    $("#map").googleMap({
-	      zoom: 17, // Initial zoom level (optional)
-	      coords: [35.30757, -80.728552], // Map center (optional)
-	      type: "ROADMAP" // Map type (optional)
-	    });
-	    
-	    $("#map").addMarker({
-	    	coords: [35.3074208, -80.72557837],
-	    	title: 'Lot5A',
-	    	text: 'Lot5A Parking Lot'
-	    });
-	  })
-	</script>
+	jQuery(document).ready(function(){
+		displayBuildings();
+	});
+</script>
 </head>
 <body>
 	<!--header-->
@@ -48,13 +47,8 @@
 					<li><a href="Home.jsp" class="scroll">HOME</a></li>
 					<li><a href="#about" class="scroll">ABOUT</a></li>
 					<li><a href="#" class="scroll">CONTACT US</a></li>
-<<<<<<< HEAD
 					<li><a href="login.jsp" class="scroll">LOGIN</a></li>
 					<li><a href="Register.jsp" class="scroll">REGISTER</a></li>
-=======
-					<li><a href="#" class="scroll">LOGIN</a></li>
-					<li><a href="#" class="active">REGISTER</a></li>
->>>>>>> origin/Sprint-2
 
 				</ul>
 				<!-- script-for-menu -->
@@ -63,7 +57,6 @@
 			<div class="clearfix"></div>
 		</div>
 	</div>
-<<<<<<< HEAD
 	<form>
 		<table style="width:100%;">
 			<tr>
@@ -114,9 +107,6 @@
 			</tr>
 		</table>
 	</form> 	
-=======
-	<div id="map" style="width: 1800px; height: 800px;"></div>
->>>>>>> origin/Sprint-2
 	<!--footer-->
 	<div class="footer">
 		<div class="container">

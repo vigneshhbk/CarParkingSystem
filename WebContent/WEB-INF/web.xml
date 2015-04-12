@@ -7,16 +7,7 @@
 	<welcome-file-list>
 		<welcome-file>Home.jsp</welcome-file>
 	</welcome-file-list>
-	<servlet>
-		<description></description>
-		<display-name>HomeServlet</display-name>
-		<servlet-name>HomeServlet</servlet-name>
-		<servlet-class>carParkingSystem.controller.HomeServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>HomeServlet</servlet-name>
-		<url-pattern>/HomeServlet</url-pattern>
-	</servlet-mapping>
+
 	<servlet>
 		<description></description>
 		<display-name>SignUpController</display-name>
@@ -27,10 +18,6 @@
 		<servlet-name>SignUpController</servlet-name>
 		<url-pattern>/SignUpController</url-pattern>
 	</servlet-mapping>
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/Sprint-2
 <servlet>
 		<description></description>
 		<display-name>BookingController</display-name>
@@ -51,5 +38,13 @@
 	<servlet-mapping>
 		<servlet-name>LoginController</servlet-name>
 		<url-pattern>/LoginController</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AjaxHandler</servlet-name>
+		<servlet-class>src.com.handler.AjaxHandler</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AjaxHandler</servlet-name>
+		<url-pattern>/AjaxHandler</url-pattern>
 	</servlet-mapping>
 </web-app>
