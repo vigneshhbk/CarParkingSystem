@@ -44,7 +44,7 @@ public class UserDAO {
 		
 	}
 	
-	public  int addUserDetails(UserBean ub,AdressBean ab, CreditCard cc){
+	//public  int addUserDetails(UserBean ub,AdressBean ab, CreditCard cc){
 	public UserBean GetUserDetails(int userID){
 		UserBean user = new UserBean();
 		try{
@@ -68,7 +68,7 @@ public class UserDAO {
 		return user;		
 	}
 	
-	public  boolean addUserDetails(UserBean ub,AdressBean ab){
+	public  int addUserDetails(UserBean ub, AdressBean ab, CreditCard cc){
 
 		Connection con=null;
 		CallableStatement callableStatement = null;

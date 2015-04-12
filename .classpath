@@ -1,50 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path=""/>
-	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v8.0"/>
+	<classpathentry kind="lib" path="C:/libraries/gson-2.2.2.jar"/>
+	<classpathentry kind="lib" path="C:/libraries/javax.mail-1.4.5.jar"/>
+	<classpathentry kind="lib" path="C:/libraries/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/libraries/mysql-connector-java-5.0.8-bin.jar"/>
+	<classpathentry kind="lib" path="C:/libraries/servlet-api.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-<<<<<<< HEAD
-	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/libraries/gson-2.2.2.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/libraries/javax.mail-1.4.5.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/libraries/jstl-1.2.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/libraries/mysql-connector-java-5.0.8-bin.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/libraries/servlet-api.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/libraries/google-api-client-1.18.0-rc.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
-		</attributes>
-	</classpathentry>
-=======
-	<classpathentry kind="lib" path="C:/Users/BhargavRamReddy/Desktop/gson-2.2.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/BhargavRamReddy/Desktop/javax.mail-0.4-incubating-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/BhargavRamReddy/Desktop/javax.mail-1.4.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/BhargavRamReddy/Desktop/mysql-connector.jar"/>
-	<classpathentry kind="lib" path="C:/Users/BhargavRamReddy/Desktop/servlet-api.jar"/>
->>>>>>> origin/Sprint-2
 	<classpathentry kind="output" path="bin"/>
 </classpath>
