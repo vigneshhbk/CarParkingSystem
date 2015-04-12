@@ -20,7 +20,7 @@
 <script src="javascript/script.js"></script>
 
 </head>
-<body style="height:650px;"">
+<body style="height:650px;">
 	<div class="header" id="home" style="height: 12% !important">
 		<div class="container">
 			<div class="header-logo">

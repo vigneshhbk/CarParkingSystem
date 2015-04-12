@@ -54,10 +54,10 @@ BEGIN
 
 DECLARE hours INT;
 
-SET hours = (select TIMESTAMPDIFF(HOUR, TIMESTAMP(FDate, FTime),TIMESTAMP(TDate, TTime)) from dual);
+SET hours = (select TIMESTAMPDIFF(MINUTE, TIMESTAMP(FDate, FTime),TIMESTAMP(TDate, TTime)) from dual);
 
 	INSERT INTO `ssdi`.`booking`(LotID, SlotID, From_Date, From_Time, To_Date, To_Time, UserID, Cost)  
-	VALUES(LID, SID, FDate, FTime, TDate, TTime, UsrID, hours*5 );
+	VALUES(LID, SID, FDate, FTime, TDate, TTime, UsrID, hours*0.5 );
 
 
 END//

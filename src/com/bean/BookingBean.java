@@ -96,6 +96,4 @@ private String intime;
 private String outdate;
 private String outtime;
 private String userid;
-
-
 }

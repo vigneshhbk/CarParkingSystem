@@ -43,6 +43,29 @@ public class UserDAO {
 		
 	}
 	
+	public UserBean GetUserDetails(int userID){
+		UserBean user = new UserBean();
+		try{
+			con=DataBaseUtil.getConnectionDAO();
+			System.out.println("CONNECTION ESTABLISHED ");
+			PreparedStatement ps=con.prepareStatement("select * from users where  userid=?");
+			ps.setInt(1, userID);
+			ResultSet rs=ps.executeQuery();
+			if(rs.next()){  
+				user.setFname(rs.getString("fname"));
+				user.setLname(rs.getString("lname"));
+				user.setSsn(rs.getString("ssn"));
+				user.setEmail(rs.getString("email"));
+				user.setPhone(rs.getString("phone"));
+				user.setCreditCardNumber(rs.getString("ssn"));
+			}	  
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return user;		
+	}
+	
 	public  boolean addUserDetails(UserBean ub,AdressBean ab){
 		Connection con=null;
 		CallableStatement callableStatement = null;

@@ -55,6 +55,7 @@ private String phone;
 private String password;
 private String security;
 private String answer;
+private String creditCardNumber;
 public String getSecurity() {
 	return security;
 }
@@ -67,5 +68,10 @@ public String getAnswer() {
 public void setAnswer(String answer) {
 	this.answer = answer;
 }
-
+public String getCreditCardNumber() {
+	return creditCardNumber;
+}
+public void setCreditCardNumber(String creditCardNumber) {
+	this.creditCardNumber = creditCardNumber;
+}
 }

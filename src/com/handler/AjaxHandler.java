@@ -4,14 +4,20 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import src.com.bean.BookingBean;
 import src.com.bean.BuildingBean;
 import src.com.bean.LotBean;
+import src.com.bean.UserBean;
+import src.com.dao.BookingDAO;
 import src.com.dao.BuildingsDAO;
+import src.com.dao.UserDAO;
 
 import com.google.gson.Gson;
 
@@ -69,6 +75,39 @@ public class AjaxHandler extends HttpServlet {
 	    			 e.printStackTrace();
 	    		 }
 	    	  }
+	    	  else if(request.getParameter("FieldId").equalsIgnoreCase("bookLot")){	  
+		    		 HttpSession session = request.getSession(true);
+		    		 String userId = "1";// session.getAttribute("userId").toString();
+		    		 PrintWriter out=response.getWriter(); 		
+		    		 try{
+		    			 UserDAO ud = new UserDAO();
+		    			 UserBean user = null;
+		    			 user = ud.GetUserDetails(Integer.parseInt(userId));
+		    			 BookingBean bookingData = new BookingBean();	    				
+		    			 bookingData.setuserid(userId);
+		    			 bookingData.setFname(user.getFname());
+		    			 bookingData.setLname(user.getLname());
+		    			 bookingData.setSsn(user.getSsn());
+		    			 bookingData.setEmail(user.getEmail());
+		    			 bookingData.setPhone(user.getPhone());
+		    			 bookingData.setcreditnumber(user.getCreditCardNumber());
+		    			 bookingData.setlotid(request.getParameter("LotId"));
+		    			 bookingData.setindate(request.getParameter("FromDate"));
+		    			 bookingData.setoutdate(request.getParameter("ToDate"));
+		    			 bookingData.setintime(request.getParameter("FromTime"));
+		    			 bookingData.setouttime(request.getParameter("ToTime"));
+		    			 session.setAttribute("BookingData", bookingData);
+//		    			 request.setAttribute("BookingData",bookingData);
+//		    			 RequestDispatcher rd=request.getRequestDispatcher("/BookingSummary.jsp");
+//		    			 rd.forward(request,response);
+		    			 Gson gson = new Gson();
+		    			 String booking = gson.toJson(bookingData);
+		    			 out.println(booking);
+		    		 }
+		    		 catch(Exception e){ 			 
+		    			 e.printStackTrace();
+		    		 }
+		    	  }
 	      }
 	}
 
@@ -76,6 +115,6 @@ public class AjaxHandler extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub			
+		// TODO Auto-generated method stub
 	}
 }
