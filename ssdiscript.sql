@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS creditcard (
   expyear INT NOT NULL,
   name VARCHAR(45) NOT NULL,
   type VARCHAR(45) NOT NULL,
-  PRIMARY KEY (creditcard),
+  PRIMARY KEY (creditcard,`userid`),
   INDEX credit_userid_idx (userid ASC),
   CONSTRAINT credit_userid
     FOREIGN KEY (userid)
