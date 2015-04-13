@@ -56,6 +56,7 @@ private String password;
 private String security;
 private String answer;
 private String creditCardNumber;
+private String userId;
 public String getSecurity() {
 	return security;
 }
@@ -73,5 +74,11 @@ public String getCreditCardNumber() {
 }
 public void setCreditCardNumber(String creditCardNumber) {
 	this.creditCardNumber = creditCardNumber;
+}
+public String getUserId() {
+	return userId;
+}
+public void setUserId(String userId) {
+	this.userId = userId;
 }
 }

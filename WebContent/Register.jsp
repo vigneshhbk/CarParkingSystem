@@ -15,6 +15,17 @@
 <script src="javascript/script.js"></script>
 </head>
 <body>
+	<%
+      String userid = (String)session.getAttribute("userId");
+%>	
+	<div class="welcomeDiv">
+		<%if(userid!=null){%>
+			<p>Welcome,&nbsp;<%=userid %>!</p>
+			<a href=Signout.jsp>sign out</a>
+		<%}else{%>
+			<p>Welcome,&nbsp;Guest!</p>
+		<%} %>
+	</div>
 	<!--header-->
 	<div class="header" id="home">
 		<div class="container">
@@ -27,9 +38,12 @@
 					<li><a href="Home.jsp" class="scroll">HOME</a></li>
 					<li><a href="#about" class="scroll">ABOUT</a></li>
 					<li><a href="#" class="scroll">CONTACT US</a></li>
+					<%if(userid!=null){%>
+					<li><a href="#" class="scroll">LOGIN</a></li>
+					<%}else{ %>
 					<li><a href="login.jsp" class="scroll">LOGIN</a></li>
-					<li><a href="#" class="active">REGISTER</a></li>
-
+					<%} %>
+					<li><a href="Register.jsp" class="active">REGISTER</a></li>
 				</ul>
 				<!-- script-for-menu -->
 

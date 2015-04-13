@@ -1,16 +1,18 @@
 use ssdi;
 
-
--- CALL USP_SubmitUserRegistration('SUJ','M','111-11-1111','SM2@UNCC.EDU', 
+-- CALL USP_SubmitUserRegistration('SUJ','M','111-11-1111','SMeed444@UNCC.EDU', 
 -- '1990-12-12','+17042324472','SUJ','question','answer','a1','a2','city',33,'NC','CC'
--- ,333333333, 09,09,00, 'card name','card type' );
+-- ,33333333, 09,09,00, 'card name','card type',@out_value );
+-- SELECT @out_value;
+ 
+  
 DROP PROCEDURE IF EXISTS USP_SubmitUserRegistration;
 DELIMITER //
 CREATE PROCEDURE USP_SubmitUserRegistration(
 IN FirstName VARCHAR(50)
 ,IN LastName VARCHAR(50)
 ,IN SSN VARCHAR(45)
-,IN Email VARCHAR(100)
+,IN UserEmail VARCHAR(100)
 ,IN DOB DATE
 ,IN Phone VARCHAR(15)
 ,IN UserPassword VARCHAR(20)
@@ -34,17 +36,21 @@ IN FirstName VARCHAR(50)
 BEGIN
 
 DECLARE TempUserId INT;
+DECLARE UserCount INT;
 
-IF NOT  EXISTS(SELECT  1  FROM `ssdi`.`users` WHERE email = Email ) 
+SET UserCount = (SELECT  count(userid ) FROM `ssdi`.`users` WHERE email = UserEmail);
+select UserCount;
+ IF (UserCount < 1 ) 
+-- if ( 0 < 1)
 THEN
 
 	SET IsUserExists = 0;
 
 	INSERT INTO `ssdi`.`users`(fname, lname, ssn, email, dob, phone, `password`, `security`, answer)  
-	VALUES(FirstName, LastName, SSN, Email, DOB, Phone, UserPassword, SecurityQuestion, Answer);
+	VALUES(FirstName, LastName, SSN, UserEmail, DOB, Phone, UserPassword, SecurityQuestion, Answer);
 
 
-	SET TempUserId = (SELECT  userid  FROM `ssdi`.`users` WHERE email = Email AND userid IS NOT NULL LIMIT 1);
+	SET TempUserId = (SELECT  userid  FROM `ssdi`.`users` WHERE email = UserEmail AND userid IS NOT NULL LIMIT 1);
 
 
 	INSERT INTO `ssdi`.`address` (userid, line1, line2, city, zip, country)
@@ -61,9 +67,7 @@ END IF;
 END//
 DELIMITER ;
 
-<<<<<<< HEAD
 
-=======
 DROP PROCEDURE IF EXISTS USP_BookingRegistration;
 DELIMITER //
 CREATE PROCEDURE USP_BookingRegistration(
@@ -87,7 +91,6 @@ SET hours = (select TIMESTAMPDIFF(MINUTE, TIMESTAMP(FDate, FTime),TIMESTAMP(TDat
 
 END//
 DELIMITER ;
-<<<<<<< HEAD
 
 
 DELIMITER //
@@ -122,6 +125,3 @@ BEGIN
 END //
 DELIMITER ;
 
-=======
->>>>>>> origin/Sprint-2
->>>>>>> origin/Sprint-2

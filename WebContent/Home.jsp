@@ -24,11 +24,22 @@
 <script src="javascript/script.js"></script>
 </head>
 <body style="height: 942px;">
+<%
+      String userid = (String)session.getAttribute("userId");
+%>	
+	<div class="welcomeDiv">
+		<%if(userid!=null){%>
+			<p>Welcome,&nbsp;<%=userid %>!</p>
+			<a href=Signout.jsp>sign out</a>
+		<%}else{%>
+			<p>Welcome,&nbsp;Guest!</p>
+		<%} %>
+	</div>
 	<!--header-->
 	<div class="header" id="home" style="height: 8% !important">
 		<div class="container">
 			<div class="header-logo">
-				<a href="Home.jsp"><img src="images/uncclogofina.jpg" alt="logo" /></a>
+				<a href="Home.jsp"><img src="images/uncclogofina.jpg" alt="logo" /></a>			
 			</div>
 			<div class="top-nav">
 				<span class="menu"><img src="images/menu-icon.png" alt="" /></span>
@@ -36,7 +47,11 @@
 					<li><a href="Home.jsp" class="active">HOME</a></li>
 					<li><a href="#about" class="scroll">ABOUT</a></li>
 					<li><a href="#" class="scroll">CONTACT US</a></li>
+					<%if(userid!=null){%>
+					<li><a href="#" class="scroll">LOGIN</a></li>
+					<%}else{ %>
 					<li><a href="login.jsp" class="scroll">LOGIN</a></li>
+					<%} %>
 					<li><a href="Register.jsp" class="scroll">REGISTER</a></li>
 				</ul>
 				<!-- script-for-menu -->
@@ -45,6 +60,7 @@
 			<div class="clearfix"></div>
 		</div>
 	</div>
+
 	<!--//header-->
 	<!--banner-->
 	<div class="banner" style="height: 84% !important">
