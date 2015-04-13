@@ -109,8 +109,10 @@
 							<span class="glyphicon glyphicon-time"></span>
 							</span>
 						</div>
+						<br><br>
 						<input class="buttom" type="submit" value="View Parkings" onclick="redirectToViewParkings();">						
 					</div>
+						
 				</li>
 			</ul>
 		</div>
