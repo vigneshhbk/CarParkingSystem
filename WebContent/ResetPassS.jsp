@@ -70,6 +70,7 @@
 			</p>
 			<input type="password" id="repassword" name="repassword" tabIndex="6"
 				required oninput="confirmPassword(this);">
+				<input type="hidden" name="email" value="<%=user.getEmail() %>">
             
             <br/> <br/>
 			

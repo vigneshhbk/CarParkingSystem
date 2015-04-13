@@ -145,7 +145,9 @@ System.out.println(ub.getAnswer());
 //					 return flag;
 //					 
 //				 }
-			 }		 
+			 }	
+			 
+			 
 		}
 		catch(Exception e){
 
@@ -153,5 +155,65 @@ System.out.println(ub.getAnswer());
 			return 3;
 			}
 		return userExists;
+	}
+	
+	public boolean validateemail(String email){
+		try{
+			con=DataBaseUtil.getConnectionDAO();
+			System.out.println("CONNECTION ESTABLISHED ");
+			PreparedStatement ps=con.prepareStatement("select * from users where  email=?");
+			ps.setString(1, email);
+			ResultSet rs=ps.executeQuery();
+			if(rs.next()){
+				System.out.println("user in table");
+				return true;
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public UserBean getsq(String email){
+		UserBean user = new UserBean();
+		try{
+			con=DataBaseUtil.getConnectionDAO();
+			System.out.println("CONNECTION ESTABLISHED ");
+			PreparedStatement ps=con.prepareStatement("select * from users where  email=?");
+			ps.setString(1, email);
+			ResultSet rs=ps.executeQuery();
+			if(rs.next()){  
+				user.setEmail(email);
+				user.setSecurity(rs.getString("SecurityQ"));
+				
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}	
+		return user;
+	}
+	public boolean validateanswer(String email, String answer, String password){
+		try{
+			con=DataBaseUtil.getConnectionDAO();
+			System.out.println("CONNECTION ESTABLISHED ");
+			PreparedStatement ps=con.prepareStatement("select * from users where  email=? and answer=?");
+			ps.setString(1, email);
+			ps.setString(2, answer);
+			ResultSet rs=ps.executeQuery();
+			if(rs.next()){
+				System.out.println("user in table");
+				PreparedStatement update=con.prepareStatement("update users set password=? where email=?");
+				update.setString(1, password);
+				update.setString(2, email);
+				update.executeUpdate();
+				return true;
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return false;
 	}
 }

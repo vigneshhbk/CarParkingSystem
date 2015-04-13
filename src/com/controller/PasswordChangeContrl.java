@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 
 
+
 import src.com.bean.LoginBean;
 import src.com.bean.UserBean;
 import src.com.dao.UserDAO;
@@ -23,13 +24,13 @@ import src.com.util.MainClass;
  * Servlet implementation class ResetPasswordContrl
  */
 //@WebServlet("/ResetPasswordContrlpath")
-public class ResetPasswordContrl extends HttpServlet {
+public class PasswordChangeContrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ResetPasswordContrl() {
+    public PasswordChangeContrl() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -47,12 +48,13 @@ public class ResetPasswordContrl extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.print("ResetPassword Controller ");
+		System.out.print("PasswordChange Controller ");
 		  PrintWriter out=response.getWriter();
 		  try{
-			   String email = request.getParameter("email");
-
-//			  UserBean ub=new UserBean();
+			   String answer = request.getParameter("answer");
+			   String password = request.getParameter("password");
+               String email = request.getParameter("email");
+			  UserBean ub=new UserBean();
 	   		  
 			  //setting login bean to send info
 //			  ub.setEmail(request.getParameter("email"));
@@ -60,34 +62,39 @@ public class ResetPasswordContrl extends HttpServlet {
 	   		   
 			  UserDAO ud=new UserDAO();
    		   
-			  
+			  System.out.println(email);
            
-			  if(ud.validateemail(email)){
-				  System.out.println("email validated");
-				  
+			  if(ud.validateanswer(email, answer, password))
+			  {
+				  System.out.println("email and answer validated");
+				  System.out.println("Password has been changed");
+				     out.println(" <script type=\"text/javascript\">");
+				     out.println("alert('Password has been changed Successfully');");
+				     out.println("location='Home.jsp';");
+				     out.println("</script>");
 				  //creating session object.
-				  UserBean ub = ud.getsq(email);
+//				   ub = ud.getsq(email);
 				  
 //				     HttpSession session=request.getSession();
 				  
 				  //setting session attributes
-				    request.setAttribute("user", ub);
-				    System.out.println(ub.getEmail());
+//				    request.setAttribute("user", ub);
+//				    System.out.println(ub.getEmail());
 				    
 				//String test=(String)session.getAttribute("userId");
 				//System.out.println(test);
 				    
 //					session.setAttribute("Security", ub.getSecurity());
-					System.out.println(ub.getSecurity());
-				  
-				  RequestDispatcher rd=request.getRequestDispatcher("/ResetPassS.jsp");
-				  rd.forward(request,response);
+//					System.out.println(ub.getSecurity());
+//				  
+//				  RequestDispatcher rd=request.getRequestDispatcher("/ResetPassS.jsp");
+//				  rd.forward(request,response);
 				  
 			  }
 			  else{
 				  RequestDispatcher rd=request.getRequestDispatcher("/login.jsp");
 				  rd.include(request, response);
-				  out.println("<script> alert('Enter Valid Credentials') </script>");
+				  out.println("<script> alert('Enter Valid answer') </script>");
 				  
 				  
 			  }

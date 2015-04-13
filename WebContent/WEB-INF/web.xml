@@ -58,6 +58,26 @@
 		<url-pattern>/LoginController</url-pattern>
 	</servlet-mapping>
 	<servlet>
+		<description></description>
+		<display-name>ResetPasswordContrl</display-name>
+		<servlet-name>ResetPasswordContrl</servlet-name>
+		<servlet-class>src.com.controller.ResetPasswordContrl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ResetPasswordContrl</servlet-name>
+		<url-pattern>/ResetPasswordContrl</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>PasswordChangeContrl</display-name>
+		<servlet-name>PasswordChangeContrl</servlet-name>
+		<servlet-class>src.com.controller.PasswordChangeContrl</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PasswordChangeContrl</servlet-name>
+		<url-pattern>/PasswordChangeContrl</url-pattern>
+	</servlet-mapping>
+	<servlet>
 		<servlet-name>AjaxHandler</servlet-name>
 		<servlet-class>src.com.handler.AjaxHandler</servlet-class>
 	</servlet>
