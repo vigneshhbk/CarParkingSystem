@@ -9,6 +9,7 @@ import java.sql.Statement;
 import com.mysql.jdbc.CallableStatement;
 
 import src.com.bean.AdressBean;
+import src.com.bean.CreditCard;
 import src.com.bean.LoginBean;
 import src.com.bean.UserBean;
 import src.com.util.DataBaseUtil;
@@ -43,6 +44,7 @@ public class UserDAO {
 		
 	}
 	
+
 	public UserBean GetUserDetails(String userID){
 		UserBean user = new UserBean();
 		try{
@@ -67,11 +69,13 @@ public class UserDAO {
 		return user;		
 	}
 	
-	public  boolean addUserDetails(UserBean ub,AdressBean ab){
+	public  int addUserDetails(UserBean ub, AdressBean ab, CreditCard cc){
+
 		Connection con=null;
 		CallableStatement callableStatement = null;
+		int userExists=0;
 		try{
-			String insertStoreProc = "{call USP_SubmitUserRegistration(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+			String insertStoreProc = "{call USP_SubmitUserRegistration(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
 			  con= DataBaseUtil.getConnectionDAO();
 			  callableStatement = (CallableStatement) con.prepareCall(insertStoreProc);
 			 System.out.println("CONNECTION ESTABLISHED ");
@@ -98,9 +102,19 @@ public class UserDAO {
 				 callableStatement.setLong(13,ab.getZip());
 				 callableStatement.setString(14,ab.getState());
 				 callableStatement.setString(15,ab.getCountry());
+				 //callableStatement.setLong(13,ab.ge);
+				 callableStatement.setString(14,ab.getState());
+				 callableStatement.setString(15,ab.getCountry());
+				 callableStatement.setString(16, String.valueOf(cc.getCreditCard()));
+				 callableStatement.setLong(17,cc.getCvv());
+				 callableStatement.setLong(18, cc.getExpirationMonth());
+				 callableStatement.setLong(19, cc.getExpirationYear());
+				 callableStatement.setString(20, cc.getCardName());
+				 callableStatement.setString(21, cc.getCardType());
 System.out.println(ub.getAnswer());
 				 callableStatement.executeUpdate();
-				 return true;
+				 userExists = callableStatement.getInt(22);
+				 return userExists;
 				 
 //				 System.out.println("connection established");	 
 //				 PreparedStatement ps=con.prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
@@ -137,8 +151,8 @@ System.out.println(ub.getAnswer());
 		catch(Exception e){
 
 			e.printStackTrace();
-			return false;
+			return 3;
 			}
-		return false;
+		return userExists;
 	}
 }

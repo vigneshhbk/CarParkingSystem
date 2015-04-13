@@ -99,16 +99,28 @@ public class BookingController extends HttpServlet {
 					bookingdetails.add(bb.getlotid());
 					
 					request.setAttribute("BookingList",bookingdetails);
-//					  //mail start 
-//					 
-//					  MainClass sendMail = new MainClass();
-//					  String sub = "Test mail";
-//					  String body = "Test mail";
-//					  String from = "asplearning17@gmail.com";
-//					  String to = "k.sampathsree@gmail.com";
-//					  sendMail.SendMail(sub, body, from, to);
-//					  
-//					 // mail end
+					
+					  //mail start 
+					 String tempBody = "Booking Id=" +bookingdetails.get(0) 
+							+ "\n" +"Booking Lot Name=" + bookingdetails.get(2) 
+							+ "Booking Cost=" + bookingdetails.get(1) 
+							+ "\n" + "Name=" + bookingdetails.get(3) + bookingdetails.get(4)
+							+ "\n" + "Parking In-Date" +bookingdetails.get(6) 
+					        + "\n" + "Parking In-Time" +bookingdetails.get(7) 
+					        + "\n" + "Parking Out-Date" +bookingdetails.get(8) 
+					 + "\n" + "Parking Out-Time" +bookingdetails.get(9) 
+					 + "\n" + "Parking Slot Id" +bookingdetails.get(10)
+					 + "\n" + "Parking Lot Id" +bookingdetails.get(11); 
+					  MainClass sendMail = new MainClass();
+					  String sub = "Slot Booking Information";
+					  String body = tempBody;
+					  String from = "asplearning17@gmail.com";
+					  String to = "sujeethkumar17@gmail.com";
+					  //String to = bookingdetails.get(5);
+					 
+					  sendMail.SendMail(sub, body, from, to);
+					  
+					 // mail end
 					
 					
 					  RequestDispatcher rd=request.getRequestDispatcher("/BookingOk.jsp");

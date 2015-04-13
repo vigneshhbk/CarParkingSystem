@@ -116,7 +116,7 @@
 			</p>
 			<input id="dob" name="dob" placeholder="YYYY-MM-DD" required
 				tabindex="9" type="text" pattern="^\d{4}-\d{1,2}-\d{1,2}$"
-				oninvalid="setCustomValidity('Invalid format! Required format is DD/MM/YYYY')"
+				oninvalid="setCustomValidity('Invalid format! Required format is YYYY-MM-DD')"
 				onchange="try{setCustomValidity('')}catch(e){}">
 
 			<p class="contact">
@@ -166,11 +166,11 @@
 			<fieldset
 				style="width: 500px; border: 5px; border-top-color: Red !important;">
 				<legend>Credit Card Details</legend>
-				<p class="contact">
+			<!--  	<p class="contact">
 					<label for="chkSkip">Skip for now&nbsp;</label> <input id="chkSkip"
 						name="chkSkip" tabindex="17" type="checkbox"
 						onclick="disableCreditCardFields(this);">
-				</p>
+				</p> -->
 
 				<p class="contact">
 					<label for="creditCardNumber">Credit Card Number</label>
