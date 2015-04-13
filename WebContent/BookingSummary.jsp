@@ -21,6 +21,17 @@
 
 </head>
 <body style="height:650px;">
+<%
+      String userid = (String)session.getAttribute("userId");
+%>	
+	<div class="welcomeDiv">
+		<%if(userid!=null){%>
+			<p>Welcome,&nbsp;<%=userid %>!</p>
+			<a href=Signout.jsp>sign out</a>
+		<%}else{%>
+			<p>Welcome,&nbsp;Guest!</p>
+		<%} %>
+	</div>
 	<div class="header" id="home" style="height: 12% !important">
 		<div class="container">
 			<div class="header-logo">
@@ -32,7 +43,11 @@
 					<li><a href="Home.jsp" class="scroll">HOME</a></li>
 					<li><a href="#about" class="scroll">ABOUT</a></li>
 					<li><a href="#" class="scroll">CONTACT US</a></li>
+					<%if(userid!=null){%>
+					<li><a href="#" class="scroll">LOGIN</a></li>
+					<%}else{ %>
 					<li><a href="login.jsp" class="scroll">LOGIN</a></li>
+					<%} %>
 					<li><a href="Register.jsp" class="scroll">REGISTER</a></li>
 				</ul>
 				

@@ -1,7 +1,15 @@
 $(document).ready(function(){
 	$('.clockpicker').clockpicker();
-	$('#fromDatePicker').datepicker();
-	$('#toDatePicker').datepicker();
+	var date = new Date();
+	date.setDate(date.getDate()-1);
+	
+	$('#fromDatePicker').datepicker({
+		startDate: date
+	});
+	
+	$('#toDatePicker').datepicker({
+		startDate: date 
+	});
 });
 
 function urlParam(name){
@@ -100,7 +108,22 @@ function bookParkingLot(lotId, fromDate, fromTime, toDate, toTime){
 	    mimeType: 'application/json',
 	    success: function (data) {
 	    	var url = window.location.origin + "/" + window.location.pathname.split("/")[1];
-	    	window.location = url+"/BookingSummary.jsp";
+	    	var session;
+	    	jQuery.each(data, function(index){
+	    		if(data[index] != null){
+	    			session = 1;
+	    		}
+	    		else{
+	    			session = 0;
+	    		}
+	    	});
+	    	
+	    	if(session == 1){
+		    	window.location = url+"/BookingSummary.jsp";
+	    	}
+	    	else{
+	    		window.location = url+"/login.jsp";
+	    	}
 	    },
 	    error:function(data, status, er){
 	    	alert("error: "+data+" status: "+status+" er:"+er);

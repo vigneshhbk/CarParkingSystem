@@ -39,9 +39,6 @@ DECLARE TempUserId INT;
 END//
 DELIMITER ;
 
-<<<<<<< HEAD
-
-=======
 DROP PROCEDURE IF EXISTS USP_BookingRegistration;
 DELIMITER //
 CREATE PROCEDURE USP_BookingRegistration(
@@ -65,4 +62,3 @@ SET hours = (select TIMESTAMPDIFF(MINUTE, TIMESTAMP(FDate, FTime),TIMESTAMP(TDat
 
 END//
 DELIMITER ;
->>>>>>> origin/Sprint-2

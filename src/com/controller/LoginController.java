@@ -73,7 +73,7 @@ public class LoginController extends HttpServlet {
 				  
 				  //creating session object.
 				  
-				     HttpSession session=request.getSession();
+				     HttpSession session=request.getSession(true);
 				  
 				  //setting session attributes
 				    session.setAttribute("userId", ub.getEmail());
@@ -81,7 +81,7 @@ public class LoginController extends HttpServlet {
 				//String test=(String)session.getAttribute("userId");
 				//System.out.println(test);
 				    
-					session.setAttribute("pwd", ub.getPassword());
+					//session.setAttribute("pwd", ub.getPassword());
 				  
 				  RequestDispatcher rd=request.getRequestDispatcher("/Home.jsp");
 				  rd.forward(request,response);

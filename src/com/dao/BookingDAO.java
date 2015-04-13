@@ -35,7 +35,7 @@ public class BookingDAO {
 				 callableStatement.setString(1,bb.getlotid());
 				 callableStatement.setString(2,bb.getslotid());
 				 callableStatement.setString(3,bb.getindate());
-				 callableStatement.setString(4, bb.getintime());
+				 callableStatement.setString(4,bb.getintime());
 				 callableStatement.setString(5,bb.getoutdate());
 				 callableStatement.setString(6,bb.getouttime());
 				 callableStatement.setString(7,bb.getuserid());

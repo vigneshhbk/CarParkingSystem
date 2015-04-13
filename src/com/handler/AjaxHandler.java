@@ -77,29 +77,29 @@ public class AjaxHandler extends HttpServlet {
 	    	  }
 	    	  else if(request.getParameter("FieldId").equalsIgnoreCase("bookLot")){	  
 		    		 HttpSession session = request.getSession(true);
-		    		 String userId = "1";// session.getAttribute("userId").toString();
-		    		 PrintWriter out=response.getWriter(); 		
+		    		 PrintWriter out=response.getWriter();
+	    			 BookingBean bookingData = new BookingBean();	
 		    		 try{
-		    			 UserDAO ud = new UserDAO();
-		    			 UserBean user = null;
-		    			 user = ud.GetUserDetails(Integer.parseInt(userId));
-		    			 BookingBean bookingData = new BookingBean();	    				
-		    			 bookingData.setuserid(userId);
-		    			 bookingData.setFname(user.getFname());
-		    			 bookingData.setLname(user.getLname());
-		    			 bookingData.setSsn(user.getSsn());
-		    			 bookingData.setEmail(user.getEmail());
-		    			 bookingData.setPhone(user.getPhone());
-		    			 bookingData.setcreditnumber(user.getCreditCardNumber());
-		    			 bookingData.setlotid(request.getParameter("LotId"));
-		    			 bookingData.setindate(request.getParameter("FromDate"));
-		    			 bookingData.setoutdate(request.getParameter("ToDate"));
-		    			 bookingData.setintime(request.getParameter("FromTime"));
-		    			 bookingData.setouttime(request.getParameter("ToTime"));
-		    			 session.setAttribute("BookingData", bookingData);
-//		    			 request.setAttribute("BookingData",bookingData);
-//		    			 RequestDispatcher rd=request.getRequestDispatcher("/BookingSummary.jsp");
-//		    			 rd.forward(request,response);
+		    			 if(session.getAttribute("userId") != null){
+		    				 String userId = session.getAttribute("userId").toString();
+			    			 UserDAO ud = new UserDAO();
+			    			 UserBean user = null;
+			    			 user = ud.GetUserDetails(userId);    				
+			    			 bookingData.setuserid(user.getUserId());
+			    			 bookingData.setFname(user.getFname());
+			    			 bookingData.setLname(user.getLname());
+			    			 bookingData.setSsn(user.getSsn());
+			    			 bookingData.setEmail(user.getEmail());
+			    			 bookingData.setPhone(user.getPhone());
+			    			 bookingData.setcreditnumber(user.getCreditCardNumber());
+			    			 bookingData.setlotid(request.getParameter("LotId"));
+			    			 bookingData.setindate(request.getParameter("FromDate"));
+			    			 bookingData.setoutdate(request.getParameter("ToDate"));
+			    			 bookingData.setintime(request.getParameter("FromTime"));
+			    			 bookingData.setouttime(request.getParameter("ToTime"));
+			    			 session.setAttribute("BookingData", bookingData);
+		    			 }
+		    			 
 		    			 Gson gson = new Gson();
 		    			 String booking = gson.toJson(bookingData);
 		    			 out.println(booking);
