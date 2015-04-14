@@ -42,8 +42,8 @@
 	UserBean user = (UserBean) request.getAttribute("user");
 	%>
  
-	<div class="form" style="height: 80%;padding-top:100px;">
-		<label id="lblErrorMessage" style="display: none; color: red"></label>
+	<div class="form" >
+		
 		<form id="contactform" class="login" style="margin-top: 100px" method="post" action="PasswordChangeContrl">
            
 			<p class="contact">
@@ -61,7 +61,7 @@
             <input type="text" id="answer" name="answer" tabIndex="4" required> <br>
             
             <p class="contact">
-				<label for="password">Create a password</label>
+				<label for="password">Create new password</label>
 			</p>
 			<input type="password" id="password" name="password" tabIndex="5"
 				required>
