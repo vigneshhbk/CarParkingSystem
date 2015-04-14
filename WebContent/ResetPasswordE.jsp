@@ -16,17 +16,6 @@
 <script src="javascript/script.js"></script>
 </head>
 <body style="height:650px;"">
-	<%
-      String userid = (String)session.getAttribute("userId");
-%>	
-	<div class="welcomeDiv">
-		<%if(userid!=null){%>
-			<p>Welcome,&nbsp;<%=userid %>!</p>
-			<a href=Signout.jsp>sign out</a>
-		<%}else{%>
-			<p>Welcome,&nbsp;Guest!</p>
-		<%} %>
-	</div>
 	<div class="header" id="home" style="height: 12% !important">
 		<div class="container">
 			<div class="header-logo">
@@ -38,11 +27,7 @@
 					<li><a href="Home.jsp" class="scroll">HOME</a></li>
 					<li><a href="#about" class="scroll">ABOUT</a></li>
 					<li><a href="#" class="scroll">CONTACT US</a></li>
-					<%if(userid!=null){%>
-					<li><a href="#" class="active">LOGIN</a></li>
-					<%}else{ %>
 					<li><a href="login.jsp" class="active">LOGIN</a></li>
-					<%} %>
 					<li><a href="Register.jsp" class="scroll">REGISTER</a></li>
 				</ul>
 				
@@ -55,7 +40,7 @@
 
 	<div class="form" style="height: 80%;padding-top:100px;">
 		<label id="lblErrorMessage" style="display: none; color: red"></label>
-		<form id="contactform" class="login" style="margin-top: 100px" method="post" action="LoginController">
+		<form id="contactform" class="login" style="margin-top: 100px" method="post" action="ResetPasswordContrl">
 
 			<p class="contact">
 				<label for="email">Email</label>
@@ -63,17 +48,12 @@
 			<input id="email" name="email" placeholder="example@domain.com"
 				required="" type="email">
 
-			<p class="contact">
-				<label for="password">Password</label>
-			</p>
-			<input type="password" id="password" name="password" required="">
-            <br/>
-            <a href="ResetPasswordE.jsp">Forgot Password?</a> 
+            
             <br/> <br/>
 			
-			<input class="buttom" name="submit" id="submit" tabindex="5" onclick="ValidateLogin()" value="Sign In" type="submit">
+			<input class="buttom" name="submit" id="submit" tabindex="5" onclick="ValidateLogin()" value="Next" type="submit">
 
-                        <input type="hidden" name="UserOperation" value="login">
+                        
          
 		</form>
 	</div>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ page import="src.com.bean.UserBean" %>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html >
 <head>
@@ -16,17 +17,6 @@
 <script src="javascript/script.js"></script>
 </head>
 <body style="height:650px;"">
-	<%
-      String userid = (String)session.getAttribute("userId");
-%>	
-	<div class="welcomeDiv">
-		<%if(userid!=null){%>
-			<p>Welcome,&nbsp;<%=userid %>!</p>
-			<a href=Signout.jsp>sign out</a>
-		<%}else{%>
-			<p>Welcome,&nbsp;Guest!</p>
-		<%} %>
-	</div>
 	<div class="header" id="home" style="height: 12% !important">
 		<div class="container">
 			<div class="header-logo">
@@ -38,11 +28,7 @@
 					<li><a href="Home.jsp" class="scroll">HOME</a></li>
 					<li><a href="#about" class="scroll">ABOUT</a></li>
 					<li><a href="#" class="scroll">CONTACT US</a></li>
-					<%if(userid!=null){%>
-					<li><a href="#" class="active">LOGIN</a></li>
-					<%}else{ %>
 					<li><a href="login.jsp" class="active">LOGIN</a></li>
-					<%} %>
 					<li><a href="Register.jsp" class="scroll">REGISTER</a></li>
 				</ul>
 				
@@ -52,28 +38,45 @@
 			<div class="clearfix"></div>
 		</div>
 	</div>
-
+	<%
+	UserBean user = (UserBean) request.getAttribute("user");
+	%>
+ 
 	<div class="form" style="height: 80%;padding-top:100px;">
 		<label id="lblErrorMessage" style="display: none; color: red"></label>
-		<form id="contactform" class="login" style="margin-top: 100px" method="post" action="LoginController">
-
+		<form id="contactform" class="login" style="margin-top: 100px" method="post" action="PasswordChangeContrl">
+           
 			<p class="contact">
-				<label for="email">Email</label>
-			</p>
-			<input id="email" name="email" placeholder="example@domain.com"
-				required="" type="email">
-
+				<label for="email">Email :</label> <%=user.getEmail() %>
+			</p><br>
+			
 			<p class="contact">
-				<label for="password">Password</label>
+				<label for="Security Question">Question :</label> <%=user.getSecurity() %>
 			</p>
-			<input type="password" id="password" name="password" required="">
-            <br/>
-            <a href="ResetPasswordE.jsp">Forgot Password?</a> 
+             <br>
+             
+              <p class="contact">
+                <label for ="securityanswer">Answer</label>
+            </p>
+            <input type="text" id="answer" name="answer" tabIndex="4" required> <br>
+            
+            <p class="contact">
+				<label for="password">Create a password</label>
+			</p>
+			<input type="password" id="password" name="password" tabIndex="5"
+				required>
+			<p class="contact">
+				<label for="repassword">Confirm your password</label>
+			</p>
+			<input type="password" id="repassword" name="repassword" tabIndex="6"
+				required oninput="confirmPassword(this);">
+				<input type="hidden" name="email" value="<%=user.getEmail() %>">
+            
             <br/> <br/>
 			
-			<input class="buttom" name="submit" id="submit" tabindex="5" onclick="ValidateLogin()" value="Sign In" type="submit">
+			<input class="buttom" name="submit" id="submit" tabindex="7" onclick="ValidateLogin()" value="Reset" type="submit">
 
-                        <input type="hidden" name="UserOperation" value="login">
+                        
          
 		</form>
 	</div>
