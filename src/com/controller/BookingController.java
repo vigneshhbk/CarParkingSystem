@@ -115,8 +115,8 @@ public class BookingController extends HttpServlet {
 					  String sub = "Slot Booking Information";
 					  String body = tempBody;
 					  String from = "asplearning17@gmail.com";
-					  String to = "sujeethkumar17@gmail.com";
-					  //String to = bookingdetails.get(5);
+					 // String to = "sujeethkumar17@gmail.com";
+					  String to = bookingdetails.get(5);
 					 
 					  sendMail.SendMail(sub, body, from, to);
 					  

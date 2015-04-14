@@ -2,11 +2,11 @@
 <classpath>
 	<classpathentry kind="src" path=""/>
 	<classpathentry kind="lib" path="C:/libraries/gson-2.2.2.jar"/>
-	<classpathentry kind="lib" path="C:/libraries/javax.mail-1.4.5.jar"/>
 	<classpathentry kind="lib" path="C:/libraries/jstl-1.2.jar"/>
 	<classpathentry kind="lib" path="C:/libraries/mysql-connector-java-5.0.8-bin.jar"/>
 	<classpathentry kind="lib" path="C:/libraries/servlet-api.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="F:/workspace/git/CarParkingSystem/WebContent/WEB-INF/lib/javax.mail-1.4.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

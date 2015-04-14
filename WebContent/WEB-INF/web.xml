@@ -7,11 +7,7 @@
 	<welcome-file-list>
 		<welcome-file>Home.jsp</welcome-file>
 	</welcome-file-list>
-	
-	
-
-
-	<servlet>
+<servlet>
 		<description></description>
 		<display-name>SignUpController</display-name>
 		<servlet-name>SignUpController</servlet-name>

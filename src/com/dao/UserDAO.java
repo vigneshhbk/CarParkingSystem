@@ -47,6 +47,7 @@ public class UserDAO {
 
 	public UserBean GetUserDetails(String userID){
 		UserBean user = new UserBean();
+		String local_userid = null;
 		try{
 			con=DataBaseUtil.getConnectionDAO();
 			System.out.println("CONNECTION ESTABLISHED ");
@@ -59,9 +60,15 @@ public class UserDAO {
 				user.setSsn(rs.getString("ssn"));
 				user.setEmail(rs.getString("email"));
 				user.setPhone(rs.getString("phone"));
-				user.setCreditCardNumber(rs.getString("ssn"));
 				user.setUserId(rs.getString("userid"));
-			}	  
+				local_userid=rs.getString("userid");
+			}
+			ps=con.prepareStatement("select creditcard from creditcard where userid=? limit 1");
+			ps.setString(1, local_userid);
+			rs=ps.executeQuery();
+			if(rs.next()){  
+				user.setCreditCardNumber(rs.getString("creditcard"));
+			}
 		}
 		catch(Exception e){
 			e.printStackTrace();
@@ -186,7 +193,7 @@ System.out.println(ub.getAnswer());
 			ResultSet rs=ps.executeQuery();
 			if(rs.next()){  
 				user.setEmail(email);
-				user.setSecurity(rs.getString("SecurityQ"));
+				user.setSecurity(rs.getString("Security"));
 				
 			}
 		}

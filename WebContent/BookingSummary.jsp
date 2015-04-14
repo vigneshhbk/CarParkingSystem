@@ -97,9 +97,7 @@
 			</p>
 			
 			<p class="contact" id="P_CCNum">
-				<label id="L_CCNum">Credit Card Number:&nbsp;****-</label>
-		<c:set var="msg"><%=booking.getcreditnumber() %></c:set>
-${fn:substring(msg, 12, 16)}
+				<label id="L_CCNum">Credit Card Number:&nbsp;</label><%=booking.getcreditnumber() %>
 			</p>
 
 			<p class="contact" id="P_Lotid">
