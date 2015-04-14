@@ -17,6 +17,7 @@ public class TestBooking {
 	
      @Test
      public void TestCheckslot() {
+//    	 Checkslot(BookingBean bb) lotid, indate, intime, outdate, outtime
     	 bd = new BookingDAO();
     	 bb = new BookingBean();
      	
@@ -47,7 +48,7 @@ public class TestBooking {
     	
     		ArrayList<String> al = new ArrayList<String>();
     		
-    	bb.setlotid("11");
+    	bb.setlotid("1");
     	bb.setindate("2015-03-15");
     	bb.setoutdate("2015-03-15");
     	bb.setintime("03:12:00");

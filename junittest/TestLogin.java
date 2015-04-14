@@ -24,7 +24,7 @@ public class TestLogin {
 	@Test
 	public final void testValidUserDetails() {
 		String userName = "skolluru@uncc.edu";
-		String password = "sampath";
+		String password = "password";
 		try {
 			initializeLogin(userName, password);
 			boolean flag = model.validateUser(lb);
@@ -41,8 +41,8 @@ public class TestLogin {
 		String password = "sampath";
 		try {
 			initializeLogin(userName, password);
-			model.validateUser(lb);
-			fail("Invalid user details! No exception thrown!");
+			boolean flag = model.validateUser(lb);
+			assertEquals("Invalid user details! No exception thrown!", false, flag );
 		} catch (Exception e) {
 			assertEquals("", e.getMessage());
 		}
@@ -54,8 +54,8 @@ public class TestLogin {
 		String password = "xyz";
 		try {
 			initializeLogin(userName, password);
-			model.validateUser(lb);
-			fail("Invalid user details! No exception thrown!");
+			boolean flag = model.validateUser(lb);
+			assertEquals("Invalid user details! No exception thrown!",false, flag);
 		} catch (Exception e) {
 			assertEquals("", e.getMessage());
 		}
