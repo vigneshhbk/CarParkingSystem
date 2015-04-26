@@ -98,12 +98,13 @@ $(function() {
 						if(params.draggable) {
 							google.maps.event.addListener(marker, 'dragend', function() {
 								var location = marker.getPosition();
-								
 								var coords = {};
 								
-								if(typeof location.d != "undefined") {
-									coords.lat = location.d;
-									coords.lon = location.e;
+								if(typeof location.k != "undefined") {
+									coords.lat = location.k;
+									coords.lon = location.B;
+									document.getElementById("latitude").value = location.k;
+									document.getElementById("longitude").value = location.B;
 								} else {
 									if($this.data('googleDebug'))
 										console.error("jQuery googleMap : Wrong google response", location);

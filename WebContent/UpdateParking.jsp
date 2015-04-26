@@ -72,6 +72,8 @@
 		</div>
 	</div>
 	<form>
+		<input type="hidden" id="latitude"></input>
+		<input type="hidden" id="longitude"></input>
 		<table style="width:100%;">
 			<tr>
 				<td style="width:30%;">

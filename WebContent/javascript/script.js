@@ -179,6 +179,7 @@ function updateParking(){
 	    	      coords: [35.30757, -80.728552], // Map center (optional)
 	    	      type: "ROADMAP" // Map type (optional)
 	    	});
+    	    
 	    	jQuery.each(data, function(index){
 	    		var lotId = data[index].lotId;
 	    		var dataString = "<a onclick=deleteLots("+lotId+");>Click here to delete this lot</a>";
@@ -188,6 +189,18 @@ function updateParking(){
 	    	    	text: dataString,
 	    	    	id: data[index].name,
 	    	    });
+	    	});
+	    	
+    	    $("#map").addMarker({
+    	    	address: "University of North Carolina at Charlotte: Main Office, University City Boulevard, Charlotte, North Carolina, USA",
+    	    	title:"drag",
+    	    	text:"drag",
+    	    	//icon: "https://maps.google.com/mapfiles/kml/shapes/schools_maps.png",
+    	    	//icon: "https://cdn1.iconfinder.com/data/icons/Map-Markers-Icons-Demo-PNG/256/Map-Marker-Marker-Outside-Azure.png",
+    	    	icon: "http://localhost/InternshipTrackingSystem/images/Azure.png",
+    	    	draggable: true,
+    	    	success: function(e) {
+    	    	},
 	    	});
 	    },
 	    error:function(data, status, er){
@@ -197,33 +210,27 @@ function updateParking(){
 }
 
 function deleteLots(lotId){
-	jQuery.ajax({
-		url: "AjaxHandler",
-		type: 'GET',
-	    dataType: 'json',
-	    data: {FieldId: "deleteLots", LotId: lotId},
-	    contentType: 'application/json',
-	    mimeType: 'application/json',
-	    success: function (data) {
-	    	jQuery('#map').show();
-	    	$("#map").googleMap({
-	    	      zoom: 17, // Initial zoom level (optional)
-	    	      coords: [35.30757, -80.728552], // Map center (optional)
-	    	      type: "ROADMAP" // Map type (optional)
-	    	});
-	    	jQuery.each(data, function(index){
-	    		var lotId = data[index].lotId;
-	    		var dataString = "<a onclick=deleteLots("+lotId+");>Click here to delete this lot</a>";
-	    	    $("#map").addMarker({
-	    	    	coords: [data[index].latitude, data[index].longitude],
-	    	    	title: data[index].name,
-	    	    	text: dataString,
-	    	    	id: data[index].name,
-	    	    });
-	    	});
-	    },
-	    error:function(data, status, er){
-	    	alert("error: "+data+" status: "+status+" er:"+er);
-	    }
-	});
+	var confirmBox = confirm("Are you sure you want to delete this lot?");
+	if(confirmBox == true){
+		jQuery.ajax({
+			url: "AjaxHandler",
+			type: 'GET',
+		    dataType: 'json',
+		    data: {FieldId: "deleteLots", LotId: lotId},
+		    contentType: 'application/json',
+		    mimeType: 'application/json',
+		    success: function (data) {
+		    	if(data == "1"){
+		    		alert("A person has currently booked that slot, hence it cannot be deleted");
+		    	}
+		    	else{
+		    		alert("Deleted successfully");
+			    	updateParking();
+		    	}
+		    },
+		    error:function(data, status, er){
+		    	alert("error: "+data+" status: "+status+" er:"+er);
+		    }
+		});
+	}
 }

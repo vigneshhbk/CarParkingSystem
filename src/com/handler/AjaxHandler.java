@@ -126,8 +126,9 @@ public class AjaxHandler extends HttpServlet {
 				 PrintWriter out = response.getWriter();
 				 try{
 					 BuildingsDAO bd = new BuildingsDAO();
+					 Gson gson = new Gson();
 					 String deleteLot = bd.DeleteLot(Integer.valueOf(request.getParameter("LotId")));
-					 out.println(deleteLot);
+					 out.println(gson.toJson(deleteLot));
 				 }
 	    		 catch(Exception e){ 			 
 	    			 e.printStackTrace();

@@ -107,6 +107,12 @@ public class BuildingsDAO {
 			callableStatement = (CallableStatement) con.prepareCall(getLotsProcedure);
 			if(con!=null){
 				callableStatement.setInt(1, lotId);
+				callableStatement.execute();
+			}
+			
+			ResultSet rs = callableStatement.getResultSet();
+			while(rs.next()){
+				result = rs.getString("DeleteFlag");
 			}
 		}
 		catch(Exception e){
