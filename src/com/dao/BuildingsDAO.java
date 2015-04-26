@@ -73,4 +73,46 @@ public class BuildingsDAO {
 		
 		return lots;
 	}
+	
+	public ArrayList<LotBean> getLots(){
+		ArrayList<LotBean> lots = new ArrayList<LotBean>();
+		try{
+			 con=DataBaseUtil.getConnectionDAO();
+			 System.out.println("CONNECTION ESTABLISHED ");
+			 PreparedStatement ps=con.prepareStatement("select * from Lot");
+			 ResultSet rs=ps.executeQuery();
+			 while(rs.next()){
+				 LotBean lot = new LotBean();
+				 lot.setLotId(rs.getInt("LotID"));
+				 lot.setName(rs.getString("Name"));
+				 lot.setBuildingId(rs.getInt("BuildingID"));
+				 lot.setLatitude(rs.getDouble("Latitude"));
+				 lot.setLongitude(rs.getDouble("Longitude"));
+				 lots.add(lot);
+			 }
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return lots;
+	}
+	
+	public String DeleteLot(int lotId){
+		String result = null;
+		CallableStatement callableStatement = null;
+		try{
+			String getLotsProcedure = "{call DeleteLot(?)}";
+			con=DataBaseUtil.getConnectionDAO();
+			callableStatement = (CallableStatement) con.prepareCall(getLotsProcedure);
+			if(con!=null){
+				callableStatement.setInt(1, lotId);
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
 }

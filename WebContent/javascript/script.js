@@ -163,3 +163,67 @@ function redirectToViewParkings(){
 	var url = window.location.origin + "/" + window.location.pathname.split("/")[1];
 	window.location = url+"/ViewParking.jsp?fromDate="+fromDate+"&toDate="+toDate+"&fromTime="+fromTime+"&toTime="+toTime;
 }
+
+function updateParking(){
+	jQuery.ajax({
+		url: "AjaxHandler",
+		type: 'GET',
+	    dataType: 'json',
+	    data: {FieldId: "updateParkings"},
+	    contentType: 'application/json',
+	    mimeType: 'application/json',
+	    success: function (data) {
+	    	jQuery('#map').show();
+	    	$("#map").googleMap({
+	    	      zoom: 17, // Initial zoom level (optional)
+	    	      coords: [35.30757, -80.728552], // Map center (optional)
+	    	      type: "ROADMAP" // Map type (optional)
+	    	});
+	    	jQuery.each(data, function(index){
+	    		var lotId = data[index].lotId;
+	    		var dataString = "<a onclick=deleteLots("+lotId+");>Click here to delete this lot</a>";
+	    	    $("#map").addMarker({
+	    	    	coords: [data[index].latitude, data[index].longitude],
+	    	    	title: data[index].name,
+	    	    	text: dataString,
+	    	    	id: data[index].name,
+	    	    });
+	    	});
+	    },
+	    error:function(data, status, er){
+	    	alert("error: "+data+" status: "+status+" er:"+er);
+	    }
+	});
+}
+
+function deleteLots(lotId){
+	jQuery.ajax({
+		url: "AjaxHandler",
+		type: 'GET',
+	    dataType: 'json',
+	    data: {FieldId: "deleteLots", LotId: lotId},
+	    contentType: 'application/json',
+	    mimeType: 'application/json',
+	    success: function (data) {
+	    	jQuery('#map').show();
+	    	$("#map").googleMap({
+	    	      zoom: 17, // Initial zoom level (optional)
+	    	      coords: [35.30757, -80.728552], // Map center (optional)
+	    	      type: "ROADMAP" // Map type (optional)
+	    	});
+	    	jQuery.each(data, function(index){
+	    		var lotId = data[index].lotId;
+	    		var dataString = "<a onclick=deleteLots("+lotId+");>Click here to delete this lot</a>";
+	    	    $("#map").addMarker({
+	    	    	coords: [data[index].latitude, data[index].longitude],
+	    	    	title: data[index].name,
+	    	    	text: dataString,
+	    	    	id: data[index].name,
+	    	    });
+	    	});
+	    },
+	    error:function(data, status, er){
+	    	alert("error: "+data+" status: "+status+" er:"+er);
+	    }
+	});
+}
