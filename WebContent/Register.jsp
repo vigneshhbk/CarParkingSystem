@@ -13,6 +13,31 @@
 <!--//web-font-->
 <script src="javascript/jquery-1.11.2.js"></script>
 <script src="javascript/script.js"></script>
+<style type="text/css">
+.buttonRegister {
+	background: #4b8df9;
+	display: inline-block;
+	padding: 5px 10px 6px;
+	color: #fbf7f7;
+	text-decoration: none;
+	font-weight: bold;
+	line-height: 1;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: 0 1px 3px #999;
+	-webkit-box-shadow: 0 1px 3px #999;
+	box-shadow: 0 1px 3px #999;
+	text-shadow: 0 -1px 1px #222;
+	border: none;
+	position: relative;
+	cursor: pointer;
+	font-size: 14px;
+	font-family: Verdana, Geneva, sans-serif;
+	margin-left:220px;
+	height:40px;
+}
+</style>
 </head>
 <body>
 	<%
@@ -36,8 +61,8 @@
 				<span class="menu"><img src="images/menu-icon.png" alt="" /></span>
 				<ul class="nav1">
 					<li><a href="Home.jsp" class="scroll">HOME</a></li>
-					<li><a href="#about" class="scroll">ABOUT</a></li>
-					<li><a href="#" class="scroll">CONTACT US</a></li>
+					<li><a href="About.jsp" class="scroll">ABOUT</a></li>
+					<li><a href="ContactUs.jsp" class="scroll">CONTACT US</a></li>
 					<%if(userid!=null){%>
 					<li><a href="#" class="scroll">LOGIN</a></li>
 					<%}else{ %>
@@ -51,9 +76,15 @@
 			<div class="clearfix"></div>
 		</div>
 	</div>
-
-	<div class="form">
-		<form id="contactform" method="post" action="SignUpController">
+<div class="banner banner2" style="height: !important">
+		<div id="top" class="callbacks_container">
+			<ul class="rslides" id="slider3">
+				<li>
+ <form id="contactform" method="post" action="SignUpController">
+ <div  style="height:800px;background-color: white;width: 600px;margin-left: 400px;">
+ <div class="form" style="overflow-y:scroll;height:750px;">
+	
+		
 			<p class="contact">
 				<label for="fName">First Name</label>
 			</p>
@@ -205,10 +236,19 @@
 			</fieldset>
 
 <!-- 			<input type="hidden" name="UserOperation" value="signup"/> -->
-			 <input
-				class="buttom" name="submit" id="submit" tabindex="22"
-				value="Sign me up!" type="submit">
-		</form>
+			 </div>
+		
+		<input
+				class="buttonRegister" name="submit" id="submit" tabindex="22"
+				value="Sign me up!" type="submit"/>
+	</div>
+	
+	</form>
+		</li>
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+		<input type="hidden" name="UserOperation" value="viewParkings"> 	
 	</div>
 	<!--footer-->
 	<div class="footer">

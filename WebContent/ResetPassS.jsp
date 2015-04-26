@@ -26,8 +26,8 @@
 				<span class="menu"><img src="images/menu-icon.png" alt="" /></span>
 				<ul class="nav1">
 					<li><a href="Home.jsp" class="scroll">HOME</a></li>
-					<li><a href="#about" class="scroll">ABOUT</a></li>
-					<li><a href="#" class="scroll">CONTACT US</a></li>
+					<li><a href="About.jsp" class="scroll">ABOUT</a></li>
+					<li><a href="ContactUs.jsp" class="scroll">CONTACT US</a></li>
 					<li><a href="login.jsp" class="active">LOGIN</a></li>
 					<li><a href="Register.jsp" class="scroll">REGISTER</a></li>
 				</ul>

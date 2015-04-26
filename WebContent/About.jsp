@@ -44,8 +44,8 @@
 			<div class="top-nav">
 				<span class="menu"><img src="images/menu-icon.png" alt="" /></span>
 				<ul class="nav1">
-					<li><a href="Home.jsp" class="active">HOME</a></li>
-					<li><a href="About.jsp" class="scroll">ABOUT</a></li>
+					<li><a href="Home.jsp" class="scroll">HOME</a></li>
+					<li><a href="#" class="active">ABOUT</a></li>
 					<li><a href="ContactUs.jsp" class="scroll">CONTACT US</a></li>
 					<%if(userid!=null){%>
 					<li><a href="#" class="scroll">LOGIN</a></li>
@@ -65,57 +65,40 @@
 
 	<!--//header-->
 	<!--banner-->
-	<div class="banner" style="height: 84% !important">
+	
+<div class="banner banner1" style="height: 84% !important">
 		<div id="top" class="callbacks_container">
 			<ul class="rslides" id="slider3">
 				<li>
-				  <div class="banner1" style="z-index: 100;">
-						<div class="container">
-							
-						</div>
-					</div>
-					<div class="homeForm blueButton" style="display:block" id="btnViewBuildings">
-						<p class="contact">
-							<label for="fromDate">From Date: </label>
-						</p>
-						<div class="datepickerPointer input-group input-append date" id="fromDatePicker" data-date-format="yyyy-mm-dd">
-	               			 <input type="text" class="form-control" id="fromDate" name="fromDate" required="true" onkeydown="return false;" />
-	               			 <span class="input-group-addon add-on">
-	               			 <span class="glyphicon glyphicon-calendar"></span>
-	               			 </span>
-	            		</div>
-	            		<p class="contact">
-							<label for="fromTime">From Time: </label>
-						</p>
-						<div class="input-group clockpicker" data-autoclose="true">
-							<input type="text" name="fromTime" id="fromTime" required="true" class="form-control">
-							<span class="input-group-addon">
-							<span class="glyphicon glyphicon-time"></span>
-							</span>
-						</div>
-						<p class="contact">
-							<label for="toDate">To Date: </label>
-						</p>
-						<div class="datepickerPointer input-group input-append date" id="toDatePicker" data-date-format="yyyy-mm-dd">
-	               			 <input type="text" class="form-control" id="toDate" name="toDate" required="true"  onkeydown="return false;" />
-	               			 <span class="input-group-addon add-on">
-	               			 <span class="glyphicon glyphicon-calendar"></span>
-	               			 </span>
-	            		</div>
-	            		<p class="contact">
-							<label for="toTime">To Time: </label>
-						</p>
-						<div class="input-group clockpicker" data-autoclose="true">
-							<input type="text" id="toTime" required="true" name="toTime" class="form-control">
-							<span class="input-group-addon">
-							<span class="glyphicon glyphicon-time"></span>
-							</span>
-						</div>
-						<br><br>
-						<input class="buttom" type="submit" value="View Parkings" onclick="redirectToViewParkings();">						
-					</div>
-						
-				</li>
+ 
+	<div class="form" style="width:900px !important;height: 50%;padding-top:50px;margin-top:80px;padding-bottom:40px;">
+	
+           <div id="dvContactUs">           
+           <div style="float:left;width:60%">
+           <h3 style="margin-left:230px;"><b>About Us </b></h3>
+			<p>
+			RCP Parking Ltd is one of the UK’s leading car park operators, with a well-deserved reputation for quality, efficiency and customer focus.
+
+Our well-run car parks across the country offer real value and great service to the many thousands of people who park with us every day, conveniently located in town and city centres. 
+
+RCP Parking Ltd’s car park attendants are renowned for their friendliness and genuine customer care – and our experienced senior management team is highly respected by the British parking industry.
+
+With sites ranging from shopping centres, leisure complexes and railway stations to offices, development sites and schools, award-winning RCP Parking Ltd is a leading name in the management, leasing, purchase and ownership of car parking facilities. 
+
+We offer tailor-made solutions that take the stress out of parking management for people in the property sector – landowners, house builders, agents and asset managers. We can help to unlock real potential from under-used sites.
+
+We treat every car park as a valuable asset and pride ourselves on our high quality, friendly and secure service that boosts parking revenues and maximises profits. 
+
+Car park owners and motorists alike can clearly see the benefits of the RCP Parking Ltd approach.
+			</p>
+			</div>
+			<div style="height:100%;width:40%;float:left;background-image: url('../images/AboutUs.jpg');background-repeat: no-repeat;" >
+           <img alt="" src="images/AboutUs.jpg">
+           </div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+		</li>
 			</ul>
 		</div>
 		<div class="clearfix"></div>
@@ -127,7 +110,7 @@
 	<div class="footer" style="height: 8% !important">
 	<!-- 	<div class="container">		 -->	
 			<div class="footer-right">
-				<p>� 2015 All rights reserved</p>
+				<p>© 2015 All rights reserved</p>
 	<!-- 		</div>   -->
 			<div class="clearfix"></div>
 		</div>
@@ -135,3 +118,4 @@
 	<!--//footer-->
 </body>
 </html>
+					
