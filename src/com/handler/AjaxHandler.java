@@ -76,38 +76,63 @@ public class AjaxHandler extends HttpServlet {
 	    		 }
 	    	  }
 	    	  else if(request.getParameter("FieldId").equalsIgnoreCase("bookLot")){	  
-		    		 HttpSession session = request.getSession(true);
-		    		 PrintWriter out=response.getWriter();
-	    			 BookingBean bookingData = new BookingBean();	
-		    		 try{
-		    			 if(session.getAttribute("userId") != null){
-		    				 String userId = session.getAttribute("userId").toString();
-			    			 UserDAO ud = new UserDAO();
-			    			 UserBean user = null;
-			    			 user = ud.GetUserDetails(userId);    				
-			    			 bookingData.setuserid(user.getUserId());
-			    			 bookingData.setFname(user.getFname());
-			    			 bookingData.setLname(user.getLname());
-			    			 bookingData.setSsn(user.getSsn());
-			    			 bookingData.setEmail(user.getEmail());
-			    			 bookingData.setPhone(user.getPhone());
-			    			 bookingData.setcreditnumber(user.getCreditCardNumber());
-			    			 bookingData.setlotid(request.getParameter("LotId"));
-			    			 bookingData.setindate(request.getParameter("FromDate"));
-			    			 bookingData.setoutdate(request.getParameter("ToDate"));
-			    			 bookingData.setintime(request.getParameter("FromTime"));
-			    			 bookingData.setouttime(request.getParameter("ToTime"));
-			    			 session.setAttribute("BookingData", bookingData);
-		    			 }
-		    			 
-		    			 Gson gson = new Gson();
-		    			 String booking = gson.toJson(bookingData);
-		    			 out.println(booking);
-		    		 }
-		    		 catch(Exception e){ 			 
-		    			 e.printStackTrace();
-		    		 }
-		    	  }
+	    		 HttpSession session = request.getSession(true);
+	    		 PrintWriter out=response.getWriter();
+    			 BookingBean bookingData = new BookingBean();	
+	    		 try{
+	    			 if(session.getAttribute("userId") != null){
+	    				 String userId = session.getAttribute("userId").toString();
+		    			 UserDAO ud = new UserDAO();
+		    			 UserBean user = null;
+		    			 user = ud.GetUserDetails(userId);    				
+		    			 bookingData.setuserid(user.getUserId());
+		    			 bookingData.setFname(user.getFname());
+		    			 bookingData.setLname(user.getLname());
+		    			 bookingData.setSsn(user.getSsn());
+		    			 bookingData.setEmail(user.getEmail());
+		    			 bookingData.setPhone(user.getPhone());
+		    			 bookingData.setcreditnumber(user.getCreditCardNumber());
+		    			 bookingData.setlotid(request.getParameter("LotId"));
+		    			 bookingData.setindate(request.getParameter("FromDate"));
+		    			 bookingData.setoutdate(request.getParameter("ToDate"));
+		    			 bookingData.setintime(request.getParameter("FromTime"));
+		    			 bookingData.setouttime(request.getParameter("ToTime"));
+		    			 session.setAttribute("BookingData", bookingData);
+	    			 }
+	    			 
+	    			 Gson gson = new Gson();
+	    			 String booking = gson.toJson(bookingData);
+	    			 out.println(booking);
+	    		 }
+	    		 catch(Exception e){ 			 
+	    			 e.printStackTrace();
+	    		 }
+	    	  }
+	    	  else if(request.getParameter("FieldId").equalsIgnoreCase("updateParkings")){	  
+	    		 PrintWriter out = response.getWriter(); 		   
+	    		 try{
+	    			 BuildingsDAO bd= new BuildingsDAO();
+	    			 ArrayList<LotBean> lotsData = null;
+	    			 lotsData = bd.getLots();
+	    			 Gson gson = new Gson();
+	    			 String lots = gson.toJson(lotsData);
+	    			 out.println(lots);
+	    		 }
+	    		 catch(Exception e){ 			 
+	    			 e.printStackTrace();
+	    		 }
+	    	  }
+	    	  else if(request.getParameter("FieldId").equalsIgnoreCase("deleteLots")){
+				 PrintWriter out = response.getWriter();
+				 try{
+					 BuildingsDAO bd = new BuildingsDAO();
+					 String deleteLot = bd.DeleteLot(Integer.valueOf(request.getParameter("LotId")));
+					 out.println(deleteLot);
+				 }
+	    		 catch(Exception e){ 			 
+	    			 e.printStackTrace();
+	    		 }
+	    	  }
 	      }
 	}
 
