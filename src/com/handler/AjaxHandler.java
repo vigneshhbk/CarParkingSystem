@@ -134,6 +134,23 @@ public class AjaxHandler extends HttpServlet {
 	    			 e.printStackTrace();
 	    		 }
 	    	  }
+	    	  else if(request.getParameter("FieldId").equalsIgnoreCase("addLot")){
+				 PrintWriter out = response.getWriter();
+				 try{
+					 BuildingsDAO bd = new BuildingsDAO();
+					 LotBean lot = new LotBean();
+					 lot.setName(request.getParameter("LotName"));
+					 lot.setBuildingId(Integer.valueOf(request.getParameter("BuildingId")));
+					 lot.setLatitude(Double.valueOf(request.getParameter("Latitude")));
+					 lot.setLongitude(Double.valueOf(request.getParameter("Longitude")));
+					 Gson gson = new Gson();
+					 String addLot = bd.AddLot(lot, Integer.valueOf(request.getParameter("NoOfSlots")));
+					 out.println(gson.toJson(addLot));
+				 }
+	    		 catch(Exception e){ 			 
+	    			 e.printStackTrace();
+	    		 }
+	    	  }
 	      }
 	}
 

@@ -105,6 +105,10 @@ $(function() {
 									coords.lon = location.B;
 									document.getElementById("latitude").value = location.k;
 									document.getElementById("longitude").value = location.B;
+									var confirmBox = confirm("Do you want to add a lot here?");
+									if(confirmBox == true){
+										displayDetails();
+									}
 								} else {
 									if($this.data('googleDebug'))
 										console.error("jQuery googleMap : Wrong google response", location);

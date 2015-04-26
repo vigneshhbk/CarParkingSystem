@@ -121,4 +121,32 @@ public class BuildingsDAO {
 		
 		return result;
 	}
+	
+	public String AddLot(LotBean lot, int noOfSlots){
+		String result = null;
+		CallableStatement callableStatement = null;
+		try{
+			String addLotProcedure = "{call AddLot(?, ?, ?, ?, ?)}";
+			con=DataBaseUtil.getConnectionDAO();
+			callableStatement = (CallableStatement) con.prepareCall(addLotProcedure);
+			if(con!=null){
+				callableStatement.setString(1, lot.getName());
+				callableStatement.setInt(2, lot.getBuildingId());
+				callableStatement.setDouble(3, lot.getLatitude());
+				callableStatement.setDouble(4, lot.getLongitude());
+				callableStatement.setInt(5, noOfSlots);
+				callableStatement.execute();
+			}
+			
+			ResultSet rs = callableStatement.getResultSet();
+			while(rs.next()){
+				result = rs.getString("addFlag");
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
 }

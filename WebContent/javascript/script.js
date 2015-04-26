@@ -195,12 +195,8 @@ function updateParking(){
     	    	address: "University of North Carolina at Charlotte: Main Office, University City Boulevard, Charlotte, North Carolina, USA",
     	    	title:"drag",
     	    	text:"drag",
-    	    	//icon: "https://maps.google.com/mapfiles/kml/shapes/schools_maps.png",
-    	    	//icon: "https://cdn1.iconfinder.com/data/icons/Map-Markers-Icons-Demo-PNG/256/Map-Marker-Marker-Outside-Azure.png",
-    	    	icon: "http://localhost/InternshipTrackingSystem/images/Azure.png",
+    	    	icon: "http://localhost/InternshipTrackingSystem/images/Azure32.png",
     	    	draggable: true,
-    	    	success: function(e) {
-    	    	},
 	    	});
 	    },
 	    error:function(data, status, er){
@@ -233,4 +229,82 @@ function deleteLots(lotId){
 		    }
 		});
 	}
+}
+
+function displayPopup(){
+	$( "#modalPopup" ).dialog({
+		autoOpen: false,
+		maxWidth:500,
+        maxHeight: 235,
+        width: 500,
+        height: 235,
+        modal: true,
+		buttons: [
+		{
+			text: "Add",
+			click: function() {
+				addParkingLot();
+			}
+		},
+		{
+			text: "Cancel",
+			click: function() {
+				jQuery( this ).dialog( "close" );
+			}
+		}
+		]
+	});
+}
+
+function displayDetails(){
+	jQuery("#ddlBuilding").empty();
+	jQuery.ajax({
+		url: "AjaxHandler",
+		type: 'GET',
+	    dataType: 'json',
+	    data: {FieldId: "viewBuildings"},
+	    contentType: 'application/json',
+	    mimeType: 'application/json',
+	    success: function (data) {    	
+	    	jQuery.each(data, function(index){
+	    		jQuery("#ddlBuilding").append('<option value='+data[index].buildingId+'>'+data[index].name+'</option>');
+	    	});
+	    },
+	    error:function(data, status, er){
+	    	alert("error: "+data+" status: "+status+" er:"+er);
+	    }
+	});
+	
+	jQuery( "#modalPopup" ).dialog( "open" );
+	event.preventDefault();
+}
+
+function addParkingLot(){
+	var lotName = jQuery('#txtLotName').val();
+	var buildingId = jQuery('#ddlBuilding').val();
+	var latitude = jQuery('#latitude').val();
+	var longitude = jQuery('#longitude').val();
+	var noOfSlots = jQuery('#txtNoOfSlots').val();
+	jQuery.ajax({
+		url: "AjaxHandler",
+		type: 'GET',
+	    dataType: 'json',
+	    data: {FieldId: "addLot", LotName: lotName, BuildingId: buildingId, 
+	    	Latitude: latitude, Longitude: longitude, NoOfSlots: noOfSlots},
+	    contentType: 'application/json',
+	    mimeType: 'application/json',
+	    success: function (data) {
+	    	if(data == "1"){
+	    		alert("Lot added successfully");
+	    		jQuery( "#modalPopup" ).dialog( "close" );
+	    		updateParking();
+	    	}
+	    	else{
+	    		alert("Unable to add lot");
+	    	}
+	    },
+	    error:function(data, status, er){
+	    	alert("error: "+data+" status: "+status+" er:"+er);
+	    }
+	});
 }

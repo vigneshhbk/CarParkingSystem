@@ -146,3 +146,27 @@ BEGIN
 END //
 DELIMITER ;
 
+DELIMITER //
+DROP PROCEDURE IF EXISTS AddLot; //
+CREATE PROCEDURE AddLot(
+	IN LotName VARCHAR(20),
+    IN Building_ID INT,
+    IN Lat FLOAT(13,9),
+    IN Lon FLOAT(13,9),
+    IN NoOfSlots INT)
+BEGIN
+	DECLARE addFlag BIT;
+    DECLARE lastInsertedId INT;
+    SET addFlag = 0;
+	INSERT INTO Lot(BuildingID, Name, Latitude, Longitude) VALUES (Building_ID, LotName, Lat, Lon);
+    SET lastInsertedId = LAST_INSERT_ID();
+	WHILE NoOfSlots  > 0 DO
+			   INSERT INTO Slot(SlotID, LotID) VALUES (NoOfSlots, lastInsertedId);
+			   SET  NoOfSlots = NoOfSlots - 1; 
+	END WHILE;
+    
+    SET addFlag = 1;    
+    SELECT addFlag;
+    
+END //
+DELIMITER ;
