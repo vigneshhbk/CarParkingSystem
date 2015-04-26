@@ -14,8 +14,6 @@ CREATE TABLE IF NOT EXISTS users (
   password VARCHAR(20) NOT NULL,
   security VARCHAR(200) NOT NULL,
   answer VARCHAR(200) NOT NULL,
-  SecurityQ VARCHAR(150) NOT NULL,
-  answer VARCHAR(50) NOT NULL,
   PRIMARY KEY (userid))
 ENGINE = InnoDB
 AUTO_INCREMENT = 1;
@@ -2202,16 +2200,16 @@ INSERT INTO SLOT(SlotID, LotID) VALUES (	49	, (SELECT LotID FROM Lot WHERE Name 
 INSERT INTO SLOT(SlotID, LotID) VALUES (	50	, (SELECT LotID FROM Lot WHERE Name = 	'CRI Deck 1'));
 
 
-INSERT INTO Booking(LotID, SlotID, From_Date, From_Time, To_Date, To_Time, UserID) VALUES (1, 1, '2015-04-06', '08:00:00', '2015-04-06', '10:00:00', 1);
-INSERT INTO Booking(LotID, SlotID, From_Date, From_Time, To_Date, To_Time, UserID) VALUES (1, 2, '2015-04-07', '08:00:00', '2015-04-07', '10:00:00', 2);
-INSERT INTO Booking(LotID, SlotID, From_Date, From_Time, To_Date, To_Time, UserID) VALUES (1, 3, '2015-04-06', '08:00:00', '2015-04-06', '10:00:00', 3);
-INSERT INTO Booking(LotID, SlotID, From_Date, From_Time, To_Date, To_Time, UserID) VALUES (1, 4, '2015-04-06', '09:00:00', '2015-04-06', '11:00:00', 4);
-INSERT INTO Booking(LotID, SlotID, From_Date, From_Time, To_Date, To_Time, UserID) VALUES (2, 1, '2015-04-07', '13:00:00', '2015-04-07', '17:00:00', 5);
-INSERT INTO Booking(LotID, SlotID, From_Date, From_Time, To_Date, To_Time, UserID) VALUES (2, 2, '2015-04-07', '15:00:00', '2015-04-07', '18:00:00', 6);
-INSERT INTO Booking(LotID, SlotID, From_Date, From_Time, To_Date, To_Time, UserID) VALUES (2, 3, '2015-04-08', '08:00:00', '2015-04-08', '10:00:00', 7);
-INSERT INTO Booking(LotID, SlotID, From_Date, From_Time, To_Date, To_Time, UserID) VALUES (2, 4, '2015-04-08', '23:00:00', '2015-04-09', '05:00:00', 8);
-INSERT INTO Booking(LotID, SlotID, From_Date, From_Time, To_Date, To_Time, UserID) VALUES (25, 1, '2015-04-06', '08:00:00', '2015-04-06', '10:00:00', 1);
-INSERT INTO Booking(LotID, SlotID, From_Date, From_Time, To_Date, To_Time, UserID) VALUES (25, 2, '2015-04-07', '08:00:00', '2015-04-07', '10:00:00', 2);
-INSERT INTO Booking(LotID, SlotID, From_Date, From_Time, To_Date, To_Time, UserID) VALUES (26, 3, '2015-04-06', '08:00:00', '2015-04-06', '10:00:00', 3);
+INSERT INTO Booking(LotID, SlotID, From_Date, From_Time, To_Date, To_Time, UserID,Cost) VALUES (1, 1, '2015-04-06', '08:00:00', '2015-04-06', '10:00:00', 1,1.00);
+INSERT INTO Booking(LotID, SlotID, From_Date, From_Time, To_Date, To_Time, UserID,Cost) VALUES (1, 2, '2015-04-07', '08:00:00', '2015-04-07', '10:00:00', 2,2.00);
+INSERT INTO Booking(LotID, SlotID, From_Date, From_Time, To_Date, To_Time, UserID,Cost) VALUES (1, 3, '2015-04-06', '08:00:00', '2015-04-06', '10:00:00', 3,3.00);
+INSERT INTO Booking(LotID, SlotID, From_Date, From_Time, To_Date, To_Time, UserID,Cost) VALUES (1, 4, '2015-04-06', '09:00:00', '2015-04-06', '11:00:00', 4,4.00);
+INSERT INTO Booking(LotID, SlotID, From_Date, From_Time, To_Date, To_Time, UserID,Cost) VALUES (2, 1, '2015-04-07', '13:00:00', '2015-04-07', '17:00:00', 5,5.00);
+INSERT INTO Booking(LotID, SlotID, From_Date, From_Time, To_Date, To_Time, UserID,Cost) VALUES (2, 2, '2015-04-07', '15:00:00', '2015-04-07', '18:00:00', 1,6.00);
+INSERT INTO Booking(LotID, SlotID, From_Date, From_Time, To_Date, To_Time, UserID,Cost) VALUES (2, 3, '2015-04-08', '08:00:00', '2015-04-08', '10:00:00', 2,7.00);
+INSERT INTO Booking(LotID, SlotID, From_Date, From_Time, To_Date, To_Time, UserID,Cost) VALUES (2, 4, '2015-04-08', '23:00:00', '2015-04-09', '05:00:00', 3,8.00);
+INSERT INTO Booking(LotID, SlotID, From_Date, From_Time, To_Date, To_Time, UserID,Cost) VALUES (25, 1, '2015-04-06', '08:00:00', '2015-04-06', '10:00:00', 4,9.00);
+INSERT INTO Booking(LotID, SlotID, From_Date, From_Time, To_Date, To_Time, UserID,Cost) VALUES (25, 2, '2015-04-07', '08:00:00', '2015-04-07', '10:00:00', 5,10.00);
+INSERT INTO Booking(LotID, SlotID, From_Date, From_Time, To_Date, To_Time, UserID,Cost) VALUES (26, 3, '2015-04-06', '08:00:00', '2015-04-06', '10:00:00', 1,20.00);
 
 commit;
