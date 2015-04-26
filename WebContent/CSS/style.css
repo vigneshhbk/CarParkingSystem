@@ -99,6 +99,13 @@ span.menu {
 	height: 100% !important;
 }
 
+.banner2 {
+	background: url("../images/UNCC_Parking.jpg") no-repeat 0px 0px;
+	background-size: cover;
+	min-height: 790px;
+	
+}
+
 .banner-title {
 	width: 38%;
 	position: absolute;
@@ -282,7 +289,7 @@ span.menu {
 
 /*Registration Page Start*/
 .form {
-	background: #f1f1f1;
+	background: white;
 	width: 600px;
 	margin-left: 450px;
 	margin: 0 auto;

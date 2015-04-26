@@ -36,8 +36,8 @@
 				<span class="menu"><img src="images/menu-icon.png" alt="" /></span>
 				<ul class="nav1">
 					<li><a href="Home.jsp" class="scroll">HOME</a></li>
-					<li><a href="#about" class="scroll">ABOUT</a></li>
-					<li><a href="#" class="scroll">CONTACT US</a></li>
+					<li><a href="About.jsp" class="scroll">ABOUT</a></li>
+					<li><a href="ContactUs.jsp" class="scroll">CONTACT US</a></li>
 					<%if(userid!=null){%>
 					<li><a href="#" class="active">LOGIN</a></li>
 					<%}else{ %>
@@ -53,9 +53,15 @@
 		</div>
 	</div>
 
-	<div class="form" style="height: 80%;padding-top:100px;">
+<div class="banner banner1" style="height: 84% !important">
+		<div id="top" class="callbacks_container">
+			<ul class="rslides" id="slider3">
+				<li>
+ 
+	<div class="form" style="height: 50%;padding-top:70px;margin-top:100px;padding-bottom:40px;">
+	
 		<label id="lblErrorMessage" style="display: none; color: red"></label>
-		<form id="contactform" class="login" style="margin-top: 100px" method="post" action="LoginController">
+		<form id="contactform" class="login"  method="post" action="LoginController">
 
 			<p class="contact">
 				<label for="email">Email</label>
@@ -76,6 +82,13 @@
                         <input type="hidden" name="UserOperation" value="login">
          
 		</form>
+		<div class="clearfix"></div>
+	</div>
+		</li>
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+		<input type="hidden" name="UserOperation" value="viewParkings"> 	
 	</div>
 	<!--footer-->
 	<div class="footer">
