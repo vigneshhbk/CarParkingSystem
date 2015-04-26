@@ -125,3 +125,24 @@ BEGIN
 END //
 DELIMITER ;
 
+DELIMITER //
+DROP PROCEDURE IF EXISTS DeleteLot; //
+CREATE PROCEDURE DeleteLot(
+	IN Lot_ID INT)
+BEGIN
+	DECLARE DeleteFlag BIT;
+	SELECT CASE Count(LotID) WHEN 0 THEN 0 ELSE 1 END INTO DeleteFlag FROM Booking WHERE From_Date = current_date() AND To_Date = current_date() 
+	AND LotID = Lot_ID AND (From_Time BETWEEN current_time() AND current_time OR To_Time BETWEEN current_time AND current_time 
+    OR current_time BETWEEN From_Time AND To_Time OR current_time BETWEEN From_Time AND To_Time);
+
+	IF DeleteFlag = 0 THEN
+		DELETE FROM Booking WHERE LotID = Lot_ID;
+		DELETE FROM Slot WHERE LotID = Lot_ID;
+        DELETE FROM Lot WHERE LotID = Lot_ID;
+    END IF;
+    
+    SELECT DeleteFlag;
+    
+END //
+DELIMITER ;
+
