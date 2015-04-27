@@ -124,7 +124,7 @@
 							System.out.println("inside the role");
 							%>
 						<a href="UpdateParking.jsp">Update </a>	
-						 <button onclick="updateBuildings();">Update</button>
+						 <button class="button" onclick="updateBuildings();">Update</button>
 						<% } %>						
 					</div>
 				</td>
