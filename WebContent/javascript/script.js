@@ -195,7 +195,7 @@ function updateParking(){
     	    	address: "University of North Carolina at Charlotte: Main Office, University City Boulevard, Charlotte, North Carolina, USA",
     	    	title:"drag",
     	    	text:"drag",
-    	    	icon: "http://localhost/InternshipTrackingSystem/images/Azure32.png",
+    	    	icon: "http://localhost/Room_POC/images/Azure32.png",
     	    	draggable: true,
 	    	});
 	    },
