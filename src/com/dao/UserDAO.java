@@ -24,14 +24,15 @@ public class UserDAO {
 	  System.out.println("CONNECTION ESTABLISHED ");
 	  System.out.println(lb.getEmail());
 	  System.out.println(lb.getPassword());
-	  PreparedStatement ps=con.prepareStatement("select * from users where  email=? and password=?");
+	  PreparedStatement ps=con.prepareStatement("select role from users where  email=? and password=?");
 	  ps.setString(1, lb.getEmail());
 	  ps.setString(2, lb.getPassword());
 	  ResultSet rs=ps.executeQuery();
 	  if(rs.next()){
 		 // System.out.println(rs.getString(1));
 		 // System.out.println(rs.getString(2));
-		  
+		  lb.setRole(rs.getString(1));
+		  System.out.println("role id"+rs.getString(1));
 		  System.out.println("there is a user in the table");
 		  return true;
 	  }

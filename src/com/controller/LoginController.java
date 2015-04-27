@@ -63,10 +63,10 @@ public class LoginController extends HttpServlet {
 				  //creating session object.
 				  
 				     HttpSession session=request.getSession(true);
-				  
+				     System.out.println("role in controller"+ub.getRole());
 				  //setting session attributes
 				    session.setAttribute("userId", ub.getEmail());
-				    
+				    session.setAttribute("role",ub.getRole() );
 				//String test=(String)session.getAttribute("userId");
 				//System.out.println(test);
 				    

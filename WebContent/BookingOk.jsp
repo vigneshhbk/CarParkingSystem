@@ -106,6 +106,9 @@ ArrayList<String> bookingdetails = (ArrayList<String>)request.getAttribute("Book
 			
 			
 			<div hidden><p>Email Has been sent to&nbsp; <%=bookingdetails.get(5) %>&nbsp;</p></div>
+			
+			<center><a href="Home.jsp"><button type="submit">OK</button></a></center>
+			
 			</div>
 			
 	<!--footer-->

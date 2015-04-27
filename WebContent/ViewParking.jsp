@@ -37,6 +37,8 @@
 <body>
 	<%
       String userid = (String)session.getAttribute("userId");
+	  String role = (String)session.getAttribute("role");
+	  System.out.println("role in jsp" + role);
 %>	
 	<div class="welcomeDiv">
 		<%if(userid!=null){%>
@@ -113,7 +115,17 @@
 							<span class="glyphicon glyphicon-time"></span>
 							</span>
 						</div>
-						<input class="buttom" type="submit" value="View Parkings" onclick="displayBuildings();">						
+						</br>
+						<input class="button" type="submit" value="View Parkings" onclick="displayBuildings();" />
+						</br></br>
+						<%System.out.println("role value just before"+role); %>
+						<% if (role.equalsIgnoreCase("PM")) {
+							
+							System.out.println("inside the role");
+							%>
+						<a href="UpdateParking.jsp">Update </a>	
+						 <button onclick="updateBuildings();">Update</button>
+						<% } %>						
 					</div>
 				</td>
 				<td style="width:70%;">

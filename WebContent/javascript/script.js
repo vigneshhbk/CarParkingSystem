@@ -308,3 +308,8 @@ function addParkingLot(){
 	    }
 	});
 }
+
+function updateBuildings(){
+	
+	window.location = url+"/UpdateParking.jsp"
+}
