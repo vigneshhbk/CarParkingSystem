@@ -13,9 +13,11 @@ import javax.servlet.http.HttpSession;
 
 
 
+
 import src.com.bean.LoginBean;
 import src.com.bean.UserBean;
 import src.com.dao.UserDAO;
+import src.com.util.DataBaseUtil;
 import src.com.util.MainClass;
 
 /**
@@ -46,6 +48,9 @@ public class ResetPasswordContrl extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		 DataBaseUtil.dataBaseType = getServletContext().getInitParameter("ReadProductionDatabase");
+		
 		System.out.print("ResetPassword Controller ");
 		  PrintWriter out=response.getWriter();
 		  try{

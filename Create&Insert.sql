@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS users (
   password VARCHAR(20) NOT NULL,
   security VARCHAR(200) NOT NULL,
   answer VARCHAR(200) NOT NULL,
+  role varchar(10) NOT NULL DEFAULT 'USER',
   PRIMARY KEY (userid))
 ENGINE = InnoDB
 AUTO_INCREMENT = 1;

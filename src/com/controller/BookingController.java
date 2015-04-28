@@ -16,8 +16,10 @@ import javax.servlet.http.HttpSession;
 
 
 
+
 import src.com.bean.BookingBean;
 import src.com.dao.BookingDAO;
+import src.com.util.DataBaseUtil;
 import src.com.util.MainClass;
 
 /**
@@ -51,6 +53,8 @@ public class BookingController extends HttpServlet {
 		  PrintWriter out=response.getWriter();
 		  try{
 
+			  DataBaseUtil.dataBaseType = getServletConfig().getInitParameter("ReadProductionDatabase");
+			  
 			  BookingBean bb=new BookingBean();
 	   		  BookingDAO bd=new BookingDAO();
 

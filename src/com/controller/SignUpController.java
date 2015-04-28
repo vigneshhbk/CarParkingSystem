@@ -15,6 +15,7 @@ import src.com.bean.AdressBean;
 import src.com.bean.CreditCard;
 import src.com.bean.UserBean;
 import src.com.dao.UserDAO;
+import src.com.util.DataBaseUtil;
 
 /**
  * Servlet implementation class Controller
@@ -47,6 +48,9 @@ public class SignUpController extends HttpServlet {
 		
 //		String operation=request.getParameter("UserOperation");
 //	//	out.print(operation);
+		
+		 DataBaseUtil.dataBaseType = getServletContext().getInitParameter("ReadProductionDatabase");
+		
 		System.out.println("Signupcontroller");
 		
 		response.addHeader("Cache-Control","no-cache");

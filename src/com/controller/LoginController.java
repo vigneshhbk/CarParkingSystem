@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
+
 import src.com.bean.LoginBean;
 import src.com.dao.UserDAO;
+import src.com.util.DataBaseUtil;
 import src.com.util.MainClass;
 
 /**
@@ -45,6 +47,7 @@ public class LoginController extends HttpServlet {
 		System.out.print("login Controller entered ");
 		  PrintWriter out=response.getWriter();
 		  try{
+			  DataBaseUtil.dataBaseType = getServletContext().getInitParameter("ReadProductionDatabase");
 //			   String email = request.getParameter("email");
 //			   String pwd   = request.getParameter("password");
 			  LoginBean ub=new LoginBean();
