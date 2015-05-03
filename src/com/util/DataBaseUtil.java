@@ -8,7 +8,7 @@ import java.sql.*;
 
 public class DataBaseUtil {
 	
-	public static String dataBaseType;
+	public static String dataBaseType = "1";
 		public static Connection getConnectionDAO() throws SQLException{
 			Connection con=null;
 			try {
