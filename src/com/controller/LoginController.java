@@ -42,7 +42,7 @@ public class LoginController extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.print("login Controller entered ");
 		  PrintWriter out=response.getWriter();
@@ -66,8 +66,9 @@ public class LoginController extends HttpServlet {
 				  //creating session object.
 				  
 				     HttpSession session=request.getSession(true);
-				     System.out.println("role in controller"+ub.getRole());
+				     System.out.println("role in controller "+ub.getRole());
 				  //setting session attributes
+				     System.out.println(ub.getEmail());
 				    session.setAttribute("userId", ub.getEmail());
 				    session.setAttribute("role",ub.getRole() );
 				//String test=(String)session.getAttribute("userId");
