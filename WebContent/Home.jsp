@@ -79,7 +79,7 @@
 							<label for="fromDate">From Date: </label>
 						</p>
 						<div class="datepickerPointer input-group input-append date" id="fromDatePicker" data-date-format="yyyy-mm-dd">
-	               			 <input type="text" class="form-control" id="fromDate" name="fromDate" required="true" onkeydown="return false;" />
+	               			 <input type="text" class="form-control" id="fromDate" name="fromDate" required="true" onchange="validateFromDate();" onkeydown="return false;" />
 	               			 <span class="input-group-addon add-on">
 	               			 <span class="glyphicon glyphicon-calendar"></span>
 	               			 </span>
@@ -88,7 +88,7 @@
 							<label for="fromTime">From Time: </label>
 						</p>
 						<div class="input-group clockpicker" data-autoclose="true">
-							<input type="text" name="fromTime" id="fromTime" required="true" class="form-control">
+							<input type="text" name="fromTime" id="fromTime" required="true" class="form-control" onchange="validateFromTime();">
 							<span class="input-group-addon">
 							<span class="glyphicon glyphicon-time"></span>
 							</span>
@@ -97,7 +97,7 @@
 							<label for="toDate">To Date: </label>
 						</p>
 						<div class="datepickerPointer input-group input-append date" id="toDatePicker" data-date-format="yyyy-mm-dd">
-	               			 <input type="text" class="form-control" id="toDate" name="toDate" required="true"  onkeydown="return false;" />
+	               			 <input type="text" class="form-control" id="toDate" name="toDate" required="true" onchange="validateToDate();" onkeydown="return false;" />
 	               			 <span class="input-group-addon add-on">
 	               			 <span class="glyphicon glyphicon-calendar"></span>
 	               			 </span>
@@ -106,7 +106,7 @@
 							<label for="toTime">To Time: </label>
 						</p>
 						<div class="input-group clockpicker" data-autoclose="true">
-							<input type="text" id="toTime" required="true" name="toTime" class="form-control">
+							<input type="text" id="toTime" required="true" name="toTime" class="form-control" onchange="validateToTime();">
 							<span class="input-group-addon">
 							<span class="glyphicon glyphicon-time"></span>
 							</span>
