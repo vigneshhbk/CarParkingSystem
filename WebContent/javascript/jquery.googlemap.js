@@ -190,6 +190,10 @@ $(function() {
 					var map = $this.data('googleMap');
 			  
 	        google.maps.event.addListener(marker, 'click', function() {
+	        	if(jQuery("#fromDate").length > 0){
+	        		jQuery("#fromDate").val(urlParam('fromDate'));
+	        		jQuery("#toDate").val(urlParam('toDate'))
+	        	}
 		        infowindow.open(map, marker);
 	        });
 				} else if(params.url) {
