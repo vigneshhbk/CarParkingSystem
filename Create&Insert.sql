@@ -107,7 +107,10 @@ INSERT INTO `ssdi`.`users` (`fname`, `lname`, `ssn`, `email`, `dob`, `phone`, `p
 INSERT INTO `ssdi`.`users` (`fname`, `lname`, `ssn`, `email`, `dob`, `phone`, `password`, security, answer) VALUES ('sujeeth', 'abc', '312-23-1243', 'sujeeth@uncc.edu', '1993-09-27', '3213213434', 'password','question','ans');
 
 INSERT INTO `ssdi`.`users` (`fname`, `lname`, `ssn`, `email`, `dob`, `phone`, `password`, security, answer) VALUES ('vignesh', 'bcd', '122-23-1234', 'vignesh@uncc.edu', '1991-08-27', '6513211123', 'password','question','suj');
-  
+
+INSERT INTO `ssdi`.`users` (`fname`, `lname`, `ssn`, `email`, `dob`, `phone`, `password`, `security`, `answer`, `role`) VALUES ('parking', 'manager', '155-56-7894', 'pmanager@uncc.edu', '1992-03-05', '4079241696', 'manager', 'What is your favorite food?', 'chicken', 'PM');
+
+
   
 INSERT INTO `ssdi`.`buildings` (`buildingid`, `name`, `latitude`, `longitude`) VALUES ('1', 'East Entrance', '35.3080687', '-80.7248944');
 INSERT INTO `ssdi`.`buildings` (`buildingid`, `name`, `latitude`, `longitude`) VALUES ('2', 'North Entrance', '35.31293652', '-80.73003352');
