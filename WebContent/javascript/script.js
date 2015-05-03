@@ -160,8 +160,14 @@ function redirectToViewParkings(){
 	var toDate = jQuery('#toDate').val();
 	var fromTime = jQuery('#fromTime').val();
 	var toTime = jQuery('#toTime').val();
-	var url = window.location.origin + "/" + window.location.pathname.split("/")[1];
-	window.location = url+"/ViewParking.jsp?fromDate="+fromDate+"&toDate="+toDate+"&fromTime="+fromTime+"&toTime="+toTime;
+	if(fromDate != "" && toDate != "" && fromTime != "" && toTime != ""){
+		var url = window.location.origin + "/" + window.location.pathname.split("/")[1];
+		window.location = url+"/ViewParking.jsp?fromDate="+fromDate+"&toDate="+toDate+"&fromTime="+fromTime+"&toTime="+toTime;
+	}
+	else{
+		alert("All fields are mandatory");
+	}
+	
 }
 
 function updateParking(){
@@ -312,4 +318,85 @@ function addParkingLot(){
 function updateBuildings(){
 	
 	window.location = url+"/UpdateParking.jsp"
+}
+
+function getCurrentDate(){
+	var currentDate = new Date();
+	var month = currentDate.getMonth() + 1;
+	var date = currentDate.getDate();
+	if(month < 10){
+		month = "0" + month;
+	}
+	
+	if(date < 10){
+		date = "0" + date;
+	}
+	
+	return currentDate.getFullYear() + "-" + month + "-" + date;
+}
+
+function getCurrentTime(){
+	var currentDate = new Date();
+	return currentDate.getHours() + ":" + currentDate.getMinutes();
+}
+
+function checkFromDate(){
+	if(jQuery("#fromDate").val() == ""){
+		alert("Select \"From Date\"");
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+
+function validateFromDate(){
+	jQuery("#fromTime").val("");
+}
+
+function validateFromTime(){
+	var selectedDate = jQuery("#fromDate").val();
+	var selectedTime = jQuery("#fromTime").val();
+	var currentDate = getCurrentDate();
+	var currentTime = getCurrentTime();
+	if(!checkFromDate()){
+		jQuery("#fromTime").val("");
+	}
+	else if(selectedDate == currentDate && selectedTime < currentTime){
+		alert("You cannot select past date/time");
+		jQuery("#fromTime").val("");
+	}
+}
+
+function validateToDate(){
+	if(!checkFromDate()){
+		jQuery("#toDate").val("");
+	}
+	else if(jQuery("#toDate"). val() < jQuery("#fromDate").val()){
+			alert("\"To Date\" should occur on or after \"From Date\"");
+			jQuery("#toDate").val("");
+	}
+	
+	jQuery("#toTime").val("");
+}
+
+function validateToTime(){
+	var toDate = jQuery("#toDate").val();
+	var fromDate = jQuery("#fromDate").val();
+	var fromTime = jQuery("#fromTime").val();
+	if(toDate == ""){
+		alert("Select \"To Date\"");
+		jQuery("#toTime").val("");
+	}
+	else if(fromTime == ""){
+		alert("Select \"From Time\"");
+		jQuery("#toTime").val("");
+	}
+	else{
+		var toTime = jQuery("#toTime").val();
+		if(fromDate == toDate && toTime <= fromTime){
+			alert("\"To Time\" should occur after \"From Time\"");
+			jQuery("#toTime").val("");
+		}
+	}
 }
