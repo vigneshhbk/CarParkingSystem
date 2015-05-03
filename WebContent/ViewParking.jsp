@@ -118,14 +118,7 @@
 						</br>
 						<input class="button" type="submit" value="View Parkings" onclick="displayBuildings();" />
 						</br></br>
-						<%System.out.println("role value just before"+role); %>
-						<% if (role.equalsIgnoreCase("PM")) {
-							
-							System.out.println("inside the role");
-							%>
-						<a href="UpdateParking.jsp">Update </a>	
-						 <button class="button" onclick="updateBuildings();">Update</button>
-						<% } %>						
+											
 					</div>
 				</td>
 				<td style="width:70%;">

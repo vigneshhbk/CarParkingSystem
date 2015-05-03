@@ -7,6 +7,21 @@ body {
 	-ms-transition: 0.5s all;
 	-moz-transition: 0.5s all;
 }
+.updatediv{
+	
+	z-index:200;
+	 height:40px;
+	 padding-top:10px;
+	 width:200px;
+	 position:absolute;
+     top:17%;
+     left:45%;
+	 align:center;
+	 background:#0033CC;
+	 color:white;
+	 opacity:0.5;
+		
+}
 
 .header {
 	background: #004826;

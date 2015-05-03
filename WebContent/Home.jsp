@@ -26,6 +26,7 @@
 <body style="height: 942px;">
 <%
       String userid = (String)session.getAttribute("userId");
+      String role   = (String)session.getAttribute("role");
 %>	
 	<div class="welcomeDiv">
 		<%if(userid!=null){%>
@@ -34,6 +35,7 @@
 		<%}else{%>
 			<p>Welcome,&nbsp;Guest!</p>
 		<%} %>
+		
 	</div>
 	<!--header-->
 	<div class="header" id="home" style="height: 8% !important">
@@ -47,10 +49,13 @@
 					<li><a href="Home.jsp" class="active">HOME</a></li>
 					<li><a href="About.jsp" class="scroll">ABOUT</a></li>
 					<li><a href="ContactUs.jsp" class="scroll">CONTACT US</a></li>
-					<%if(userid!=null){%>
+					<%if(userid!=null && role.equalsIgnoreCase("USER")){%>
 					<li><a href="#" class="scroll">LOGIN</a></li>
 					<li><a href="#" class="scroll">REGISTER</a></li>
-					<%}else{ %>
+					<%} else if(userid!=null && role.equalsIgnoreCase("PM")) {%>
+					  <li><a href="#" class="scroll">LOGIN</a></li>
+					  <li><a href="UpdateParking.jsp" class="scroll">UPDATE</a></li>
+					<%} else { %>
 					<li><a href="login.jsp" class="scroll">LOGIN</a></li>
 					<li><a href="Register.jsp" class="scroll">REGISTER</a></li>
 					<%} %>

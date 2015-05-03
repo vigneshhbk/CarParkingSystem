@@ -39,6 +39,7 @@
 <body>
 	<%
       String userid = (String)session.getAttribute("userId");
+	  String role =(String)session.getAttribute("role");
 %>	
 	<div class="welcomeDiv">
 		<%if(userid!=null){%>
@@ -57,16 +58,20 @@
 			<div class="top-nav">
 				<span class="menu"><img src="images/menu-icon.png" alt="" /></span>
 				<ul class="nav1">
-					<li><a href="Home.jsp" class="scroll">HOME</a></li>
+					<li><a href="Home.jsp" class="active">HOME</a></li>
 					<li><a href="About.jsp" class="scroll">ABOUT</a></li>
 					<li><a href="ContactUs.jsp" class="scroll">CONTACT US</a></li>
-					<%if(userid!=null){%>
+					<%if(userid!=null && role.equalsIgnoreCase("USER")){%>
 					<li><a href="#" class="scroll">LOGIN</a></li>
 					<li><a href="#" class="scroll">REGISTER</a></li>
-					<%}else{ %>
+					<%} else if(userid!=null && role.equalsIgnoreCase("PM")) {%>
+					  <li><a href="#" class="scroll">LOGIN</a></li>
+					  <li><a href="UpdateParking.jsp" class="scroll">UPDATE</a></li>
+					<%} else { %>
 					<li><a href="login.jsp" class="scroll">LOGIN</a></li>
 					<li><a href="Register.jsp" class="scroll">REGISTER</a></li>
 					<%} %>
+					
 				</ul>
 				<!-- script-for-menu -->
 
@@ -108,15 +113,15 @@
 		</div>
 		<table style="width:100%;">
 			<tr>
-				<td style="width:30%;">
-					<div class="blueButton" style="display:block;left:10%!important;" id="btnViewBuildings">					
-					</div>
-				</td>
-				<td style="width:70%;">
-					<div id="map" style="width: 800px; height: 800px;"></div>
+				
+				<td style="width:100%;">
+					<div id="map" style="width:100%; height: 800px;"></div>
 					</td>
 			</tr>
 		</table>
+		
+	<center><div class="updatediv"> Update Parkings</div></center>
+		
 	</form> 	
 	<!--footer-->
 	<div class="footer">
