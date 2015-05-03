@@ -8,5 +8,6 @@
 	<classpathentry kind="lib" path="C:/libraries/jstl-1.2.jar"/>
 	<classpathentry kind="lib" path="C:/libraries/mysql-connector-java-5.0.8-bin.jar"/>
 	<classpathentry kind="lib" path="C:/libraries/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/libraries/mockito-all-1.9.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
