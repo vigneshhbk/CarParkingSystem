@@ -60,6 +60,7 @@ function displayBuildings(){
 
 function displayNearbyLots(buildingId){
 	var fromDate = jQuery('#fromDate').val();
+	console.log(fromDate);
 	var toDate = jQuery('#toDate').val();
 	var fromTime = jQuery('#fromTime').val();
 	var toTime = jQuery('#toTime').val();
