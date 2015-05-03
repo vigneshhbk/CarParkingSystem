@@ -11,7 +11,7 @@
 	<context-param>
 	    <description>1- Gets data from production; 0- gets data from dummydatabase</description>
 	    <param-name>ReadProductionDatabase</param-name>
-	    <param-value>1</param-value>
+	    <param-value>0</param-value>
 	</context-param>
 <servlet>
 		<description></description>

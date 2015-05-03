@@ -8,7 +8,7 @@ $(document).ready(function(){
 	});
 	
 	$('#toDatePicker').datepicker({
-		startDate: date
+		startDate: date 
 	});
 });
 
@@ -59,10 +59,6 @@ function displayBuildings(){
 }
 
 function displayNearbyLots(buildingId){
-	jQuery('#fromDate').val(urlParam('fromDate'));
-	jQuery('#toDate').val(urlParam('toDate'));
-	jQuery('#fromTime').val(urlParam('fromTime'));
-	jQuery('#toTime').val(urlParam('toTime'));
 	var fromDate = jQuery('#fromDate').val();
 	var toDate = jQuery('#toDate').val();
 	var fromTime = jQuery('#fromTime').val();
@@ -102,10 +98,6 @@ function displayNearbyLots(buildingId){
 }
 
 function bookParkingLot(lotId, fromDate, fromTime, toDate, toTime){
-	jQuery('#fromDate').val(urlParam('fromDate'));
-	jQuery('#toDate').val(urlParam('toDate'));
-	jQuery('#fromTime').val(urlParam('fromTime'));
-	jQuery('#toTime').val(urlParam('toTime'));
 	jQuery.ajax({
 		url: "AjaxHandler",
 		type: 'GET',
